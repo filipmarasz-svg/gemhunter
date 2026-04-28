@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GemHunter — Memcoin Scanner</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080c10;--bg2:#0d1219;--bg3:#121920;--bg4:#161e27;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--text:#e8ecf0;--muted:#4a5568;--muted2:#7a8898;--green:#00e5a0;--gdim:rgba(0,229,160,0.12);--gglow:rgba(0,229,160,0.22);--red:#ff4d6a;--rdim:rgba(255,77,106,0.12);--amber:#ffb547;--adim:rgba(255,181,71,0.12);--sol:#9945ff;--sdim:rgba(153,69,255,0.14);--eth:#627eea;--edim:rgba(98,126,234,0.14);--purple:#c084fc;--pdim:rgba(192,132,252,0.12);--r:10px;--rl:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-gem{width:30px;height:30px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.logo-text{font-size:17px;font-weight:800;letter-spacing:-.5px}.logo-text span{color:var(--green)}
+.hright{display:flex;align-items:center;gap:10px}
+.live{display:flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:10px;color:var(--green);background:var(--gdim);border:1px solid rgba(0,229,160,0.2);padding:4px 10px;border-radius:20px}
+.ldot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.layout{display:grid;grid-template-columns:215px 1fr;min-height:calc(100vh - 57px)}
+.sidebar{border-right:1px solid var(--border);padding:16px 12px;background:var(--bg);position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+.ssec{margin-bottom:18px}
+.slabel{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:7px;padding:0 5px}
+.tbtn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 10px;border-radius:8px;background:transparent;border:none;cursor:pointer;color:var(--muted2);font-family:'Syne',sans-serif;font-size:13px;font-weight:500;text-align:left;transition:all .15s;margin-bottom:2px}
+.tbtn:hover{background:var(--bg3);color:var(--text)}
+.tbtn.active{background:var(--gdim);color:var(--green);border:1px solid rgba(0,229,160,0.15)}
+.tbtn.active-purple{background:var(--pdim);color:var(--purple);border:1px solid rgba(192,132,252,0.2)}
+.tcnt{margin-left:auto;font-family:'Space Mono',monospace;font-size:10px;background:var(--bg3);padding:2px 6px;border-radius:10px;color:var(--muted2);min-width:22px;text-align:center}
+.tbtn.active .tcnt{background:rgba(0,229,160,0.15);color:var(--green)}
+.tbtn.active-purple .tcnt{background:rgba(192,132,252,0.15);color:var(--purple)}
+.sub-tabs{padding-left:12px;border-left:1px solid var(--border);margin-left:14px;margin-bottom:4px}
+.stbtn{display:flex;align-items:center;gap:7px;width:100%;padding:6px 9px;border-radius:7px;background:transparent;border:none;cursor:pointer;color:var(--muted2);font-family:'Syne',sans-serif;font-size:12px;font-weight:500;text-align:left;transition:all .15s;margin-bottom:1px}
+.stbtn:hover{background:var(--bg3);color:var(--text)}
+.stbtn.active{background:var(--gdim);color:var(--green)}
+.stbtn.active-purple{background:var(--pdim);color:var(--purple)}
+.chip{display:flex;align-items:center;gap:7px;width:100%;padding:7px 10px;border-radius:8px;background:transparent;border:1px solid transparent;cursor:pointer;color:var(--muted2);font-family:'Syne',sans-serif;font-size:12px;font-weight:500;text-align:left;transition:all .15s;margin-bottom:2px}
+.chip:hover{background:var(--bg3);color:var(--text)}
+.chip.active{background:var(--bg3);color:var(--text);border-color:var(--border2)}
+.cdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.rswrap{padding:3px 5px}
+.rswrap label{font-size:11px;color:var(--muted2);display:flex;justify-content:space-between;margin-bottom:5px}
+.rswrap label span{color:var(--text);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--green);cursor:pointer}
+.scard{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:9px 11px;margin-bottom:7px}
+.scard-l{font-size:10px;color:var(--muted);letter-spacing:.5px;margin-bottom:3px}
+.scard-v{font-family:'Space Mono',monospace;font-size:17px;font-weight:700;color:var(--green)}
+.scard-s{font-size:10px;color:var(--muted2);margin-top:2px}
+.main{padding:18px 20px;background:var(--bg2)}
+.mhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.mtitle{font-size:15px;font-weight:700}
+.msub{font-size:11px;color:var(--muted2);margin-top:2px}
+.sbar{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.sbtn{font-size:11px;padding:4px 10px;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--muted2);cursor:pointer;font-family:'Syne',sans-serif;font-weight:500;transition:all .12s}
+.sbtn:hover{border-color:var(--border2);color:var(--text)}
+.sbtn.active{background:var(--bg3);border-color:var(--border2);color:var(--text)}
+.grid{display:flex;flex-direction:column;gap:9px}
+.tc{background:var(--bg);border:1px solid var(--border);border-radius:var(--rl);padding:13px 15px;transition:all .18s;cursor:pointer;animation:fu .3s ease both}
+@keyframes fu{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.tc:hover{border-color:var(--border2);background:var(--bg3);transform:translateX(2px)}
+.tc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.tc-l{display:flex;align-items:center;gap:11px}
+.ava{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;font-family:'Space Mono',monospace}
+.ava.sol{background:var(--sdim);color:var(--sol);border:1px solid rgba(153,69,255,0.2)}
+.ava.eth{background:var(--edim);color:var(--eth);border:1px solid rgba(98,126,234,0.2)}
+.tname{font-size:14px;font-weight:700}
+.tsym{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted2);margin-top:1px}
+.tbadges{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.bdg{font-size:9px;font-weight:700;letter-spacing:.5px;padding:2px 6px;border-radius:4px;text-transform:uppercase}
+.b-sol{background:var(--sdim);color:var(--sol);border:1px solid rgba(153,69,255,0.2)}
+.b-eth{background:var(--edim);color:var(--eth);border:1px solid rgba(98,126,234,0.2)}
+.b-new{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.2)}
+.b-hot{background:rgba(255,77,106,0.1);color:#ff6b82;border:1px solid rgba(255,77,106,0.2)}
+.b-viral{background:var(--pdim);color:var(--purple);border:1px solid rgba(192,132,252,0.2)}
+.b-warn{background:var(--adim);color:var(--amber);border:1px solid rgba(255,181,71,0.2)}
+.b-danger{background:var(--rdim);color:var(--red);border:1px solid rgba(255,77,106,0.2)}
+.tc-r{text-align:right;flex-shrink:0}
+.tprice{font-family:'Space Mono',monospace;font-size:12px;font-weight:700}
+.tc24{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;margin-top:1px}
+.tc1h{font-family:'Space Mono',monospace;font-size:11px;margin-top:1px}
+.pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--muted2)}
+.mets{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:11px}
+.mb{background:var(--bg3);border-radius:6px;padding:6px 7px}
+.mb .ml{font-size:9px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;margin-bottom:2px}
+.mb .mv{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:var(--text)}
+.mv.ok{color:var(--green)}.mv.warn{color:var(--amber)}.mv.bad{color:var(--red)}
+.rrow{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.rlbl{font-size:10px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+.rval{margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;font-weight:700}
+.rval.low{color:var(--green)}.rval.med{color:var(--amber)}.rval.high{color:var(--red)}
+.rbg{height:5px;background:var(--bg3);border-radius:3px;overflow:hidden}
+.rfill{height:100%;border-radius:3px;transition:width .5s}
+.rfill.low{background:var(--green)}.rfill.med{background:var(--amber)}.rfill.high{background:var(--red)}
+.flags{display:flex;gap:4px;flex-wrap:wrap;margin-top:9px}
+.ft{font-size:10px;padding:2px 7px;border-radius:5px;font-weight:600}
+.ft.ok{background:rgba(0,229,160,0.07);color:var(--green);border:1px solid rgba(0,229,160,0.13)}
+.ft.warn{background:var(--adim);color:var(--amber);border:1px solid rgba(255,181,71,0.13)}
+.ft.bad{background:var(--rdim);color:var(--red);border:1px solid rgba(255,77,106,0.13)}
+.state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;color:var(--muted2);gap:12px;text-align:center}
+.sicon{font-size:30px;opacity:.35}
+.state p{font-size:13px;line-height:1.6}
+.spinner{width:22px;height:22px;border:2px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.err{background:var(--rdim);border:1px solid rgba(255,77,106,0.2);border-radius:var(--r);padding:13px 16px;font-size:12px;color:var(--red);line-height:1.7;max-width:460px}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+.toast{position:fixed;bottom:18px;right:18px;background:var(--bg3);border:1px solid var(--border2);padding:9px 15px;border-radius:var(--r);font-size:12px;color:var(--text);transform:translateY(60px);opacity:0;transition:all .3s;z-index:999}
+.toast.show{transform:translateY(0);opacity:1}
+.dov{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;opacity:0;pointer-events:none;transition:opacity .2s}
+.dov.open{opacity:1;pointer-events:all}
+.dp{position:absolute;right:0;top:0;bottom:0;width:390px;background:var(--bg2);border-left:1px solid var(--border2);padding:22px;overflow-y:auto;transform:translateX(100%);transition:transform .25s ease}
+.dov.open .dp{transform:translateX(0)}
+.dclose{position:absolute;top:14px;right:14px;background:var(--bg3);border:1px solid var(--border);color:var(--muted2);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+.dclose:hover{color:var(--text)}
+.info-note{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 11px;font-size:11px;color:var(--muted2);margin-bottom:10px;line-height:1.5}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><div class="logo-gem">💎</div><div class="logo-text">Gem<span>Hunter</span></div></div>
+  <div class="hright">
+    <div class="live"><div class="ldot"></div>LIVE</div>
+    <div id="statusBadge" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);background:var(--bg3);border:1px solid var(--border);padding:4px 10px;border-radius:20px">
+      ⏳ ładowanie...
+    </div>
+    <div id="refreshInfo" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);display:none">
+      odświeży za <span id="refreshCountdown">3:00</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="sidebar">
+  <div class="ssec">
+    <div class="slabel">Zakładki</div>
+    <button class="tbtn active" id="tab-new" onclick="switchTab('new')">
+      <span>🆕</span> New Tokens <span class="tcnt" id="cnt-new">0</span>
+    </button>
+    <button class="tbtn" id="tab-pump" onclick="switchTab('pump')">
+      <span>🔥</span> Pumping <span class="tcnt" id="cnt-pump">0</span>
+    </button>
+    <button class="tbtn" id="tab-growing" onclick="switchTab('growing')">
+      <span>📈</span> Growing <span class="tcnt" id="cnt-growing">0</span>
+    </button>
+    <div class="sub-tabs" id="growing-subs" style="display:none">
+      <button class="stbtn active" id="sub-trend" onclick="switchSub('trend')">📊 Trending</button>
+      <button class="stbtn" id="sub-wojak" onclick="switchSub('wojak')">🐸 Meme Klasyki</button>
+    </div>
+    <button class="tbtn" id="tab-viral" onclick="switchTab('viral')">
+      <span>🚀</span> Viral / Rising <span class="tcnt" id="cnt-viral">0</span>
+    </button>
+    <button class="tbtn" id="tab-patterns" onclick="switchTab('patterns')">
+      <span>🧠</span> Wzorce AI <span class="tcnt" id="cnt-patterns">0</span>
+    </button>
+    <button class="tbtn" id="tab-results" onclick="switchTab('results')">
+      <span>📊</span> Wyniki <span class="tcnt" id="cnt-results">0</span>
+    </button>
+  </div>
+
+  <div class="ssec">
+    <div class="slabel">Sieć</div>
+    <button class="chip active" onclick="filterChain('ALL',this)"><span class="cdot" style="background:#7a8898"></span>Wszystkie</button>
+    <button class="chip" onclick="filterChain('SOL',this)"><span class="cdot" style="background:#9945ff"></span>Solana</button>
+    <button class="chip" onclick="filterChain('ETH',this)"><span class="cdot" style="background:#627eea"></span>Ethereum</button>
+  </div>
+
+  <div class="ssec">
+    <div class="slabel">Maks. ryzyko</div>
+    <div class="rswrap">
+      <label>Filtr <span id="rvl">100%</span></label>
+      <input type="range" min="10" max="100" value="100" step="5" id="rslider" oninput="onRisk(this)">
+    </div>
+  </div>
+
+  <div class="ssec">
+    <div class="slabel">Statystyki</div>
+    <div class="scard"><div class="scard-l">GEMÓW (ryzyko &lt;40%)</div><div class="scard-v" id="stat-gems">—</div></div>
+    <div class="scard">
+      <div class="scard-l">OSTATNI SKAN</div>
+      <div class="scard-v" style="font-size:13px" id="stat-time">—</div>
+      <div class="scard-s" id="stat-found">brak danych</div>
+    </div>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="mhdr">
+    <div><div class="mtitle" id="mtitle">🆕 New Tokens — świeże launche</div><div class="msub" id="msub">Tokeny do 6h od stworzenia pary</div></div>
+    <div class="sbar">
+      <span style="font-size:11px;color:var(--muted)">Sortuj:</span>
+      <button class="sbtn active" id="sort-change1h" onclick="sortBy('change1h',this)">% 1h</button>
+      <button class="sbtn" id="sort-change" onclick="sortBy('change',this)">% 24h</button>
+      <button class="sbtn" id="sort-risk" onclick="sortBy('risk',this)">Ryzyko ↑</button>
+      <button class="sbtn" id="sort-vol1h" onclick="sortBy('vol1h',this)">Vol 1h</button>
+      <button class="sbtn" id="sort-mcap" onclick="sortBy('mcap',this)">MCap</button>
+    </div>
+  </div>
+  <div class="grid" id="grid">
+    <div class="state"><div class="sicon">💎</div><p>⏳ Ładowanie danych...</p></div>
+  </div>
+</main>
+</div>
+
+<div class="dov" id="dov" onclick="closeDet(event)"><div class="dp" id="dp"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+window.onerror=function(m,s,l){document.getElementById('grid').innerHTML='<div class="state"><div class="err"><strong>❌ Błąd JS linia '+l+':</strong><br><br>'+m+'</div></div>';};
+const API=window.location.origin+'/api/scan';
+let data={new:[],pump:[],growing:[],viral:[],patterns:{},results:{}};
+let tab='new', subTab='trend', chain='ALL', maxRisk=100, sortKey='change1h';
+let scanning=false;
+
+// Znane meme klasyki do filtrowania w podzakładce
+const MEME_KEYWORDS = ['pepe','wojak','doge','shib','floki','bonk','cat','frog','moon','ape','chad','based','cope','feels','rare','sad','happy','meme','retard','wagmi','ngmi'];
+
+const TAB_META={
+  new:    {title:'🆕 New Tokens — świeże launche',     sub:'Tokeny do 6h od stworzenia pary',           sort:'change1h', purple:false},
+  pump:   {title:'🔥 Pumping — aktywny pump',           sub:'Tokeny 30 min–6h w trakcie pompowania',     sort:'change1h', purple:false},
+  growing:{title:'📈 Growing — rosnące',                sub:'Tokeny 6h–30 dni z rosnącym trendem',       sort:'change',   purple:false},
+  viral:  {title:'🚀 Viral / Rising — zyskują momentum',sub:'Volume spike + rosnące zainteresowanie',    sort:'vol1h',    purple:true},
+  patterns:{title:'🧠 Wzorce AI — historia i lekcje',         sub:'Bot uczy się na każdym tokenie który odkrył', sort:'change',   purple:false},
+  results: {title:'📊 Wyniki — jak urosły odkryte tokeny',      sub:'X-krotność wzrostu od momentu odkrycia przez bota',    sort:'change',   purple:false},
+};
+
+function rc(s){return s<35?'low':s<65?'med':'high'}
+function rl(s){return s<35?'Niskie':s<65?'Średnie':'Wysokie'}
+function fnum(n){if(n>=1e6)return'$'+(n/1e6).toFixed(2)+'M';if(n>=1e3)return'$'+Math.round(n/1e3)+'K';return'$'+n.toFixed(0)}
+function fprice(p){if(!p)return'$0';if(p<0.000001)return'$'+p.toFixed(10).replace(/0+$/,'');if(p<0.001)return'$'+p.toFixed(8);if(p<1)return'$'+p.toFixed(6);return'$'+p.toFixed(4)}
+function fchg(c,sfx=''){const s=c>=0?'+':'';const cls=c>0?'pos':c<0?'neg':'neu';return`<span class="${cls}">${s}${c}%${sfx}</span>`}
+
+function getDisplayTokens(){
+  let tokens=[...data[tab]];
+  // Podzakładka dla growing
+  if(tab==='growing' && subTab==='wojak'){
+    tokens=tokens.filter(t=>{
+      const n=(t.name+t.sym).toLowerCase();
+      return MEME_KEYWORDS.some(k=>n.includes(k));
+    });
+  }
+  if(chain!=='ALL') tokens=tokens.filter(t=>t.chain===chain);
+  tokens=tokens.filter(t=>t.risk<=maxRisk);
+  if(sortKey==='change1h') tokens.sort((a,b)=>b.change1h-a.change1h);
+  else if(sortKey==='change') tokens.sort((a,b)=>b.change-a.change);
+  else if(sortKey==='risk') tokens.sort((a,b)=>a.risk-b.risk);
+  else if(sortKey==='vol1h') tokens.sort((a,b)=>b.vol1h-a.vol1h);
+  else tokens.sort((a,b)=>b.mcap-a.mcap);
+  return tokens;
+}
+
+function renderResults(){
+  const grid=document.getElementById('grid');
+  const d=data.results||{};
+  const tokens=d.tokens||[];
+  const OM={
+    gem:    {emoji:'💎',label:'GEM',    color:'var(--green)', bg:'var(--gdim)'},
+    good:   {emoji:'✅',label:'Dobry',  color:'#4da6ff',      bg:'rgba(77,166,255,0.1)'},
+    neutral:{emoji:'🟡',label:'Neutral',color:'var(--amber)', bg:'var(--adim)'},
+    loss:   {emoji:'🔻',label:'Strata', color:'var(--red)',   bg:'var(--rdim)'},
+    rug:    {emoji:'💀',label:'RUG',    color:'#ff2244',      bg:'rgba(255,34,68,0.15)'},
+  };
+  const PEI={organic_pump:'🟢',pump_and_dump:'🔴',rug_pull:'💀',slow_bleed:'🟠',consolidation:'🟡',wojak_pattern:'🐸',asteroid_pattern:'☄️',unknown:'❓'};
+
+  const statsHtml='<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:14px">'
+    +'<div class="scard" style="text-align:center"><div class="scard-l">ŁĄCZNIE</div><div class="scard-v">'+(d.total||0)+'</div></div>'
+    +'<div class="scard" style="text-align:center"><div class="scard-l">💎 GEMY</div><div class="scard-v" style="color:var(--green)">'+(d.gems_count||0)+'</div></div>'
+    +'<div class="scard" style="text-align:center"><div class="scard-l">💀 RUGI</div><div class="scard-v" style="color:var(--red)">'+(d.rugs_count||0)+'</div></div>'
+    +'<div class="scard" style="text-align:center"><div class="scard-l">Avg risk GEM</div><div class="scard-v" style="font-size:13px;color:var(--green)">'+(d.avg_gem_risk||'—')+'%</div></div>'
+    +'<div class="scard" style="text-align:center"><div class="scard-l">Avg risk RUG</div><div class="scard-v" style="font-size:13px;color:var(--red)">'+(d.avg_rug_risk||'—')+'%</div></div>'
+    +'</div>';
+
+  var learnHtml='';
+  if(d.top_gem_flags&&d.top_gem_flags.length){
+    learnHtml='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">'
+      +'<div style="background:var(--gdim);border:1px solid rgba(0,229,160,0.15);border-radius:10px;padding:11px">'
+      +'<div style="font-size:11px;font-weight:700;color:var(--green);margin-bottom:7px">💎 Flagi przy gemach</div>'
+      +(d.top_gem_flags||[]).map(function(x){return '<div style="font-size:11px;color:var(--muted2);padding:2px 0;display:flex;justify-content:space-between">'+x[0]+'<span style="color:var(--green)">'+x[1]+'x</span></div>';}).join('')
+      +'</div>'
+      +'<div style="background:var(--rdim);border:1px solid rgba(255,77,106,0.15);border-radius:10px;padding:11px">'
+      +'<div style="font-size:11px;font-weight:700;color:var(--red);margin-bottom:7px">💀 Flagi przy rugach</div>'
+      +(d.top_rug_flags||[]).map(function(x){return '<div style="font-size:11px;color:var(--muted2);padding:2px 0;display:flex;justify-content:space-between">'+x[0]+'<span style="color:var(--red)">'+x[1]+'x</span></div>';}).join('')
+      +'</div></div>';
+  }
+
+  if(!tokens.length){
+    grid.innerHTML=statsHtml+'<div class="state"><div class="sicon">📊</div><p>Brak wyników.<br>Bot śledzi tokeny przez 48h. Uruchom kilka skanów i wróć tu za godzinę.</p></div>';
+    return;
+  }
+
+  var cardsHtml=tokens.map(function(t,i){
+    var om=OM[t.outcome]||OM.neutral;
+    var xc=t.x_now>=2?'var(--green)':t.x_now>=1?'var(--amber)':'var(--red)';
+    var ageStr=t.age_h<48?t.age_h.toFixed(0)+'h':(t.age_h/24).toFixed(0)+'d';
+    var xSign=t.x_now>=1?'+':'';
+    var riskCls=t.initial_risk<40?'ok':t.initial_risk<65?'warn':'bad';
+    var patHtml=t.pattern&&t.pattern!='unknown'
+      ?'<span style="font-size:9px;padding:2px 7px;border-radius:4px;background:var(--bg3);color:var(--muted2)">'+(PEI[t.pattern]||'?')+' '+t.pattern+'</span>'
+      :'';
+    var flagsHtml=(t.flags||[]).slice(0,5).map(function(f){return '<span class="ft '+f.cls+'">'+f.label+'</span>';}).join('');
+    return '<div class="tc" style="animation-delay:'+i*.025+'s;border-left:3px solid '+om.color+'">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
+      +'<div style="display:flex;align-items:center;gap:10px">'
+      +'<div class="ava '+t.chain.toLowerCase()+'">'+(t.sym||'??').slice(0,3)+'</div>'
+      +'<div>'
+      +'<div style="font-size:14px;font-weight:700">'+t.name+'</div>'
+      +'<div style="font-family:\'Space Mono\',monospace;font-size:10px;color:var(--muted2)">$'+t.sym+' · '+t.chain+' · odkryto '+ageStr+' temu · '+t.snapshots+' snapshots</div>'
+      +'<div style="display:flex;gap:4px;margin-top:3px;flex-wrap:wrap">'
+      +'<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:'+om.bg+';color:'+om.color+'">'+om.emoji+' '+om.label+'</span>'
+      +patHtml+'</div></div></div>'
+      +'<div style="text-align:right;flex-shrink:0;min-width:80px">'
+      +'<div style="font-family:\'Space Mono\',monospace;font-size:22px;font-weight:800;color:'+xc+'">'+t.x_now+'x</div>'
+      +'<div style="font-family:\'Space Mono\',monospace;font-size:11px;color:'+xc+'">'+xSign+t.pct_now+'%</div>'
+      +'<div style="font-family:\'Space Mono\',monospace;font-size:10px;color:var(--muted2)">peak '+t.x_max+'x</div>'
+      +'</div></div>'
+      +'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px">'
+      +'<div class="mb"><div class="ml">Entry</div><div class="mv" style="font-size:10px">'+fprice(t.price_entry)+'</div></div>'
+      +'<div class="mb"><div class="ml">Teraz</div><div class="mv" style="font-size:10px;color:'+xc+'">'+fprice(t.price_now)+'</div></div>'
+      +'<div class="mb"><div class="ml">Peak</div><div class="mv" style="font-size:10px;color:var(--amber)">'+fprice(t.price_peak)+'</div></div>'
+      +'<div class="mb"><div class="ml">Risk entry</div><div class="mv '+riskCls+'">'+t.initial_risk+'%</div></div>'
+      +'</div>'
+      +'<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">'+flagsHtml+'</div>'
+      +'<a href="'+t.dexUrl+'" target="_blank" style="font-size:11px;color:var(--green);text-decoration:none">DexScreener ↗</a>'
+      +'</div>';
+  }).join('');
+
+  grid.innerHTML=statsHtml+learnHtml+cardsHtml;
+}
+
+function renderPatterns(){
+  var grid=document.getElementById('grid');
+  var d=data.patterns||{};
+  var tokens=d.tracked_tokens||[];
+  var lessons=d.lessons||[];
+  var rugs=d.recent_rugs||[];
+  var gems=d.recent_gems||[];
+  var stats=d.stats||{};
+  var PE={organic_pump:'🟢',pump_and_dump:'🔴',rug_pull:'💀',slow_bleed:'🟠',consolidation:'🟡',wojak_pattern:'🐸',asteroid_pattern:'☄️',unknown:'❓'};
+
+  var html='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">'
+    +'<div class="scard"><div class="scard-l">ŚLEDZONYCH</div><div class="scard-v">'+(d.total_tracked||0)+'</div><div class="scard-s">tokenów łącznie</div></div>'
+    +'<div class="scard"><div class="scard-l">RUGI WYKRYTE</div><div class="scard-v" style="color:var(--red)">'+(stats.rugs_detected||0)+'</div><div class="scard-s">od początku</div></div>'
+    +'<div class="scard"><div class="scard-l">GEMY ZNALEZIONE</div><div class="scard-v" style="color:var(--green)">'+(stats.gems_found||0)+'</div><div class="scard-s">organic/wojak</div></div>'
+    +'</div>';
+
+  if(rugs.length){
+    html+='<div style="background:var(--rdim);border:1px solid rgba(255,77,106,0.2);border-radius:10px;padding:12px;margin-bottom:10px">'
+      +'<div style="font-size:12px;font-weight:700;color:var(--red);margin-bottom:8px">💀 Ostatnie Rug Pull / Pump&Dump</div>'
+      +rugs.map(function(r){return '<div style="font-size:12px;color:var(--muted2);padding:4px 0;border-bottom:1px solid var(--border)">'
+        +'<span style="color:var(--red)">'+r.name+'</span> ['+r.chain+'] — '+(r.reason||'')+' <span style="color:var(--red)">'+(r.pct||0).toFixed(0)+'%</span></div>';}).join('')
+      +'</div>';
+  }
+
+  if(gems.length){
+    html+='<div style="background:var(--gdim);border:1px solid rgba(0,229,160,0.15);border-radius:10px;padding:12px;margin-bottom:10px">'
+      +'<div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px">💎 Ostatnie Gemy</div>'
+      +gems.map(function(g){return '<div style="font-size:12px;color:var(--muted2);padding:4px 0;border-bottom:1px solid var(--border)">'
+        +'<span style="color:var(--green)">'+(PE[g.pattern]||'?')+' '+g.name+'</span> ['+g.chain+'] — '+g.pattern
+        +' <span style="color:var(--green)">+'+(g.pct||0).toFixed(0)+'%</span> ('+(g.confidence||0)+'% pewność)</div>';}).join('')
+      +'</div>';
+  }
+
+  html+='<div style="margin-bottom:10px">'
+    +'<div style="font-size:12px;font-weight:700;color:var(--muted2);margin-bottom:8px">📚 Lekcje bota (uczy się na błędach)</div>';
+  if(lessons.length){
+    html+=lessons.slice(-8).reverse().map(function(l){
+      return '<div style="font-size:11px;color:var(--muted2);padding:5px 8px;background:var(--bg3);border-radius:6px;margin-bottom:4px;font-family:\'Space Mono\',monospace">'+l+'</div>';
+    }).join('');
+  } else {
+    html+='<div style="font-size:12px;color:var(--muted)">Brak lekcji — uruchom kilka skanów żeby bot zaczął się uczyć</div>';
+  }
+  html+='</div>';
+
+  html+='<div><div style="font-size:12px;font-weight:700;color:var(--muted2);margin-bottom:8px">🔍 Śledzone tokeny ('+tokens.length+')</div>';
+  if(tokens.length){
+    html+=tokens.map(function(t,i){
+      return '<div class="tc" style="animation-delay:'+(i*.02)+'s">'
+        +'<div style="display:flex;align-items:center;justify-content:space-between">'
+        +'<div style="display:flex;align-items:center;gap:8px">'
+        +'<span style="font-size:18px">'+(PE[t.pattern]||'❓')+'</span>'
+        +'<div><div style="font-size:13px;font-weight:700">'+t.name+' <span style="font-size:10px;color:var(--muted2)">['+t.chain+']</span></div>'
+        +'<div style="font-family:\'Space Mono\',monospace;font-size:10px;color:var(--muted2)">'+(t.pattern||'analizuję...')+' · '+t.snapshots_count+' snapshots · odkryto '+t.added_ago+' temu</div></div></div>'
+        +'<div style="text-align:right">'
+        +'<div style="font-family:\'Space Mono\',monospace;font-size:13px;font-weight:700;color:'+(( t.pct_change||0)>=0?'var(--green)':'var(--red)')+'">'+((t.pct_change||0)>=0?'+':'')+((t.pct_change||0).toFixed(0))+'%</div>'
+        +'<div style="font-size:10px;color:var(--muted2)">pewność '+(t.confidence||0)+'%</div></div></div>'
+        +(t.reason?'<div style="font-size:11px;color:var(--muted2);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">'+t.reason+'</div>':'')
+        +'<div style="margin-top:6px"><a href="'+t.dexUrl+'" target="_blank" style="font-size:11px;color:var(--green);text-decoration:none">DexScreener ↗</a></div>'
+        +'</div>';
+    }).join('');
+  } else {
+    html+='<div class="state"><div class="sicon">🧠</div><p>Bot dopiero zaczyna się uczyć.<br>Uruchom kilka skanów.</p></div>';
+  }
+  html+='</div>';
+
+  grid.innerHTML=html;
+}
+
+
+function render(){
+  if(tab==='patterns'){renderPatterns();return;}
+  if(tab==='results'){renderResults();return;}
+  var grid=document.getElementById('grid');
+  var tokens=getDisplayTokens();
+  var gems=data[tab].filter(function(t){return t.risk<40;}).length;
+  document.getElementById('stat-gems').textContent=gems;
+  window._dt=tokens;
+
+  if(!tokens.length){
+    var isEmpty=data[tab].length===0;
+    grid.innerHTML='<div class="state"><div class="sicon">'+(isEmpty?'💎':'🔍')+'</div><p>'
+      +(isEmpty?'⏳ Ładowanie danych...':'Brak tokenów dla wybranych filtrów.<br>Zmień filtr sieci lub zwiększ próg ryzyka.')
+      +'</p></div>';
+    return;
+  }
+
+  grid.innerHTML=tokens.map(function(t,i){
+    var r=t.risk<35?'low':t.risk<65?'med':'high';
+    var flags=t.flags||[];
+    var isVeryNew=t.age_h<1;
+    var isHot=t.change1h>50;
+    var isViral=t.vol1h>50000&&t.change1h>20;
+    var bp=t.buys1h+t.sells1h>0?Math.round(t.buys1h/(t.buys1h+t.sells1h)*100):0;
+    var bpCls=bp>55?'ok':bp<40?'bad':'warn';
+    var bundleCls=t.bundle>20?'bad':t.bundle>10?'warn':t.bundle>0?'ok':'';
+    var top10Cls=t.top10>60?'bad':t.top10>40?'warn':t.top10>0?'ok':'';
+    var bundleVal=t.bundle>0?t.bundle+'%':'—';
+    var top10Val=t.top10>0?t.top10+'%':'—';
+    var lpVal=t.lpLock?'✓ TAK':'✗ NIE';
+    var lpCls=t.lpLock?'ok':'bad';
+    var riskLbl=t.risk<35?'Niskie':t.risk<65?'Średnie':'Wysokie';
+    var flagsHtml=flags.map(function(f){return '<span class="ft '+f.cls+'">'+f.label+'</span>';}).join('');
+    var badges='<span class="bdg b-'+t.chain.toLowerCase()+'">'+t.chain+'</span>'
+      +(isVeryNew?'<span class="bdg b-new">NEW</span>':'')
+      +(isHot?'<span class="bdg b-hot">🔥 HOT</span>':'')
+      +(isViral?'<span class="bdg b-viral">🚀 VIRAL</span>':'')
+      +(t.risk>=65?'<span class="bdg b-danger">HIGH RISK</span>':'')
+      +(t.risk>=35&&t.risk<65?'<span class="bdg b-warn">MED RISK</span>':'');
+
+    return '<div class="tc" onclick="openDet('+i+')" style="animation-delay:'+(i*.03)+'s">'
+      +'<div class="tc-top">'
+      +'<div class="tc-l">'
+      +'<div class="ava '+t.chain.toLowerCase()+'">'+(t.sym||'??').slice(0,3)+'</div>'
+      +'<div>'
+      +'<div class="tname">'+t.name+'</div>'
+      +'<div class="tsym">$'+t.sym+' · '+t.age+' temu · '+t.chain+'</div>'
+      +'<div class="tbadges">'+badges+'</div>'
+      +'</div></div>'
+      +'<div class="tc-r">'
+      +'<div class="tprice">'+fprice(t.price)+'</div>'
+      +'<div class="tc24 '+(t.change>=0?'pos':'neg')+'">'+(t.change>=0?'+':'')+t.change+'% 24h</div>'
+      +'<div class="tc1h '+(t.change1h>=0?'pos':'neg')+'">'+(t.change1h>=0?'+':'')+t.change1h+'% 1h</div>'
+      +'</div></div>'
+      +'<div class="mets">'
+      +'<div class="mb"><div class="ml">MCap</div><div class="mv">'+fnum(t.mcap)+'</div></div>'
+      +'<div class="mb"><div class="ml">Vol 1h</div><div class="mv">'+fnum(t.vol1h)+'</div></div>'
+      +'<div class="mb"><div class="ml">Vol 24h</div><div class="mv">'+fnum(t.vol)+'</div></div>'
+      +'<div class="mb"><div class="ml">Bundle</div><div class="mv '+bundleCls+'">'+bundleVal+'</div></div>'
+      +'<div class="mb"><div class="ml">Top10</div><div class="mv '+top10Cls+'">'+top10Val+'</div></div>'
+      +'<div class="mb"><div class="ml">LP Lock</div><div class="mv '+lpCls+'">'+lpVal+'</div></div>'
+      +'<div class="mb"><div class="ml">Buy%</div><div class="mv '+bpCls+'">'+bp+'%</div></div>'
+      +'</div>'
+      +'<div class="rrow"><span class="rlbl">RYZYKO</span><span class="rval '+r+'">'+t.risk+'% — '+riskLbl+'</span></div>'
+      +'<div class="rbg"><div class="rfill '+r+'" style="width:'+t.risk+'%"></div></div>'
+      +'<div class="flags">'+flagsHtml+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+let autoRefreshTimer=null, countdownInterval=null, nextRefreshAt=0;
+
+function setStatus(msg, color='var(--muted2)'){
+  const el=document.getElementById('statusBadge');
+  if(el){ el.textContent=msg; el.style.color=color; }
+}
+
+async function runScan(force=false){
+  if(scanning)return;
+  scanning=true;
+  setStatus('⏳ skanuję...','var(--amber)');
+
+  // Pokaż spinner tylko jeśli nie ma jeszcze żadnych danych
+  const hasData=data.growing.length>0||data.new.length>0||data.pump.length>0;
+  if(!hasData){
+    document.getElementById('grid').innerHTML='<div class="state"><div class="spinner"></div><p>Pobieranie danych...</p></div>';
+  }
+
+  try{
+    const forceQ=force?'&force=1':'';
+    const [rN,rP,rG,rV,rPat,rRes]=await Promise.all([
+      fetch(`${API}?tab=new&chain=${chain}${forceQ}`),
+      fetch(`${API}?tab=pump&chain=${chain}${forceQ}`),
+      fetch(`${API}?tab=growing&chain=${chain}${forceQ}`),
+      fetch(`${API}?tab=viral&chain=${chain}${forceQ}`),
+      fetch(window.location.origin+'/api/patterns'),
+      fetch(window.location.origin+'/api/results')
+    ]);
+    const rawResults=await Promise.allSettled([rN.json(),rP.json(),rG.json(),rV.json(),rPat.json(),rRes.json()]);
+    const [dN,dP,dG,dV,dPat,dRes]=rawResults.map(r=>r.status==='fulfilled'?r.value:{tokens:[],ok:false});
+    data.new=dN.tokens||[];
+    data.pump=dP.tokens||[];
+    data.growing=dG.tokens||[];
+    data.viral=dV.tokens||[];
+    data.patterns=dPat;
+    data.results=dRes;
+    document.getElementById('cnt-new').textContent=data.new.length;
+    document.getElementById('cnt-pump').textContent=data.pump.length;
+    document.getElementById('cnt-growing').textContent=data.growing.length;
+    document.getElementById('cnt-viral').textContent=data.viral.length;
+    document.getElementById('cnt-patterns').textContent=(dPat.tracked_tokens||[]).length;
+    document.getElementById('cnt-results').textContent=(dRes.tokens||[]).length;
+    const now=new Date();
+    document.getElementById('stat-time').textContent=
+      now.getHours().toString().padStart(2,'0')+':'+
+      now.getMinutes().toString().padStart(2,'0')+':'+
+      now.getSeconds().toString().padStart(2,'0');
+    const total=data.new.length+data.pump.length+data.growing.length+data.viral.length;
+    document.getElementById('stat-found').textContent=`${total} tokenów`;
+    setStatus(`✅ ${total} tokenów`,'var(--green)');
+    render();
+    startAutoRefresh();
+  }catch(err){
+    setStatus('❌ błąd połączenia','var(--red)');
+    if(!hasData){
+      document.getElementById('grid').innerHTML='<div class="state"><div class="err"><strong>❌ Serwer niedostępny</strong><br><br>Uruchom: <code style="background:rgba(255,77,106,.1);padding:2px 6px;border-radius:4px">python server.py</code><br><br>'+err.message+'</div></div>';
+    }
+  }
+  scanning=false;
+}
+
+
+
+
+
+function startAutoRefresh(){
+  if(autoRefreshTimer) clearTimeout(autoRefreshTimer);
+  if(countdownInterval) clearInterval(countdownInterval);
+  const REFRESH_MS=180000;
+  nextRefreshAt=Date.now()+REFRESH_MS;
+  const ri=document.getElementById('refreshInfo');
+  if(ri) ri.style.display='block';
+  countdownInterval=setInterval(()=>{
+    const left=Math.max(0,Math.round((nextRefreshAt-Date.now())/1000));
+    const m=Math.floor(left/60),s=left%60;
+    const cd=document.getElementById('refreshCountdown');
+    if(cd) cd.textContent=`${m}:${s.toString().padStart(2,'0')}`;
+    if(left===0) clearInterval(countdownInterval);
+  },1000);
+  autoRefreshTimer=setTimeout(async()=>{
+    if(!scanning){ await runScan(false); }
+  }, REFRESH_MS);
+}
+
+function switchTab(t){
+  tab=t;
+  ['new','pump','growing','viral','patterns','results'].forEach(x=>{
+    const el=document.getElementById('tab-'+x);
+    el.classList.remove('active','active-purple');
+  });
+  const meta=TAB_META[t];
+  const el=document.getElementById('tab-'+t);
+  el.classList.add(meta.purple?'active-purple':'active');
+  document.getElementById('mtitle').textContent=meta.title;
+  document.getElementById('msub').textContent=meta.sub;
+  document.getElementById('growing-subs').style.display=t==='growing'?'block':'none';
+  sortKey=meta.sort;
+  document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sort-'+sortKey)?.classList.add('active');
+  render();
+}
+
+function switchSub(s){
+  subTab=s;
+  document.querySelectorAll('.stbtn').forEach(b=>b.classList.remove('active','active-purple'));
+  document.getElementById('sub-'+s).classList.add(s==='wojak'?'active-purple':'active');
+  if(s==='wojak'){
+    document.getElementById('mtitle').textContent='🐸 Meme Klasyki — Wojak, Pepe i spółka';
+    document.getElementById('msub').textContent='Klasyczne meme tokeny z rosnącym trendem';
+  } else {
+    document.getElementById('mtitle').textContent=TAB_META.growing.title;
+    document.getElementById('msub').textContent=TAB_META.growing.sub;
+  }
+  render();
+}
+
+function filterChain(c,el){chain=c;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));el.classList.add('active');render()}
+function sortBy(k,el){sortKey=k;document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('active'));el.classList.add('active');render()}
+function onRisk(el){maxRisk=parseInt(el.value);document.getElementById('rvl').textContent=maxRisk+'%';render()}
+
+function openDet(i){
+  var t=(window._dt||[])[i];
+  if(!t)return;
+  var r=t.risk<35?'low':t.risk<65?'med':'high';
+  var flags=t.flags||[];
+  var buyPct=t.buys1h+t.sells1h>0?Math.round(t.buys1h/(t.buys1h+t.sells1h)*100):0;
+  var buyPctCls=buyPct>55?'ok':buyPct<40?'bad':'warn';
+  var bundleCls=t.bundle>20?'bad':t.bundle>10?'warn':'ok';
+  var top10Cls=t.top10>60?'bad':t.top10>40?'warn':'ok';
+  var devCls=t.devHold>3?'warn':'ok';
+  var lpCls=t.lpLock?'ok':'bad';
+  var riskLbl=t.risk<35?'Niskie':t.risk<65?'Średnie':'Wysokie';
+  var holderAnalysis='';
+  if(t.chain==='ETH'||t.bundle>0||t.top10>0){
+    holderAnalysis='<div class="slabel" style="margin-bottom:8px">HOLDER ANALIZA '+(t.chain==='SOL'?'(RugCheck)':'(GoPlus)')+'</div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:13px">'
+      +'<div class="mb"><div class="ml">Bundle</div><div class="mv '+bundleCls+'">'+t.bundle+'%</div></div>'
+      +'<div class="mb"><div class="ml">Top 10</div><div class="mv '+top10Cls+'">'+t.top10+'%</div></div>'
+      +'<div class="mb"><div class="ml">Dev</div><div class="mv '+devCls+'">'+t.devHold+'%</div></div>'
+      +'<div class="mb"><div class="ml">Holderzy</div><div class="mv">'+(t.holders||'?')+'</div></div>'
+      +'<div class="mb"><div class="ml">LP Lock</div><div class="mv '+lpCls+'">'+(t.lpLock?'✓ TAK':'✗ NIE')+'</div></div>'
+      +'</div>';
+  }
+  var rcLink=t.chain==='SOL'&&t.rcUrl
+    ?'<a href="'+t.rcUrl+'" target="_blank" style="flex:1;display:block;text-align:center;background:var(--adim);border:1px solid rgba(255,181,71,0.2);color:var(--amber);padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700">RugCheck ↗</a>'
+    :'';
+  var solNote=t.chain==='SOL'
+    ?'<div class="info-note">'+(flags.some(function(f){return f.label&&f.label.includes('RugCheck');})?'✅ Dane z RugCheck.xyz':'⚠️ Dane heurystyczne')+'</div>'
+    :'';
+  var flagsHtml=flags.map(function(f){
+    var lbl=f.cls==='ok'?'OK':f.cls==='warn'?'UWAGA':'ALERT';
+    return '<div style="display:flex;align-items:center;justify-content:space-between">'
+      +'<span style="font-size:12px;color:var(--muted2)">'+f.label+'</span>'
+      +'<span class="ft '+f.cls+'">'+lbl+'</span></div>';
+  }).join('');
+
+  document.getElementById('dp').innerHTML=
+    '<button class="dclose" onclick="document.getElementById(\'dov\').classList.remove(\'open\')">✕</button>'
+    +'<div style="margin-top:4px">'
+    +'<div style="display:flex;align-items:center;gap:11px;margin-bottom:15px">'
+    +'<div class="ava '+t.chain.toLowerCase()+'" style="width:46px;height:46px;font-size:13px">'+(t.sym||'??').slice(0,3)+'</div>'
+    +'<div><div style="font-size:19px;font-weight:800">'+t.name+'</div>'
+    +'<div style="font-family:\'Space Mono\',monospace;font-size:11px;color:var(--muted2)">$'+t.sym+' · '+t.chain+' · '+t.age+' temu</div></div></div>'
+    +solNote
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px">'
+    +'<div class="scard"><div class="scard-l">CENA</div><div class="scard-v" style="font-size:12px">'+fprice(t.price)+'</div></div>'
+    +'<div class="scard"><div class="scard-l">ZMIANA 1H</div><div class="scard-v" style="color:'+(t.change1h>=0?'var(--green)':'var(--red)')+'">'+( t.change1h>=0?'+':'')+t.change1h+'%</div></div>'
+    +'<div class="scard"><div class="scard-l">MARKET CAP</div><div class="scard-v" style="font-size:13px">'+fnum(t.mcap)+'</div></div>'
+    +'<div class="scard"><div class="scard-l">VOL 1H / 24H</div><div class="scard-v" style="font-size:12px">'+fnum(t.vol1h)+' / '+fnum(t.vol)+'</div></div>'
+    +'</div>'
+    +'<div class="slabel" style="margin-bottom:8px">ANALIZA RYZYKA</div>'
+    +'<div style="background:var(--bg3);border-radius:10px;padding:13px;margin-bottom:13px">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">'
+    +'<span style="font-size:13px;font-weight:700">Wynik ryzyka</span>'
+    +'<span class="rval '+r+'" style="font-size:14px">'+t.risk+'% — '+riskLbl+'</span></div>'
+    +'<div class="rbg" style="height:8px;margin-bottom:12px"><div class="rfill '+r+'" style="width:'+t.risk+'%"></div></div>'
+    +'<div style="display:flex;flex-direction:column;gap:7px">'+flagsHtml+'</div></div>'
+    +'<div class="slabel" style="margin-bottom:8px">TRANSAKCJE</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:13px">'
+    +'<div class="mb"><div class="ml">Buys 1h</div><div class="mv ok">'+t.buys1h+'</div></div>'
+    +'<div class="mb"><div class="ml">Sells 1h</div><div class="mv bad">'+t.sells1h+'</div></div>'
+    +'<div class="mb"><div class="ml">Buy%</div><div class="mv '+buyPctCls+'">'+buyPct+'%</div></div>'
+    +'<div class="mb"><div class="ml">Liquidity</div><div class="mv">'+fnum(t.liq)+'</div></div>'
+    +'</div>'
+    +holderAnalysis
+    +'<div style="font-family:\'Space Mono\',monospace;font-size:10px;color:var(--muted);background:var(--bg3);padding:7px 9px;border-radius:6px;margin-bottom:11px;word-break:break-all">'+t.address+'</div>'
+    +'<div style="display:flex;gap:8px">'
+    +'<a href="'+t.dexUrl+'" target="_blank" style="flex:1;display:block;text-align:center;background:var(--gdim);border:1px solid rgba(0,229,160,0.2);color:var(--green);padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700">DexScreener ↗</a>'
+    +rcLink+'</div></div>';
+
+  document.getElementById('dov').classList.add('open');
+}
+
+function closeDet(e){if(e.target===document.getElementById('dov'))document.getElementById('dov').classList.remove('open')}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
+
+// Auto-start po załadowaniu strony
+window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>runScan(false),400));
+</script>
+</body>
+</html>

@@ -677,8 +677,9 @@ def clean_blacklisted_from_patterns():
 
 
 def main():
-    port   = 8080
-    server = HTTPServer(("localhost",port), Handler)
+    import os
+    port   = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(("0.0.0.0", port), Handler)
     log.info("╔══════════════════════════════════════╗")
     log.info("║  GemHunter v5 uruchomiony!           ║")
     log.info(f"║  Chrome: http://localhost:{port}        ║")
