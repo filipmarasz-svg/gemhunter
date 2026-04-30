@@ -1,5 +1,5 @@
 """GemHunter v5 - smart filters, blacklist learning, auto-refresh cache"""
-import json, logging, os, time, threading
+import json, logging, os, time, threading, base64
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse, parse_qs, quote
@@ -8,7 +8,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger(__name__)
 
 HTML_FILE  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
-BLACK_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blacklist.json")
+_DATA_DIR  = "/tmp" if os.path.exists("/tmp") else os.path.dirname(os.path.abspath(__file__))
+BLACK_FILE = os.path.join(_DATA_DIR, "blacklist.json")
 HEADERS    = {"User-Agent": "Mozilla/5.0 (compatible; GemHunter/1.0)", "Accept": "application/json"}
 
 DS_SEARCH  = "https://api.dexscreener.com/latest/dex/search?q={q}"
@@ -589,7 +590,25 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
         except FileNotFoundError:
-            self.send_response(404); self.end_headers()
+            if parsed.path == "/api/download-data":
+            # Pobierz pattern_data.json
+            data_file = "/tmp/pattern_data.json"
+            if not os.path.exists(data_file):
+                data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
+            if os.path.exists(data_file):
+                with open(data_file, "rb") as f:
+                    body = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Disposition", "attachment; filename=pattern_data.json")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            else:
+                self.send_json({"error": "Brak pliku"}, 404)
+            return
+
+        self.send_response(404); self.end_headers()
             self.wfile.write(b"Brak index.html")
 
     def do_GET(self):
@@ -648,7 +667,78 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path=="/api/blacklist":
             self.send_json(load_blacklist()); return
 
+        if parsed.path == "/api/download-data":
+            # Pobierz pattern_data.json
+            data_file = "/tmp/pattern_data.json"
+            if not os.path.exists(data_file):
+                data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
+            if os.path.exists(data_file):
+                with open(data_file, "rb") as f:
+                    body = f.read()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Disposition", "attachment; filename=pattern_data.json")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+            else:
+                self.send_json({"error": "Brak pliku"}, 404)
+            return
+
         self.send_response(404); self.end_headers()
+
+
+def sync_to_github():
+    """Co godzinę zapisuje pattern_data.json na GitHub."""
+    while True:
+        time.sleep(3600)  # co godzinę
+        try:
+            token = os.environ.get("GITHUB_TOKEN", "")
+            if not token:
+                log.warning("Brak GITHUB_TOKEN - pomijam sync")
+                continue
+
+            data_file = "/tmp/pattern_data.json"
+            if not os.path.exists(data_file):
+                continue
+
+            with open(data_file, "rb") as f:
+                content_b64 = base64.b64encode(f.read()).decode()
+
+            # Pobierz SHA aktualnego pliku na GitHub
+            api_url = "https://api.github.com/repos/filipmarasz-svg/gemhunter/contents/pattern_data.json"
+            headers = {
+                "Authorization": f"token {token}",
+                "Accept": "application/vnd.github.v3+json",
+                "User-Agent": "GemHunter-Bot"
+            }
+
+            sha = ""
+            try:
+                req = Request(api_url, headers=headers)
+                with urlopen(req, timeout=10) as r:
+                    existing = json.loads(r.read())
+                    sha = existing.get("sha", "")
+            except Exception:
+                pass
+
+            # Wyślij zaktualizowany plik
+            payload = {
+                "message": f"Auto-sync pattern_data {time.strftime('%Y-%m-%d %H:%M')}",
+                "content": content_b64,
+            }
+            if sha:
+                payload["sha"] = sha
+
+            req = Request(api_url, 
+                         data=json.dumps(payload).encode(),
+                         headers=headers,
+                         method="PUT")
+            with urlopen(req, timeout=15) as r:
+                log.info(f"✅ pattern_data.json zsynchronizowany z GitHub ({os.path.getsize(data_file)} bajtów)")
+
+        except Exception as e:
+            log.warning(f"GitHub sync error: {e}")
 
 
 def clean_blacklisted_from_patterns():
@@ -686,6 +776,14 @@ def main():
     log.info("╚══════════════════════════════════════╝")
 
     # Pattern Engine w tle
+    # Skopiuj dane z repo do /tmp przy pierwszym uruchomieniu
+    import shutil
+    repo_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
+    tmp_data  = "/tmp/pattern_data.json"
+    if os.path.exists(repo_data) and not os.path.exists(tmp_data):
+        shutil.copy2(repo_data, tmp_data)
+        log.info(f"Skopiowano pattern_data.json z repo do /tmp ({os.path.getsize(tmp_data)} bajtów)")
+
     # Wyczyść blacklistowane tokeny z pattern data
     clean_blacklisted_from_patterns()
 
@@ -695,6 +793,11 @@ def main():
 
     # Auto-refresh cache w tle
     threading.Thread(target=background_refresh, daemon=True).start()
+
+    # Auto-sync pattern_data do GitHub co godzinę
+    if os.environ.get("GITHUB_TOKEN"):
+        threading.Thread(target=sync_to_github, daemon=True).start()
+        log.info("GitHub auto-sync uruchomiony (co godzinę)")
     log.info(f"Auto-refresh uruchomiony (co {CACHE_TTL}s)")
 
     try:

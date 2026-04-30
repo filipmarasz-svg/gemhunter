@@ -119,6 +119,7 @@ input[type=range]{width:100%;accent-color:var(--green);cursor:pointer}
   <div class="logo"><div class="logo-gem">💎</div><div class="logo-text">Gem<span>Hunter</span></div></div>
   <div class="hright">
     <div class="live"><div class="ldot"></div>LIVE</div>
+    <button onclick="downloadData()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--muted2);border-radius:8px;padding:5px 12px;font-size:11px;cursor:pointer;font-family:'Syne',sans-serif">⬇ Dane</button>
     <div id="statusBadge" style="font-family:'Space Mono',monospace;font-size:10px;color:var(--muted2);background:var(--bg3);border:1px solid var(--border);padding:4px 10px;border-radius:20px">
       ⏳ ładowanie...
     </div>
@@ -661,6 +662,12 @@ function closeDet(e){if(e.target===document.getElementById('dov'))document.getEl
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500)}
 
 // Auto-start po załadowaniu strony
+function downloadData(){
+  const a=document.createElement('a');
+  a.href=window.location.origin+'/api/download-data';
+  a.download='pattern_data.json';
+  a.click();
+}
 window.addEventListener('DOMContentLoaded',()=>setTimeout(()=>runScan(false),400));
 </script>
 </body>
