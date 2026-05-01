@@ -763,9 +763,14 @@ def main():
     import shutil
     repo_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
     tmp_data  = "/tmp/pattern_data.json"
-    if os.path.exists(repo_data) and not os.path.exists(tmp_data):
-        shutil.copy2(repo_data, tmp_data)
-        log.info(f"Skopiowano pattern_data.json z repo do /tmp ({os.path.getsize(tmp_data)} bajtów)")
+    if os.path.exists(repo_data):
+        repo_size = os.path.getsize(repo_data)
+        tmp_size  = os.path.getsize(tmp_data) if os.path.exists(tmp_data) else 0
+        if repo_size > tmp_size:
+            shutil.copy2(repo_data, tmp_data)
+            log.info(f"Skopiowano pattern_data.json z repo do /tmp ({repo_size} bajtów)")
+        else:
+            log.info(f"Zachowano /tmp/pattern_data.json ({tmp_size} bajtów > repo {repo_size} bajtów)")
 
     # Wyczyść blacklistowane tokeny z pattern data
     clean_blacklisted_from_patterns()
