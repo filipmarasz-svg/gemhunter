@@ -674,7 +674,7 @@ class Handler(BaseHTTPRequestHandler):
 def sync_to_github():
     """Co godzinę zapisuje pattern_data.json na GitHub."""
     while True:
-        time.sleep(3600)  # co godzinę
+        time.sleep(900)  # co 15 minut
         try:
             token = os.environ.get("GITHUB_TOKEN", "")
             if not token:
