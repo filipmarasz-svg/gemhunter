@@ -1,15 +1,16 @@
 """GemHunter v5 - smart filters, blacklist learning, auto-refresh cache"""
-import json, logging, os, time, threading, base64
+import json, logging, os, time, threading, base64, shutil, hashlib
+from datetime import datetime, timezone
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.request import urlopen, Request
+from urllib.error import HTTPError
 from urllib.parse import urlparse, parse_qs, quote
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger(__name__)
 
 HTML_FILE  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
-_DATA_DIR  = "/tmp" if os.path.exists("/tmp") else os.path.dirname(os.path.abspath(__file__))
-BLACK_FILE = os.path.join(_DATA_DIR, "blacklist.json")
+BLACK_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blacklist.json")
 HEADERS    = {"User-Agent": "Mozilla/5.0 (compatible; GemHunter/1.0)", "Accept": "application/json"}
 
 DS_SEARCH  = "https://api.dexscreener.com/latest/dex/search?q={q}"
@@ -542,7 +543,7 @@ def background_refresh():
                 log.info(f"Cache refresh [{tab}]: {len(tokens)} tokenów")
 
                 if PATTERN_ENGINE:
-                    for t in tokens[:8]:
+                    for t in tokens[:25]:
                         try:
                             PE.add_token_to_track(t["address"],t["chain"],t["name"],t["sym"],
                                                   t["price"],t["mcap"],t["vol1h"],t["liq"],
@@ -590,8 +591,7 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(body)
         except FileNotFoundError:
-            self.send_response(404)
-            self.end_headers()
+            self.send_response(404); self.end_headers()
             self.wfile.write(b"Brak index.html")
 
     def do_GET(self):
@@ -625,7 +625,7 @@ class Handler(BaseHTTPRequestHandler):
                     CACHE[f"{tab}_ALL"] = {"tokens":tokens,"ts":time.time(),"count":len(tokens)}
                 self.send_json(result)
                 if PATTERN_ENGINE:
-                    for t in tokens[:8]:
+                    for t in tokens[:25]:
                         try: PE.add_token_to_track(t["address"],t["chain"],t["name"],t["sym"],t["price"],t["mcap"],t["vol1h"],t["liq"],t["risk"],t["flags"])
                         except Exception: pass
             except Exception as e:
@@ -650,143 +650,169 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path=="/api/blacklist":
             self.send_json(load_blacklist()); return
 
-        if parsed.path == "/api/download-data":
-            # Pobierz pattern_data.json
-            data_file = "/tmp/pattern_data.json"
-            if not os.path.exists(data_file):
-                data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
-            if os.path.exists(data_file):
-                with open(data_file, "rb") as f:
-                    body = f.read()
-                self.send_response(200)
-                self.send_header("Content-Type", "application/json")
-                self.send_header("Content-Disposition", "attachment; filename=pattern_data.json")
-                self.send_header("Content-Length", str(len(body)))
-                self.end_headers()
-                self.wfile.write(body)
-            else:
-                self.send_json({"error": "Brak pliku"}, 404)
-            return
-
         self.send_response(404); self.end_headers()
 
 
-def sync_to_github():
-    """Co godzinę zapisuje pattern_data.json na GitHub."""
-    while True:
-        time.sleep(900)  # co 15 minut
-        try:
-            token = os.environ.get("GITHUB_TOKEN", "")
-            if not token:
-                log.warning("Brak GITHUB_TOKEN - pomijam sync")
-                continue
-
-            data_file = "/tmp/pattern_data.json"
-            if not os.path.exists(data_file):
-                continue
-
-            with open(data_file, "rb") as f:
-                content_b64 = base64.b64encode(f.read()).decode()
-
-            # Pobierz SHA aktualnego pliku na GitHub
-            api_url = "https://api.github.com/repos/filipmarasz-svg/gemhunter/contents/pattern_data.json"
-            headers = {
-                "Authorization": f"token {token}",
-                "Accept": "application/vnd.github.v3+json",
-                "User-Agent": "GemHunter-Bot"
-            }
-
-            sha = ""
-            try:
-                req = Request(api_url, headers=headers)
-                with urlopen(req, timeout=10) as r:
-                    existing = json.loads(r.read())
-                    sha = existing.get("sha", "")
-            except Exception:
-                pass
-
-            # Wyślij zaktualizowany plik
-            payload = {
-                "message": f"Auto-sync pattern_data {time.strftime('%Y-%m-%d %H:%M')}",
-                "content": content_b64,
-            }
-            if sha:
-                payload["sha"] = sha
-
-            req = Request(api_url, 
-                         data=json.dumps(payload).encode(),
-                         headers=headers,
-                         method="PUT")
-            with urlopen(req, timeout=15) as r:
-                log.info(f"✅ pattern_data.json zsynchronizowany z GitHub ({os.path.getsize(data_file)} bajtów)")
-
-        except Exception as e:
-            log.warning(f"GitHub sync error: {e}")
-
-
 def clean_blacklisted_from_patterns():
-    """Usuwa zblacklistowane tokeny z pattern_data.json przy starcie."""
+    """Usuwa z pattern_data tylko tokeny których adres jest jawnie na blackliście.
+    NIE używa heurystyk po nazwie (te kasowały legalne memcoiny np. PEPE/SOL/BONK)."""
     try:
-        import os as _os
-        pf = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "pattern_data.json")
-        if not _os.path.exists(pf):
+        pf = PE.DATA_FILE if PATTERN_ENGINE else None
+        if not pf or not os.path.exists(pf):
             return
-        import json as _json
-        data = _json.load(open(pf))
+        data = json.load(open(pf))
         tokens = data.get("tokens", {})
+        bl = load_blacklist()
+        bl_addrs = set(bl.get("addresses", []))
+        # Pomijaj wpisy gdzie powód zawiera "$0" (stare błędne wpisy z brakiem danych)
+        bl_addrs = {a for a in bl_addrs if "$0" not in (bl.get("reasons", {}).get(a, ""))}
         removed = []
-        for addr, t in list(tokens.items()):
-            name = t.get("name","")
-            sym  = t.get("sym","")
-            is_bl, reason = is_blacklisted(name, sym, addr)
-            if is_bl:
+        for addr in list(tokens.keys()):
+            if addr in bl_addrs:
+                removed.append(tokens[addr].get("name", addr[:10]))
                 del tokens[addr]
-                removed.append(name)
         if removed:
-            _json.dump(data, open(pf,"w"), indent=2)
-            log.info(f"Usunięto z pattern_data: {removed}")
+            json.dump(data, open(pf, "w"), indent=2)
+            log.info(f"Usunięto z pattern_data (jawna blacklist): {removed}")
     except Exception as e:
         log.warning(f"clean_blacklisted: {e}")
 
 
+# ── GITHUB SYNC ───────────────────────────────────────────────────────────────
+
+GITHUB_REPO     = os.environ.get("GITHUB_REPO", "filipmarasz-svg/gemhunter")
+GITHUB_PATH     = "pattern_data.json"
+GITHUB_BRANCH   = os.environ.get("GITHUB_BRANCH", "main")
+SYNC_INTERVAL   = 900  # 15 min
+
+def init_data_from_repo():
+    """Przy starcie skopiuj pattern_data.json z katalogu repo do DATA_FILE (zwykle /tmp)
+    jeśli wersja w repo jest większa (więcej historii) niż obecny tmp."""
+    if not PATTERN_ENGINE:
+        return
+    try:
+        src = PE.REPO_DATA_FILE
+        dst = PE.DATA_FILE
+        if src == dst:
+            return  # lokalnie nie ma co kopiować
+        if not os.path.exists(src):
+            log.info("init_data_from_repo: brak seed file w repo")
+            return
+        src_size = os.path.getsize(src)
+        dst_size = os.path.getsize(dst) if os.path.exists(dst) else 0
+        if src_size > dst_size:
+            shutil.copy2(src, dst)
+            log.info(f"init_data_from_repo: skopiowano {src} → {dst} ({src_size} bytes)")
+        else:
+            log.info(f"init_data_from_repo: tmp już ma {dst_size} bytes (repo: {src_size}), pomijam")
+    except Exception as e:
+        log.warning(f"init_data_from_repo: {e}")
+
+
+def _gh_request(url: str, token: str, method: str = "GET", body: dict | None = None):
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "GemHunter-Sync",
+    }
+    data = None
+    if body is not None:
+        data = json.dumps(body).encode()
+        headers["Content-Type"] = "application/json"
+    req = Request(url, data=data, headers=headers, method=method)
+    with urlopen(req, timeout=20) as r:
+        return json.loads(r.read().decode() or "{}")
+
+
+_LAST_SYNC_HASH = {"v": None}  # pamięć ostatniego pushed contentu
+
+def sync_to_github_once() -> bool:
+    """Jeden push pattern_data.json na GitHub. Zwraca True jeśli OK.
+    Skipuje gdy zawartość pliku nie zmieniła się od ostatniego syncu (oszczędza commity)."""
+    if not PATTERN_ENGINE:
+        return False
+    token = os.environ.get("GITHUB_TOKEN")
+    if not token:
+        return False
+    src = PE.DATA_FILE
+    if not os.path.exists(src):
+        return False
+    try:
+        with open(src, "rb") as f:
+            raw = f.read()
+        local_hash = hashlib.sha256(raw).hexdigest()
+        if _LAST_SYNC_HASH["v"] == local_hash:
+            log.info("GitHub sync skip: brak zmian od ostatniego pushu")
+            return True
+        content_b64 = base64.b64encode(raw).decode()
+        api = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}"
+        # Pobierz aktualny sha (potrzebny do PUT)
+        sha = None
+        try:
+            existing = _gh_request(f"{api}?ref={GITHUB_BRANCH}", token, "GET")
+            sha = existing.get("sha")
+        except HTTPError as e:
+            if e.code != 404:
+                raise
+        ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+        payload = {
+            "message": f"sync pattern_data {ts}",
+            "content": content_b64,
+            "branch": GITHUB_BRANCH,
+        }
+        if sha:
+            payload["sha"] = sha
+        _gh_request(api, token, "PUT", payload)
+        _LAST_SYNC_HASH["v"] = local_hash
+        log.info(f"GitHub sync OK ({len(raw)} bytes)")
+        return True
+    except HTTPError as e:
+        log.error(f"GitHub sync HTTP {e.code}: {e.read().decode()[:200] if e.fp else e}")
+    except Exception as e:
+        log.error(f"GitHub sync error: {e}")
+    return False
+
+
+def sync_to_github_loop():
+    """Wątek tła — sync co SYNC_INTERVAL sekund."""
+    if not os.environ.get("GITHUB_TOKEN"):
+        log.warning("GITHUB_TOKEN brak — sync do GitHub WYŁĄCZONY")
+        return
+    log.info(f"GitHub sync loop start (co {SYNC_INTERVAL}s, repo={GITHUB_REPO})")
+    while True:
+        time.sleep(SYNC_INTERVAL)
+        try:
+            sync_to_github_once()
+        except Exception as e:
+            log.error(f"sync loop: {e}")
+
+
 def main():
-    import os
     port   = int(os.environ.get("PORT", 8080))
-    server = HTTPServer(("0.0.0.0", port), Handler)
+    bind   = "0.0.0.0" if os.environ.get("PORT") else "localhost"
+    server = HTTPServer((bind, port), Handler)
     log.info("╔══════════════════════════════════════╗")
     log.info("║  GemHunter v5 uruchomiony!           ║")
-    log.info(f"║  Chrome: http://localhost:{port}        ║")
+    log.info(f"║  Bind: {bind}:{port}")
     log.info("╚══════════════════════════════════════╝")
 
-    # Pattern Engine w tle
-    # Skopiuj dane z repo do /tmp przy pierwszym uruchomieniu
-    import shutil
-    repo_data = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
-    tmp_data  = "/tmp/pattern_data.json"
-    if os.path.exists(repo_data):
-        repo_size = os.path.getsize(repo_data)
-        tmp_size  = os.path.getsize(tmp_data) if os.path.exists(tmp_data) else 0
-        if repo_size > tmp_size:
-            shutil.copy2(repo_data, tmp_data)
-            log.info(f"Skopiowano pattern_data.json z repo do /tmp ({repo_size} bajtów)")
-        else:
-            log.info(f"Zachowano /tmp/pattern_data.json ({tmp_size} bajtów > repo {repo_size} bajtów)")
+    # 1. Skopiuj seed z repo do /tmp (gdy nowy kontener Railway)
+    init_data_from_repo()
 
-    # Wyczyść blacklistowane tokeny z pattern data
+    # 2. Wyczyść blacklistowane (tylko po jawnych adresach) z pattern_data
     clean_blacklisted_from_patterns()
 
+    # 3. Pattern Engine w tle
     if PATTERN_ENGINE:
         threading.Thread(target=PE.run_tracking_loop, daemon=True).start()
         log.info("Pattern Engine uruchomiony")
 
-    # Auto-refresh cache w tle
+    # 4. Auto-refresh cache
     threading.Thread(target=background_refresh, daemon=True).start()
-
-    # Auto-sync pattern_data do GitHub co godzinę
-    if os.environ.get("GITHUB_TOKEN"):
-        threading.Thread(target=sync_to_github, daemon=True).start()
-        log.info("GitHub auto-sync uruchomiony (co godzinę)")
     log.info(f"Auto-refresh uruchomiony (co {CACHE_TTL}s)")
+
+    # 5. Sync do GitHub co 15 min
+    threading.Thread(target=sync_to_github_loop, daemon=True).start()
 
     try:
         server.serve_forever()

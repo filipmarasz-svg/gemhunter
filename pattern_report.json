@@ -1,0 +1,581 @@
+{
+  "last_update": "2026-04-28T09:29:33.877392+00:00",
+  "stats": {
+    "total_tracked": 165,
+    "rugs_detected": 7553,
+    "gems_found": 231
+  },
+  "total_tracked": 157,
+  "classified": 112,
+  "pattern_counts": {
+    "rug_pull": 63,
+    "consolidation": 32,
+    "slow_bleed": 10,
+    "pump_and_dump": 7
+  },
+  "top_patterns": [
+    [
+      "rug_pull",
+      63
+    ],
+    [
+      "consolidation",
+      32
+    ],
+    [
+      "slow_bleed",
+      10
+    ],
+    [
+      "pump_and_dump",
+      7
+    ]
+  ],
+  "recent_rugs": [
+    {
+      "name": "AMURICA",
+      "chain": "SOL",
+      "reason": "Liq -85%, cena -98%",
+      "pct": -97.97350069735006
+    },
+    {
+      "name": "pluto",
+      "chain": "SOL",
+      "reason": "Liq -73%, cena -93%",
+      "pct": -92.78242917765799
+    },
+    {
+      "name": "Alien Shiba",
+      "chain": "ETH",
+      "reason": "Liq -69%, cena -91%",
+      "pct": -90.611905553708
+    },
+    {
+      "name": "Test Meme Coin",
+      "chain": "SOL",
+      "reason": "Liq -100%, cena -100%",
+      "pct": -99.5134092900964
+    },
+    {
+      "name": "Iwunka Twump",
+      "chain": "SOL",
+      "reason": "Liq -83%, cena -97%",
+      "pct": -97.11807563316756
+    }
+  ],
+  "recent_gems": [],
+  "lessons": [
+    "[SOL] Benjamoon Netenyeehaw \u2192 RUG PULL (Liq -71%, cena -92%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] UNFAZED \u2192 RUG PULL (Liq -70%, cena -91%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] FIGHT FIGHT FIGHT \u2192 Slow bleed -54%. Unikaj przy niskim buy ratio",
+    "[SOL] Libtard \u2192 Slow bleed -63%. Unikaj przy niskim buy ratio",
+    "[SOL] PumpFun Unstable Coin \u2192 RUG PULL (Liq -81%, cena -96%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] MEOWJESTY \u2192 P&D: pump x1.0, potem -45%",
+    "[SOL] The Time Traveler  \u2192 RUG PULL (Liq -74%, cena -93%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] AMURICA \u2192 RUG PULL (Liq -85%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[ETH] The Man from the Future \u2192 P&D: pump x1.0, potem -51%",
+    "[SOL] HORNY \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] pluto \u2192 RUG PULL (Liq -73%, cena -93%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] America Is Back \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Test Meme Coin \u2192 RUG PULL (Liq -100%, cena -100%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] The Omniscient Alien \u2192 Slow bleed -54%. Unikaj przy niskim buy ratio",
+    "[SOL] Time Machine \u2192 RUG PULL (Liq -77%, cena -95%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Ratcade \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] MAGA Frens \u2192 RUG PULL (Liq -84%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] True Man \u2192 RUG PULL (Liq -92%, cena -99%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Pokko \u2192 RUG PULL (Liq -82%, cena -97%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Skibidi Toilet \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] GENBANEKO \u2192 RUG PULL (Liq -91%, cena -99%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Hamster Purgatory \u2192 RUG PULL (Liq -78%, cena -95%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] XEL \u2192 RUG PULL (Liq -87%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] shitcoin \u2192 RUG PULL (Liq -76%, cena -95%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Act SA : The Self-Aware Prophecy \u2192 RUG PULL (Liq -89%, cena -99%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Jewcoin 2014 \u2192 RUG PULL (Liq -82%, cena -97%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Minnie \u2192 RUG PULL (Liq -73%, cena -93%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Baby Vibing Cat Coin \ud83c\udf7c\ud83d\udc08\u2728 \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] CR7 \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Scam Powell \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Scam Altman \u2192 P&D: pump x1.0, potem 11%",
+    "[SOL] Scammurz \u2192 RUG PULL (Liq -85%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Just a scam guy \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Scam Altman \u2192 P&D: pump x1.0, potem 47%",
+    "[SOL] ScamGPT \u2192 RUG PULL (Liq -86%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] A hamster with nothing to lose \u2192 RUG PULL (Liq -62%, cena -85%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[ETH] National Immigration and Customs Enforcement \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Dog In Vest \u2192 RUG PULL (Liq -88%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Just a scam guy \u2192 RUG PULL (Liq -84%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Official Scam Coin \u2192 RUG PULL (Liq -85%, cena -98%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Disco By Matt Furie \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] MOJO \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] Gavin Newscam \u2192 RUG PULL (Liq -75%, cena -94%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] lumi \u2192 RUG PULL (Liq -79%, cena -96%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Roo the Kangaroo \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] \u305f\u3073\u304f\u3093 \u2192 RUG PULL (Liq -76%, cena -95%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] Creeper Pepe \u2192 RUG PULL (Liq -84%, cena -97%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] I AM OUT \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem",
+    "[SOL] mabu beepo bam bam bam \u2192 RUG PULL (Liq -62%, cena -85%). Sygna\u0142y: niska liq, koncentracja holder\u00f3w",
+    "[SOL] \u305f\u3073\u3061\u3083\u3093 \u2192 Konsolidacja. Czekaj na breakout z vol potwierdzeniem"
+  ],
+  "risk_signals_learned": {
+    "Sell ratio 47%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2828 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2605 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 6718 \u26a0\ufe0f": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 10870 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 7144 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "\u015arednia liq/mcap": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2570 \u26a0\ufe0f": {
+      "rug_correlation": 0.14,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 45%": {
+      "rug_correlation": 0.06,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 62%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 501 \u26a0\ufe0f": {
+      "rug_correlation": 0.06,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 57%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell pressure 71%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 6678 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Low Liquidity": {
+      "rug_correlation": 0.17,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2647 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 61%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 3592 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 20%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 88%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 401": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 58%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 51%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle 7%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 79%": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 58%": {
+      "rug_correlation": 0.06,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "High ownership": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 100%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "High holder concentration": {
+      "rug_correlation": 0.17,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 81%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2656 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 56%": {
+      "rug_correlation": 0.06,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 50%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Tylko 90 holder\u00f3w": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2913 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2574 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle ~8%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 121174 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 6752 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 64%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 39%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 80%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 54%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2070 \u26a0\ufe0f": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Brak LP lock": {
+      "rug_correlation": 0.71,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Low amount of LP Providers": {
+      "rug_correlation": 0.6,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 78%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Dev 0%": {
+      "rug_correlation": 0.1,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 6592 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 3501 \u26a0\ufe0f": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 68%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 49%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 16997 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle 100%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 60%": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 63%": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Brak danych holders": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Tylko 1 holder\u00f3w": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle 20%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 59%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Single holder ownership": {
+      "rug_correlation": 0.67,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Podejrzany vol/mcap": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 3586 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top 10 holders high ownership": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Creator history of rugged toke": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2584 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 22750 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 52%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle 16%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck: brak danych": {
+      "rug_correlation": 0.16,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 55%": {
+      "rug_correlation": 0.06,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 66%": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 65%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 3969 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Sell ratio 46%": {
+      "rug_correlation": 0.04,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 23107 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2071 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 57%": {
+      "rug_correlation": 0.09,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2579 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Dobra liquidity": {
+      "rug_correlation": 0.89,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Top10: 46%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "LP Locked": {
+      "rug_correlation": 0.1,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2571 \u26a0\ufe0f": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2581 \u26a0\ufe0f": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 82%": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 21207 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Buy pressure 67%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Creator history of rugged tokens": {
+      "rug_correlation": 0.03,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 2779 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 6674 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "Bundle 22%": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    },
+    "RugCheck 117270 \u26a0\ufe0f": {
+      "rug_correlation": 0.01,
+      "gem_correlation": 0.0,
+      "signal": "danger"
+    }
+  }
+}

@@ -14,8 +14,14 @@ from collections import defaultdict
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [PATTERN] %(message)s")
 log = logging.getLogger(__name__)
 
-DATA_FILE    = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_data.json")
-REPORT_FILE  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pattern_report.json")
+_BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
+# Na Railway pisz do /tmp (katalog aplikacji jest read-only i kasowany przy restartach).
+# Lokalnie pisz obok skryptu.
+_IS_RAILWAY  = bool(os.environ.get("PORT") or os.environ.get("RAILWAY_ENVIRONMENT"))
+_DATA_DIR    = "/tmp" if (_IS_RAILWAY and os.path.isdir("/tmp")) else _BASE_DIR
+DATA_FILE    = os.path.join(_DATA_DIR, "pattern_data.json")
+REPORT_FILE  = os.path.join(_DATA_DIR, "pattern_report.json")
+REPO_DATA_FILE = os.path.join(_BASE_DIR, "pattern_data.json")  # seed source z repo
 CHECK_INTERVAL = 300   # sprawdzaj co 5 minut
 TRACK_HOURS    = 48    # śledź token przez 48h
 
@@ -299,16 +305,21 @@ def update_tracked_tokens():
             snaps = token["snapshots"]
             if len(snaps) >= 3:
                 result = classify_pattern(snaps, token)
-                token["pattern"] = result["pattern"]
+                prev_pattern = token.get("pattern")
+                new_pattern  = result["pattern"]
+                token["pattern"] = new_pattern
                 token["pattern_confidence"] = result["confidence"]
                 token["pattern_reason"] = result.get("reason", "")
                 token["pct_change"] = result.get("pct_change", 0)
 
-                if result["pattern"] == "rug_pull":
-                    data["stats"]["rugs_detected"] = data["stats"].get("rugs_detected", 0) + 1
-                    log.warning(f"🚨 RUG PULL wykryty: {token['name']} ({token['chain']})")
-                elif result["pattern"] in ("organic_pump", "wojak_pattern"):
-                    data["stats"]["gems_found"] = data["stats"].get("gems_found", 0) + 1
+                # Inkrementuj statystyki TYLKO gdy klasyfikacja się zmieniła na nową
+                # (wcześniej licznik rósł przy każdym snapshocie tego samego tokenu)
+                if new_pattern != prev_pattern:
+                    if new_pattern == "rug_pull":
+                        data["stats"]["rugs_detected"] = data["stats"].get("rugs_detected", 0) + 1
+                        log.warning(f"🚨 RUG PULL wykryty: {token['name']} ({token['chain']})")
+                    elif new_pattern in ("organic_pump", "wojak_pattern"):
+                        data["stats"]["gems_found"] = data["stats"].get("gems_found", 0) + 1
 
             log.info(f"Update {token['name']}: price={price:.8f}, pattern={token.get('pattern','?')}")
 
@@ -425,7 +436,7 @@ def get_pattern_data_for_api() -> dict:
                 "added_ago": f"{int((time.time()-t.get('added_at',time.time()))/3600)}h",
                 "dexUrl": f"https://dexscreener.com/{'solana' if t['chain']=='SOL' else 'ethereum'}/{t['address']}",
             }
-            for t in sorted(classified, key=lambda x: abs(x.get("pct_change",0)), reverse=True)[:20]
+            for t in sorted(classified, key=lambda x: abs(x.get("pct_change",0)), reverse=True)[:100]
         ]
     }
 
