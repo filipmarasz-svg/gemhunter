@@ -715,29 +715,31 @@ GITHUB_BRANCH   = os.environ.get("GITHUB_BRANCH", "main")
 SYNC_INTERVAL   = 900  # 15 min
 
 def fetch_pattern_data_from_github() -> bool:
-    """Pobiera świeży pattern_data.json z brancha GITHUB_BRANCH na GitHub i zapisuje
-    do PE.DATA_FILE. Używane gdy sync leci na osobny branch (np. data-sync) — wtedy
-    plik w /app/ (z brancha main) jest nieaktualny i seed musi przyjść z GitHub API.
+    """Pobiera świeży pattern_data.json z brancha GITHUB_BRANCH przez raw URL.
+    GitHub Contents API zwraca pusty content dla plików >1MB, więc używamy raw.githubusercontent.com.
     Zwraca True jeśli pobrano i zapisano."""
     if not PATTERN_ENGINE:
         return False
     token = os.environ.get("GITHUB_TOKEN")
     try:
-        api = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}?ref={GITHUB_BRANCH}"
-        headers = {
-            "Accept": "application/vnd.github+json",
-            "User-Agent": "GemHunter-Sync",
-        }
+        # Raw URL działa dla dowolnego rozmiaru pliku
+        raw_url = f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_PATH}"
+        headers = {"User-Agent": "GemHunter-Sync"}
         if token:
+            # Token zwiększa rate limit i pozwala na private repos
             headers["Authorization"] = f"token {token}"
-        req = Request(api, headers=headers)
-        with urlopen(req, timeout=20) as r:
-            meta = json.loads(r.read().decode())
-        content_b64 = meta.get("content", "")
-        if not content_b64:
-            log.warning("fetch_pattern_data_from_github: pusta odpowiedź")
+        req = Request(raw_url, headers=headers)
+        with urlopen(req, timeout=30) as r:
+            raw = r.read()
+        if not raw:
+            log.warning("fetch_pattern_data_from_github: pusty plik na branchu")
             return False
-        raw = base64.b64decode(content_b64)
+        # Walidacja JSON żeby nie nadpisać garbage'em
+        try:
+            json.loads(raw.decode())
+        except Exception as e:
+            log.warning(f"fetch_pattern_data_from_github: niepoprawny JSON ({e})")
+            return False
         dst = PE.DATA_FILE
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         cur_size = os.path.getsize(dst) if os.path.exists(dst) else 0
