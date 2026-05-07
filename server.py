@@ -43,13 +43,17 @@ except ImportError:
 
 # ── BLACKLIST ─────────────────────────────────────────────────────────────────
 
+BLACKLIST_LIQ_TTL_DAYS = 14   # wpisy "Za niska liq" wygasają po X dniach
+
 def load_blacklist() -> dict:
     try:
         if os.path.exists(BLACK_FILE):
-            return json.load(open(BLACK_FILE))
+            bl = json.load(open(BLACK_FILE))
+            bl.setdefault("timestamps", {})
+            return bl
     except Exception:
         pass
-    return {"addresses": [], "reasons": {}, "learned_patterns": []}
+    return {"addresses": [], "reasons": {}, "learned_patterns": [], "timestamps": {}}
 
 def save_blacklist(bl: dict):
     json.dump(bl, open(BLACK_FILE, "w"), indent=2)
@@ -61,6 +65,7 @@ def auto_blacklist(token: dict, reason: str):
     if addr and addr not in bl["addresses"]:
         bl["addresses"].append(addr)
         bl["reasons"][addr] = f"{reason} | {name}"
+        bl.setdefault("timestamps", {})[addr] = time.time()
         log.warning(f"🚫 Blacklist: [{token.get('chain')}] {name} — {reason}")
     # Naucz wzorzec jeśli nazwa to zlepek znanych coinów
     known = ["solana","ethereum","bitcoin","pepe","shiba","dogecoin","bnb","usdt","usdc","btc","eth","sol"]
@@ -78,6 +83,11 @@ def is_blacklisted(name: str, sym: str, address: str) -> tuple[bool, str]:
         # Ignoruj stare błędne wpisy gdzie liq=$0 (brak danych, nie spam)
         if "$0" in reason:
             return False, ""
+        # Wpisy "Za niska liq" wygasają — token mógł zyskać płynność
+        if "Za niska liq" in reason:
+            ts = bl.get("timestamps", {}).get(address, 0)
+            if ts and (time.time() - ts) > BLACKLIST_LIQ_TTL_DAYS * 86400:
+                return False, ""
         return True, reason or "czarna lista"
     n = (name + sym).lower()
     # Blokuj konkretny wzorzec: nazwa zawiera 3+ pełne nazwy coinów (np. SolanaEthereumBitcoin)
@@ -434,7 +444,7 @@ def process_pairs(pairs: list, tab: str, chain_filter: str) -> list:
             # ── Blacklist check ──
             is_bl, bl_reason = is_blacklisted(name, sym, address)
             if is_bl:
-                log.info(f"Pominięto (blacklist): {name} — {bl_reason}")
+                log.debug(f"Pominięto (blacklist): {name} — {bl_reason}")
                 continue
 
             price     = float(pair.get("priceUsd") or 0)
@@ -650,6 +660,25 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path=="/api/blacklist":
             self.send_json(load_blacklist()); return
 
+        if parsed.path=="/api/health":
+            try:
+                tokens_n = 0
+                if PATTERN_ENGINE and os.path.exists(PE.DATA_FILE):
+                    with open(PE.DATA_FILE) as _f:
+                        tokens_n = len(json.load(_f).get("tokens", {}))
+                self.send_json({
+                    "ok": True,
+                    "tokens": tokens_n,
+                    "cache_keys": list(CACHE.keys()),
+                    "last_sync_hash": _LAST_SYNC_HASH.get("v"),
+                    "github_branch": GITHUB_BRANCH,
+                    "data_file": PE.DATA_FILE if PATTERN_ENGINE else None,
+                    "ts": int(time.time()),
+                })
+            except Exception as e:
+                self.send_json({"ok": False, "error": str(e)}, 500)
+            return
+
         self.send_response(404); self.end_headers()
 
 
@@ -685,26 +714,72 @@ GITHUB_PATH     = "pattern_data.json"
 GITHUB_BRANCH   = os.environ.get("GITHUB_BRANCH", "main")
 SYNC_INTERVAL   = 900  # 15 min
 
+def fetch_pattern_data_from_github() -> bool:
+    """Pobiera świeży pattern_data.json z brancha GITHUB_BRANCH na GitHub i zapisuje
+    do PE.DATA_FILE. Używane gdy sync leci na osobny branch (np. data-sync) — wtedy
+    plik w /app/ (z brancha main) jest nieaktualny i seed musi przyjść z GitHub API.
+    Zwraca True jeśli pobrano i zapisano."""
+    if not PATTERN_ENGINE:
+        return False
+    token = os.environ.get("GITHUB_TOKEN")
+    try:
+        api = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_PATH}?ref={GITHUB_BRANCH}"
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "User-Agent": "GemHunter-Sync",
+        }
+        if token:
+            headers["Authorization"] = f"token {token}"
+        req = Request(api, headers=headers)
+        with urlopen(req, timeout=20) as r:
+            meta = json.loads(r.read().decode())
+        content_b64 = meta.get("content", "")
+        if not content_b64:
+            log.warning("fetch_pattern_data_from_github: pusta odpowiedź")
+            return False
+        raw = base64.b64decode(content_b64)
+        dst = PE.DATA_FILE
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        cur_size = os.path.getsize(dst) if os.path.exists(dst) else 0
+        if len(raw) <= cur_size:
+            log.info(f"fetch_pattern_data_from_github: pobrane {len(raw)}B ≤ lokalne {cur_size}B, pomijam")
+            return False
+        with open(dst, "wb") as f:
+            f.write(raw)
+        log.info(f"fetch_pattern_data_from_github: zapisano {len(raw)} bytes z brancha {GITHUB_BRANCH} → {dst}")
+        return True
+    except HTTPError as e:
+        log.warning(f"fetch_pattern_data_from_github HTTP {e.code} (branch={GITHUB_BRANCH})")
+    except Exception as e:
+        log.warning(f"fetch_pattern_data_from_github: {e}")
+    return False
+
+
 def init_data_from_repo():
-    """Przy starcie skopiuj pattern_data.json z katalogu repo do DATA_FILE (zwykle /tmp)
-    jeśli wersja w repo jest większa (więcej historii) niż obecny tmp."""
+    """Przy starcie zainicjuj /tmp/pattern_data.json. Strategia:
+    1. Spróbuj pobrać z GitHub z brancha GITHUB_BRANCH (zawsze najświeższe).
+    2. Fallback: skopiuj seed z /app/pattern_data.json (z brancha main przy build)."""
     if not PATTERN_ENGINE:
         return
+    # 1. GitHub jako pierwszy wybór — zawsze najnowszy stan
+    if fetch_pattern_data_from_github():
+        return
+    # 2. Fallback na lokalny seed
     try:
         src = PE.REPO_DATA_FILE
         dst = PE.DATA_FILE
         if src == dst:
             return  # lokalnie nie ma co kopiować
         if not os.path.exists(src):
-            log.info("init_data_from_repo: brak seed file w repo")
+            log.info("init_data_from_repo: brak seed file w repo (fallback)")
             return
         src_size = os.path.getsize(src)
         dst_size = os.path.getsize(dst) if os.path.exists(dst) else 0
         if src_size > dst_size:
             shutil.copy2(src, dst)
-            log.info(f"init_data_from_repo: skopiowano {src} → {dst} ({src_size} bytes)")
+            log.info(f"init_data_from_repo (fallback): skopiowano {src} → {dst} ({src_size} bytes)")
         else:
-            log.info(f"init_data_from_repo: tmp już ma {dst_size} bytes (repo: {src_size}), pomijam")
+            log.info(f"init_data_from_repo (fallback): tmp już ma {dst_size} bytes (repo: {src_size}), pomijam")
     except Exception as e:
         log.warning(f"init_data_from_repo: {e}")
 
@@ -801,6 +876,19 @@ def main():
 
     # 2. Wyczyść blacklistowane (tylko po jawnych adresach) z pattern_data
     clean_blacklisted_from_patterns()
+
+    # 2b. Przelicz statystyki + migruj rug_counted/gem_counted (raz przy starcie)
+    if PATTERN_ENGINE and os.path.exists(PE.DATA_FILE):
+        try:
+            with open(PE.DATA_FILE) as _f:
+                _d = json.load(_f)
+            old_rugs = _d.get("stats", {}).get("rugs_detected", 0)
+            new_stats = PE.recompute_stats(_d)
+            with open(PE.DATA_FILE, "w") as _f:
+                json.dump(_d, _f, indent=2)
+            log.info(f"recompute_stats: rugs {old_rugs} → {new_stats['rugs_detected']}, gems → {new_stats['gems_found']}, total → {new_stats['total_tracked']}")
+        except Exception as e:
+            log.warning(f"recompute_stats failed: {e}")
 
     # 3. Pattern Engine w tle
     if PATTERN_ENGINE:

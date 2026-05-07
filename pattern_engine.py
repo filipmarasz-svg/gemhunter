@@ -71,6 +71,13 @@ PATTERNS = {
 
 # ── STORAGE ──────────────────────────────────────────────────────────────────
 
+# Lock chroni przed race condition gdy add_token_to_track i update_tracked_tokens
+# pracują na pattern_data równolegle z różnych wątków.
+_data_lock = threading.Lock()
+
+MAX_SNAPSHOTS_PER_TOKEN = 100   # twardy limit żeby plik nie puchł nieskończenie
+ARCHIVE_RETENTION_DAYS  = 7     # archived tokeny starsze niż X dni → usuń całkowicie
+
 def load_data() -> dict:
     if os.path.exists(DATA_FILE):
         try:
@@ -81,8 +88,53 @@ def load_data() -> dict:
     return {"tokens": {}, "patterns": defaultdict(int), "stats": {"total_tracked": 0, "rugs_detected": 0, "gems_found": 0}}
 
 def save_data(data: dict):
-    with open(DATA_FILE, "w") as f:
+    # Atomic write: pisz do .tmp, potem rename (atomic na POSIX i Windows).
+    # Inaczej sync_to_github mógłby przeczytać plik w połowie zapisu.
+    tmp = DATA_FILE + ".tmp"
+    with open(tmp, "w") as f:
         json.dump(data, f, indent=2)
+    os.replace(tmp, DATA_FILE)
+
+
+def recompute_stats(data: dict) -> dict:
+    """Przelicza stats.rugs_detected/gems_found na podstawie faktycznych tokenów.
+    Ustawia też rug_counted/gem_counted flagi dla migracji ze starego formatu.
+    Wywoływane raz przy starcie żeby naprawić zawyżony licznik."""
+    tokens = data.get("tokens", {})
+    rugs, gems = 0, 0
+    for t in tokens.values():
+        p = t.get("pattern")
+        if p == "rug_pull":
+            rugs += 1
+            t["rug_counted"] = True
+        elif p in ("organic_pump", "wojak_pattern"):
+            gems += 1
+            t["gem_counted"] = True
+    data.setdefault("stats", {})
+    data["stats"]["rugs_detected"] = rugs
+    data["stats"]["gems_found"]   = gems
+    data["stats"]["total_tracked"] = len(tokens)
+    return data["stats"]
+
+
+def prune_data(data: dict) -> int:
+    """Usuwa archived tokeny > ARCHIVE_RETENTION_DAYS oraz tnie snapshots do MAX_SNAPSHOTS_PER_TOKEN.
+    Zwraca liczbę usuniętych tokenów."""
+    now = time.time()
+    cutoff = now - ARCHIVE_RETENTION_DAYS * 86400
+    tokens = data.get("tokens", {})
+    removed = 0
+    for addr in list(tokens.keys()):
+        t = tokens[addr]
+        if t.get("status") == "archived" and t.get("last_checked", 0) < cutoff:
+            del tokens[addr]
+            removed += 1
+            continue
+        snaps = t.get("snapshots", [])
+        if len(snaps) > MAX_SNAPSHOTS_PER_TOKEN:
+            # Zostaw pierwszy (entry price) + ostatnie N-1
+            t["snapshots"] = [snaps[0]] + snaps[-(MAX_SNAPSHOTS_PER_TOKEN - 1):]
+    return removed
 
 def load_report() -> dict:
     if os.path.exists(REPORT_FILE):
@@ -114,6 +166,39 @@ def fetch_token_data(address: str, chain: str) -> dict | None:
     except Exception as e:
         log.warning(f"Fetch error ({address[:10]}): {e}")
         return None
+
+
+def fetch_tokens_batch(addresses: list[str]) -> dict:
+    """DexScreener wspiera multi-token: /tokens/{a1,a2,...} (max 30).
+    Zwraca {address.lower(): pair_dict, ...}. Brak pary dla danego adresu = brak klucza."""
+    out = {}
+    if not addresses:
+        return out
+    for i in range(0, len(addresses), 30):
+        chunk = addresses[i:i+30]
+        try:
+            req = Request(DS_TOKEN.format(addr=",".join(chunk)), headers=HEADERS)
+            with urlopen(req, timeout=15) as r:
+                data = json.loads(r.read().decode())
+            pairs = data.get("pairs") or []
+            # Pick best pair per address (highest liquidity preferred)
+            by_addr: dict[str, dict] = {}
+            for p in pairs:
+                base_addr = ((p.get("baseToken") or {}).get("address") or "").lower()
+                if not base_addr:
+                    continue
+                cur = by_addr.get(base_addr)
+                if cur is None:
+                    by_addr[base_addr] = p
+                    continue
+                cur_liq = float((cur.get("liquidity") or {}).get("usd") or 0)
+                new_liq = float((p.get("liquidity") or {}).get("usd") or 0)
+                if new_liq > cur_liq:
+                    by_addr[base_addr] = p
+            out.update(by_addr)
+        except Exception as e:
+            log.warning(f"Batch fetch error ({len(chunk)} addrs): {e}")
+    return out
 
 # ── KLASYFIKACJA WZORCÓW ─────────────────────────────────────────────────────
 
@@ -227,63 +312,72 @@ def add_token_to_track(address: str, chain: str, name: str, sym: str,
                        price: float, mcap: float, vol1h: float, liq: float,
                        risk: int, flags: list):
     """Dodaje token do śledzenia."""
-    data = load_data()
-    if address in data["tokens"]:
-        return  # już śledzony
+    with _data_lock:
+        data = load_data()
+        if address in data["tokens"]:
+            return  # już śledzony
 
-    now = time.time()
-    data["tokens"][address] = {
-        "address": address,
-        "chain": chain,
-        "name": name,
-        "sym": sym,
-        "mcap": mcap,
-        "initial_risk": risk,
-        "flags": flags,
-        "added_at": now,
-        "last_checked": now,
-        "snapshots": [{
-            "ts": now,
-            "price": price,
+        now = time.time()
+        data["tokens"][address] = {
+            "address": address,
+            "chain": chain,
+            "name": name,
+            "sym": sym,
             "mcap": mcap,
-            "vol1h": vol1h,
-            "liq": liq,
-            "buys1h": 0,
-            "sells1h": 0,
-        }],
-        "pattern": None,
-        "pattern_confidence": 0,
-        "status": "tracking",  # tracking | classified | archived
-    }
-    data["stats"]["total_tracked"] = data["stats"].get("total_tracked", 0) + 1
-    save_data(data)
+            "initial_risk": risk,
+            "flags": flags,
+            "added_at": now,
+            "last_checked": now,
+            "snapshots": [{
+                "ts": now,
+                "price": price,
+                "mcap": mcap,
+                "vol1h": vol1h,
+                "liq": liq,
+                "buys1h": 0,
+                "sells1h": 0,
+            }],
+            "pattern": None,
+            "pattern_confidence": 0,
+            "rug_counted": False,   # max 1 inkrement statystyk per token
+            "gem_counted": False,
+            "status": "tracking",  # tracking | classified | archived
+        }
+        data["stats"]["total_tracked"] = data["stats"].get("total_tracked", 0) + 1
+        save_data(data)
     log.info(f"Dodano do śledzenia: {name} ({chain}) addr={address[:12]}...")
 
 
 def update_tracked_tokens():
-    """Pobiera aktualne dane dla wszystkich śledzonych tokenów."""
-    data = load_data()
+    """Pobiera aktualne dane dla wszystkich śledzonych tokenów (batch po 30)."""
+    with _data_lock:
+        data = load_data()
     now = time.time()
     to_archive = []
 
+    # Krok 1: archiwizuj wygasłe + zbierz adresy do odpytania
+    pending_addrs: list[str] = []
     for addr, token in data["tokens"].items():
         if token.get("status") == "archived":
             continue
-
-        # Sprawdź czy czas śledzenia minął
         added_at = token.get("added_at", now)
         if now - added_at > TRACK_HOURS * 3600:
             token["status"] = "archived"
             to_archive.append(addr)
             continue
-
-        # Sprawdź czy minęło wystarczająco czasu od ostatniego sprawdzenia
         last = token.get("last_checked", 0)
         if now - last < CHECK_INTERVAL:
             continue
+        pending_addrs.append(addr)
 
-        # Pobierz aktualne dane
-        pair = fetch_token_data(addr, token["chain"])
+    # Krok 2: jeden batch fetch dla wszystkich (zamiast N requestów)
+    log.info(f"Batch fetch: {len(pending_addrs)} tokens, {len(to_archive)} archived")
+    pairs_by_addr = fetch_tokens_batch(pending_addrs)
+
+    # Krok 3: aktualizuj tokeny
+    for addr in pending_addrs:
+        token = data["tokens"][addr]
+        pair = pairs_by_addr.get(addr.lower())
         if pair:
             price   = float(pair.get("priceUsd") or 0)
             vol1h   = float((pair.get("volume") or {}).get("h1") or 0)
@@ -312,18 +406,24 @@ def update_tracked_tokens():
                 token["pattern_reason"] = result.get("reason", "")
                 token["pct_change"] = result.get("pct_change", 0)
 
-                # Inkrementuj statystyki TYLKO gdy klasyfikacja się zmieniła na nową
-                # (wcześniej licznik rósł przy każdym snapshocie tego samego tokenu)
-                if new_pattern != prev_pattern:
-                    if new_pattern == "rug_pull":
-                        data["stats"]["rugs_detected"] = data["stats"].get("rugs_detected", 0) + 1
-                        log.warning(f"🚨 RUG PULL wykryty: {token['name']} ({token['chain']})")
-                    elif new_pattern in ("organic_pump", "wojak_pattern"):
-                        data["stats"]["gems_found"] = data["stats"].get("gems_found", 0) + 1
+                # Inkrementuj statystyki MAX RAZ na token (per-token flag).
+                # Wcześniej licznik rósł przy każdej oscylacji unknown↔rug_pull.
+                if new_pattern == "rug_pull" and not token.get("rug_counted"):
+                    data["stats"]["rugs_detected"] = data["stats"].get("rugs_detected", 0) + 1
+                    token["rug_counted"] = True
+                    log.warning(f"🚨 RUG PULL wykryty: {token['name']} ({token['chain']})")
+                elif new_pattern in ("organic_pump", "wojak_pattern") and not token.get("gem_counted"):
+                    data["stats"]["gems_found"] = data["stats"].get("gems_found", 0) + 1
+                    token["gem_counted"] = True
 
             log.info(f"Update {token['name']}: price={price:.8f}, pattern={token.get('pattern','?')}")
 
-    save_data(data)
+    # Prune (archived > 7 dni, snapshots > 100) + zapis pod lockiem
+    pruned = prune_data(data)
+    if pruned:
+        log.info(f"Prune: usunięto {pruned} archived tokens")
+    with _data_lock:
+        save_data(data)
     generate_report(data)
 
 
@@ -347,12 +447,14 @@ def generate_report(data: dict):
     recent_gems = [t for t in classified if t["pattern"] in ("organic_pump", "wojak_pattern", "asteroid_pattern")]
     recent_gems.sort(key=lambda x: abs(x.get("pct_change", 0)), reverse=True)
 
-    # Generuj lekcje dla nowo sklasyfikowanych
+    # Generuj lekcje dla nowo sklasyfikowanych — dedup zachowując kolejność
     lessons = report.get("lessons", [])
+    seen = set(lessons)
     for t in classified:
         lesson = generate_lesson(t["pattern"], t, {"pattern": t["pattern"], "reason": t.get("pattern_reason",""), "pct_change": t.get("pct_change",0), "peak_multiple": 1})
-        if lesson not in lessons:
+        if lesson not in seen:
             lessons.append(lesson)
+            seen.add(lesson)
     lessons = lessons[-50:]  # max 50 ostatnich lekcji
 
     report = {
@@ -408,13 +510,21 @@ def compute_risk_signals(classified: list) -> dict:
 # ── API ENDPOINT DLA SERWERA ──────────────────────────────────────────────────
 
 def get_pattern_data_for_api() -> dict:
-    """Zwraca dane wzorców dla frontendu."""
+    """Zwraca dane wzorców dla frontendu — pokazuje też tokeny w trakcie zbierania danych."""
     report = load_report()
     data   = load_data()
     tokens = list(data.get("tokens", {}).values())
 
-    active = [t for t in tokens if t.get("status") == "tracking"]
+    active     = [t for t in tokens if t.get("status") == "tracking"]
     classified = [t for t in tokens if t.get("pattern") and t["pattern"] not in ("unknown", None)]
+
+    # Pokazuj wszystkie nie-archived: classified posortowane po pct_change,
+    # potem tracking (bez wzorca jeszcze) — żeby front widział że bot pracuje.
+    visible = sorted(classified, key=lambda x: abs(x.get("pct_change", 0)), reverse=True)
+    visible_addrs = {t["address"] for t in visible}
+    pending = [t for t in active if t["address"] not in visible_addrs]
+    pending.sort(key=lambda x: x.get("added_at", 0), reverse=True)
+    full_list = (visible + pending)[:100]
 
     return {
         "stats": report.get("stats", {}),
@@ -429,14 +539,15 @@ def get_pattern_data_for_api() -> dict:
         "tracked_tokens": [
             {
                 "name": t["name"], "sym": t["sym"], "chain": t["chain"],
-                "pattern": t.get("pattern"), "confidence": t.get("pattern_confidence", 0),
+                "pattern": t.get("pattern") or "collecting",
+                "confidence": t.get("pattern_confidence", 0),
                 "pct_change": t.get("pct_change", 0),
-                "reason": t.get("pattern_reason", ""),
+                "reason": t.get("pattern_reason", "") or f"snapshots: {len(t.get('snapshots', []))}/3",
                 "snapshots_count": len(t.get("snapshots", [])),
                 "added_ago": f"{int((time.time()-t.get('added_at',time.time()))/3600)}h",
                 "dexUrl": f"https://dexscreener.com/{'solana' if t['chain']=='SOL' else 'ethereum'}/{t['address']}",
             }
-            for t in sorted(classified, key=lambda x: abs(x.get("pct_change",0)), reverse=True)[:100]
+            for t in full_list
         ]
     }
 
