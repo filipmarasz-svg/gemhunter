@@ -119,14 +119,17 @@ def recompute_stats(data: dict) -> dict:
 
 def prune_data(data: dict) -> int:
     """Usuwa archived tokeny > ARCHIVE_RETENTION_DAYS oraz tnie snapshots do MAX_SNAPSHOTS_PER_TOKEN.
-    Zwraca liczbę usuniętych tokenów."""
+    Zwraca liczbę usuniętych tokenów. UWAGA: token bez last_checked traktujemy jako świeży (default=now),
+    żeby nie kasować starych tokenów które nie mają tego pola."""
     now = time.time()
     cutoff = now - ARCHIVE_RETENTION_DAYS * 86400
     tokens = data.get("tokens", {})
     removed = 0
     for addr in list(tokens.keys()):
         t = tokens[addr]
-        if t.get("status") == "archived" and t.get("last_checked", 0) < cutoff:
+        # Reference timestamp: last_checked → added_at → now (pominij usuwanie gdy brak danych)
+        ref_ts = t.get("last_checked") or t.get("added_at") or now
+        if t.get("status") == "archived" and ref_ts < cutoff:
             del tokens[addr]
             removed += 1
             continue
