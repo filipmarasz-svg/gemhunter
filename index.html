@@ -205,7 +205,7 @@ input[type=range]{width:100%;accent-color:var(--green);cursor:pointer}
 
 <script>
 window.onerror=function(m,s,l){document.getElementById('grid').innerHTML='<div class="state"><div class="err"><strong>❌ Błąd JS linia '+l+':</strong><br><br>'+m+'</div></div>';};
-const API='http://localhost:8080/api/scan';
+const API=window.location.origin+'/api/scan';
 let data={new:[],pump:[],growing:[],viral:[],patterns:{},results:{}};
 let tab='new', subTab='trend', chain='ALL', maxRisk=100, sortKey='change1h';
 let scanning=false;
@@ -489,8 +489,8 @@ async function runScan(force=false){
       fetch(`${API}?tab=pump&chain=${chain}${forceQ}`),
       fetch(`${API}?tab=growing&chain=${chain}${forceQ}`),
       fetch(`${API}?tab=viral&chain=${chain}${forceQ}`),
-      fetch('http://localhost:8080/api/patterns'),
-      fetch('http://localhost:8080/api/results')
+      fetch(window.location.origin+'/api/patterns'),
+      fetch(window.location.origin+'/api/results')
     ]);
     const rawResults=await Promise.allSettled([rN.json(),rP.json(),rG.json(),rV.json(),rPat.json(),rRes.json()]);
     const [dN,dP,dG,dV,dPat,dRes]=rawResults.map(r=>r.status==='fulfilled'?r.value:{tokens:[],ok:false});
