@@ -76,7 +76,9 @@ PATTERNS = {
 _data_lock = threading.Lock()
 
 MAX_SNAPSHOTS_PER_TOKEN = 100   # twardy limit żeby plik nie puchł nieskończenie
-ARCHIVE_RETENTION_DAYS  = 7     # archived tokeny starsze niż X dni → usuń całkowicie
+ARCHIVE_RETENTION_DAYS  = 30    # archived tokeny BEZ wzorca uczącego starsze niż X dni → usuń
+# Wzorce o wartości treningowej dla bota — NIGDY nie kasuj tych tokenów (poza trim snapshotów)
+EDUCATIONAL_PATTERNS = {"rug_pull", "pump_and_dump", "organic_pump", "wojak_pattern", "asteroid_pattern"}
 
 def load_data() -> dict:
     if os.path.exists(DATA_FILE):
@@ -129,7 +131,9 @@ def prune_data(data: dict) -> int:
         t = tokens[addr]
         # Reference timestamp: last_checked → added_at → now (pominij usuwanie gdy brak danych)
         ref_ts = t.get("last_checked") or t.get("added_at") or now
-        if t.get("status") == "archived" and ref_ts < cutoff:
+        # NIGDY nie kasuj tokenów z patternem edukacyjnym — to dane treningowe bota
+        is_educational = t.get("pattern") in EDUCATIONAL_PATTERNS
+        if t.get("status") == "archived" and ref_ts < cutoff and not is_educational:
             del tokens[addr]
             removed += 1
             continue
