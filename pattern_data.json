@@ -635411,7 +635411,7 @@
       "pattern_confidence": 95,
       "rug_counted": true,
       "gem_counted": false,
-      "status": "tracking",
+      "status": "archived",
       "pattern_reason": "Liq -81%, cena -96%",
       "pct_change": -96.29336846728151
     },
@@ -636398,7 +636398,7 @@
         }
       ],
       "added_at": 1778980182.124801,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1778980182.124801,
@@ -636408,33 +636408,6 @@
           "liq": 21958.92,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0001025,
-          "mcap": 102503.0,
-          "vol1h": 11920.58,
-          "liq": 28354.67,
-          "buys1h": 92,
-          "sells1h": 92
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0001028,
-          "mcap": 102867.0,
-          "vol1h": 11517.13,
-          "liq": 28400.06,
-          "buys1h": 94,
-          "sells1h": 84
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001601,
-          "mcap": 160131.0,
-          "vol1h": 26428.85,
-          "liq": 35424.68,
-          "buys1h": 188,
-          "sells1h": 137
         },
         {
           "ts": 1779122005.9937143,
@@ -637299,6 +637272,33 @@
           "liq": 26121.23,
           "buys1h": 65,
           "sells1h": 42
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 7.825e-05,
+          "mcap": 78246.0,
+          "vol1h": 5407.88,
+          "liq": 25235.34,
+          "buys1h": 63,
+          "sells1h": 38
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 7.678e-05,
+          "mcap": 76770.0,
+          "vol1h": 5695.49,
+          "liq": 24992.77,
+          "buys1h": 61,
+          "sells1h": 39
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 7.261e-05,
+          "mcap": 72604.0,
+          "vol1h": 6780.54,
+          "liq": 24297.77,
+          "buys1h": 68,
+          "sells1h": 43
         }
       ],
       "pattern": "consolidation",
@@ -637306,8 +637306,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +8% total",
-      "pct_change": 7.728909465020582
+      "pattern_reason": "Stabilna cena -7% total",
+      "pct_change": -6.622942386831279
     },
     "25JUPL6ksapY1iCLWkFcSaXaA6Ar3W7JDCdPjeSApump": {
       "address": "25JUPL6ksapY1iCLWkFcSaXaA6Ar3W7JDCdPjeSApump",
@@ -637335,7 +637335,7 @@
         }
       ],
       "added_at": 1778980193.662161,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1778980193.662161,
@@ -637345,33 +637345,6 @@
           "liq": 58314.72,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0002729,
-          "mcap": 272545.0,
-          "vol1h": 13146.82,
-          "liq": 47791.48,
-          "buys1h": 114,
-          "sells1h": 103
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0002595,
-          "mcap": 259156.0,
-          "vol1h": 13403.51,
-          "liq": 46583.47,
-          "buys1h": 111,
-          "sells1h": 102
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0002585,
-          "mcap": 258199.0,
-          "vol1h": 12061.4,
-          "liq": 46457.69,
-          "buys1h": 107,
-          "sells1h": 96
         },
         {
           "ts": 1779122005.9937143,
@@ -638236,6 +638209,33 @@
           "liq": 40739.39,
           "buys1h": 112,
           "sells1h": 106
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001934,
+          "mcap": 193138.0,
+          "vol1h": 13415.39,
+          "liq": 40821.83,
+          "buys1h": 131,
+          "sells1h": 108
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0001952,
+          "mcap": 194984.0,
+          "vol1h": 13733.43,
+          "liq": 40977.5,
+          "buys1h": 139,
+          "sells1h": 105
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001959,
+          "mcap": 195677.0,
+          "vol1h": 13622.12,
+          "liq": 41055.6,
+          "buys1h": 144,
+          "sells1h": 105
         }
       ],
       "pattern": "unknown",
@@ -638243,8 +638243,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -55%",
-      "pct_change": -54.822811546585314
+      "pattern_reason": "Nieznany wzorzec, zmiana -54%",
+      "pct_change": -54.02487678948604
     },
     "3KHMZhpthXuiCcgfTv7vVu9PpEz64KAEURFwi6Lopump": {
       "address": "3KHMZhpthXuiCcgfTv7vVu9PpEz64KAEURFwi6Lopump",
@@ -638272,7 +638272,7 @@
         }
       ],
       "added_at": 1778983195.3823595,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1778983195.3823595,
@@ -638282,33 +638282,6 @@
           "liq": 482158.44,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.01277,
-          "mcap": 9076150.0,
-          "vol1h": 264655.04,
-          "liq": 513101.7,
-          "buys1h": 518,
-          "sells1h": 700
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.01283,
-          "mcap": 9117386.0,
-          "vol1h": 295380.98,
-          "liq": 513875.2,
-          "buys1h": 602,
-          "sells1h": 768
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.01217,
-          "mcap": 8648125.0,
-          "vol1h": 308828.03,
-          "liq": 500269.24,
-          "buys1h": 664,
-          "sells1h": 803
         },
         {
           "ts": 1779122005.9937143,
@@ -639173,6 +639146,33 @@
           "liq": 496866.93,
           "buys1h": 66,
           "sells1h": 55
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0117,
+          "mcap": 8309959.0,
+          "vol1h": 12369.31,
+          "liq": 496512.56,
+          "buys1h": 70,
+          "sells1h": 51
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.01161,
+          "mcap": 8245612.0,
+          "vol1h": 11554.09,
+          "liq": 494183.77,
+          "buys1h": 65,
+          "sells1h": 52
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.01167,
+          "mcap": 8289936.0,
+          "vol1h": 11846.14,
+          "liq": 495597.93,
+          "buys1h": 65,
+          "sells1h": 45
         }
       ],
       "pattern": "consolidation",
@@ -639180,8 +639180,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +4% total",
-      "pct_change": 3.7234042553191506
+      "pattern_reason": "Stabilna cena +3% total",
+      "pct_change": 3.457446808510636
     },
     "5vE8by69AtJKv7CKACsgCZ4z8wMYs8ZKGzS5o2kbpump": {
       "address": "5vE8by69AtJKv7CKACsgCZ4z8wMYs8ZKGzS5o2kbpump",
@@ -644886,7 +644886,7 @@
         }
       ],
       "added_at": 1779004315.2779937,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779004315.2779937,
@@ -644896,33 +644896,6 @@
           "liq": 35221.98,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 9.475e-06,
-          "mcap": 9471.0,
-          "vol1h": 635.54,
-          "liq": 8226.41,
-          "buys1h": 23,
-          "sells1h": 20
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 9.475e-06,
-          "mcap": 9471.0,
-          "vol1h": 617.81,
-          "liq": 8226.41,
-          "buys1h": 20,
-          "sells1h": 18
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 9.256e-06,
-          "mcap": 9251.0,
-          "vol1h": 627.15,
-          "liq": 8120.84,
-          "buys1h": 19,
-          "sells1h": 18
         },
         {
           "ts": 1779122005.9937143,
@@ -645787,6 +645760,33 @@
           "liq": 6569.83,
           "buys1h": 1,
           "sells1h": 5
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 5.74e-06,
+          "mcap": 5738.0,
+          "vol1h": 135.42,
+          "liq": 6456.94,
+          "buys1h": 1,
+          "sells1h": 6
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.335e-06,
+          "mcap": 6332.0,
+          "vol1h": 377.21,
+          "liq": 6777.77,
+          "buys1h": 5,
+          "sells1h": 6
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 6.285e-06,
+          "mcap": 6282.0,
+          "vol1h": 380.67,
+          "liq": 6751.25,
+          "buys1h": 6,
+          "sells1h": 6
         }
       ],
       "pattern": "rug_pull",
@@ -645795,7 +645795,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -81%, cena -97%",
-      "pct_change": -96.91055642225689
+      "pct_change": -96.73166926677067
     },
     "DFeoQbQDdpzZ1doCe3MC4bVoLqsG8dn1P8ymfEfGU5Pu": {
       "address": "DFeoQbQDdpzZ1doCe3MC4bVoLqsG8dn1P8ymfEfGU5Pu",
@@ -645823,7 +645823,7 @@
         }
       ],
       "added_at": 1779007755.3465743,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779007755.3465743,
@@ -645833,33 +645833,6 @@
           "liq": 26307.69,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 1.831e-05,
-          "mcap": 18308.0,
-          "vol1h": 7448.97,
-          "liq": 12194.82,
-          "buys1h": 114,
-          "sells1h": 101
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 1.755e-05,
-          "mcap": 17553.0,
-          "vol1h": 6831.0,
-          "liq": 11929.53,
-          "buys1h": 101,
-          "sells1h": 84
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.119e-05,
-          "mcap": 21191.0,
-          "vol1h": 6474.57,
-          "liq": 13104.62,
-          "buys1h": 96,
-          "sells1h": 87
         },
         {
           "ts": 1779122005.9937143,
@@ -646724,6 +646697,33 @@
           "liq": 10070.48,
           "buys1h": 20,
           "sells1h": 11
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.23e-05,
+          "mcap": 12301.0,
+          "vol1h": 928.43,
+          "liq": 10080.18,
+          "buys1h": 19,
+          "sells1h": 11
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.303e-05,
+          "mcap": 13032.0,
+          "vol1h": 1114.62,
+          "liq": 10366.51,
+          "buys1h": 28,
+          "sells1h": 11
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.242e-05,
+          "mcap": 12425.0,
+          "vol1h": 1360.15,
+          "liq": 10121.66,
+          "buys1h": 30,
+          "sells1h": 15
         }
       ],
       "pattern": "rug_pull",
@@ -646732,7 +646732,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -62%, cena -87%",
-      "pct_change": -87.22008124153734
+      "pct_change": -87.06384751588378
     },
     "7G8MECUQTBp2ineSexHC2Z1D4X1YccyMT9f3hihopump": {
       "address": "7G8MECUQTBp2ineSexHC2Z1D4X1YccyMT9f3hihopump",
@@ -650932,7 +650932,7 @@
         }
       ],
       "added_at": 1779019952.6085348,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779019952.6085348,
@@ -650942,33 +650942,6 @@
           "liq": 16979.04,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.472e-05,
-          "mcap": 24728.0,
-          "vol1h": 662.77,
-          "liq": 12163.57,
-          "buys1h": 32,
-          "sells1h": 31
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.497e-05,
-          "mcap": 24979.0,
-          "vol1h": 667.27,
-          "liq": 12228.14,
-          "buys1h": 32,
-          "sells1h": 31
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.526e-05,
-          "mcap": 25261.0,
-          "vol1h": 384.35,
-          "liq": 12275.42,
-          "buys1h": 33,
-          "sells1h": 30
         },
         {
           "ts": 1779122005.9937143,
@@ -651833,6 +651806,33 @@
           "liq": 11697.68,
           "buys1h": 2,
           "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.249e-05,
+          "mcap": 22496.0,
+          "vol1h": 1.35,
+          "liq": 11697.68,
+          "buys1h": 2,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.249e-05,
+          "mcap": 22496.0,
+          "vol1h": 1.35,
+          "liq": 11697.68,
+          "buys1h": 2,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.249e-05,
+          "mcap": 22496.0,
+          "vol1h": 1.35,
+          "liq": 11697.68,
+          "buys1h": 2,
+          "sells1h": 1
         }
       ],
       "pattern": "slow_bleed",
@@ -651840,7 +651840,7 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "-52% total, sell dominuje 56%",
+      "pattern_reason": "-52% total, sell dominuje 55%",
       "pct_change": -52.270797962648565
     },
     "29EFDZckLx6SF1QZKVxFZxXU55a2bxXCVHNmZr4wpump": {
@@ -651869,7 +651869,7 @@
         }
       ],
       "added_at": 1779024424.2378712,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779024424.2378712,
@@ -651879,33 +651879,6 @@
           "liq": 15592.71,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 1.271e-05,
-          "mcap": 12713.0,
-          "vol1h": 1528.51,
-          "liq": 8757.27,
-          "buys1h": 59,
-          "sells1h": 40
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 1.271e-05,
-          "mcap": 12713.0,
-          "vol1h": 748.51,
-          "liq": 8757.27,
-          "buys1h": 36,
-          "sells1h": 19
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 1.248e-05,
-          "mcap": 12480.0,
-          "vol1h": 771.57,
-          "liq": 8659.99,
-          "buys1h": 37,
-          "sells1h": 18
         },
         {
           "ts": 1779122005.9937143,
@@ -652770,6 +652743,33 @@
           "liq": 15936.91,
           "buys1h": 61,
           "sells1h": 81
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.18e-05,
+          "mcap": 41799.0,
+          "vol1h": 1541.57,
+          "liq": 16021.75,
+          "buys1h": 54,
+          "sells1h": 66
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.18e-05,
+          "mcap": 41799.0,
+          "vol1h": 943.87,
+          "liq": 16021.75,
+          "buys1h": 24,
+          "sells1h": 31
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.154e-05,
+          "mcap": 41543.0,
+          "vol1h": 876.19,
+          "liq": 15958.95,
+          "buys1h": 25,
+          "sells1h": 27
         }
       ],
       "pattern": "consolidation",
@@ -652777,8 +652777,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +4% total",
-      "pct_change": 4.473085670962846
+      "pattern_reason": "Stabilna cena +5% total",
+      "pct_change": 4.978519080111186
     },
     "AeW5aCgdhz3RvkhMmEfSNTfbeSbGJvA796SZc8xApump": {
       "address": "AeW5aCgdhz3RvkhMmEfSNTfbeSbGJvA796SZc8xApump",
@@ -654480,7 +654480,7 @@
         }
       ],
       "added_at": 1779026848.3116598,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779026848.3116598,
@@ -654490,33 +654490,6 @@
           "liq": 20661.22,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.083e-05,
-          "mcap": 20832.0,
-          "vol1h": 967.92,
-          "liq": 11699.17,
-          "buys1h": 14,
-          "sells1h": 22
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.258e-05,
-          "mcap": 22580.0,
-          "vol1h": 1190.85,
-          "liq": 12182.26,
-          "buys1h": 14,
-          "sells1h": 17
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.182e-05,
-          "mcap": 21822.0,
-          "vol1h": 1270.48,
-          "liq": 11961.0,
-          "buys1h": 14,
-          "sells1h": 19
         },
         {
           "ts": 1779122005.9937143,
@@ -655381,6 +655354,33 @@
           "liq": 10408.01,
           "buys1h": 20,
           "sells1h": 22
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.575e-05,
+          "mcap": 15757.0,
+          "vol1h": 1159.16,
+          "liq": 10258.47,
+          "buys1h": 20,
+          "sells1h": 25
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.6e-05,
+          "mcap": 16007.0,
+          "vol1h": 1152.02,
+          "liq": 10339.39,
+          "buys1h": 21,
+          "sells1h": 24
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.696e-05,
+          "mcap": 16966.0,
+          "vol1h": 1039.7,
+          "liq": 10635.15,
+          "buys1h": 19,
+          "sells1h": 23
         }
       ],
       "pattern": "unknown",
@@ -655388,8 +655388,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -75%",
-      "pct_change": -74.70744265876112
+      "pattern_reason": "Nieznany wzorzec, zmiana -74%",
+      "pct_change": -73.53721329380559
     },
     "0x5a4Ed71327461a76Fb9941c43B224f66Fae92259": {
       "address": "0x5a4Ed71327461a76Fb9941c43B224f66Fae92259",
@@ -655421,7 +655421,7 @@
         }
       ],
       "added_at": 1779028239.8409886,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779028239.8409886,
@@ -655431,33 +655431,6 @@
           "liq": 20844.67,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 9.046e-05,
-          "mcap": 90464.0,
-          "vol1h": 3070.27,
-          "liq": 29277.53,
-          "buys1h": 7,
-          "sells1h": 3
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0001475,
-          "mcap": 147575.0,
-          "vol1h": 7346.21,
-          "liq": 37399.27,
-          "buys1h": 9,
-          "sells1h": 4
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001612,
-          "mcap": 161300.0,
-          "vol1h": 9124.98,
-          "liq": 39032.84,
-          "buys1h": 13,
-          "sells1h": 6
         },
         {
           "ts": 1779122005.9937143,
@@ -656322,6 +656295,33 @@
           "liq": 36390.35,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001382,
+          "mcap": 138299.0,
+          "vol1h": 0.0,
+          "liq": 36390.35,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0001382,
+          "mcap": 138299.0,
+          "vol1h": 0.0,
+          "liq": 36390.35,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001459,
+          "mcap": 145923.0,
+          "vol1h": 446.62,
+          "liq": 37483.86,
+          "buys1h": 2,
+          "sells1h": 0
         }
       ],
       "pattern": "unknown",
@@ -656329,8 +656329,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +140%",
-      "pct_change": 140.3478260869565
+      "pattern_reason": "Nieznany wzorzec, zmiana +154%",
+      "pct_change": 153.7391304347826
     },
     "3Ncu43tnRRVDinyaxFFrMMZuyYqq8R2JM3NRhGCmpump": {
       "address": "3Ncu43tnRRVDinyaxFFrMMZuyYqq8R2JM3NRhGCmpump",
@@ -658896,7 +658896,7 @@
         }
       ],
       "added_at": 1779033312.8039582,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779033312.8039582,
@@ -658906,33 +658906,6 @@
           "liq": 10912.68,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 1.587e-05,
-          "mcap": 8653.0,
-          "vol1h": 120.73,
-          "liq": 10294.15,
-          "buys1h": 2,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 1.669e-05,
-          "mcap": 9102.0,
-          "vol1h": 277.94,
-          "liq": 10561.8,
-          "buys1h": 5,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 1.745e-05,
-          "mcap": 9519.0,
-          "vol1h": 404.07,
-          "liq": 10788.61,
-          "buys1h": 7,
-          "sells1h": 2
         },
         {
           "ts": 1779122005.9937143,
@@ -659797,6 +659770,33 @@
           "liq": 12611.3,
           "buys1h": 1,
           "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.348e-05,
+          "mcap": 12804.0,
+          "vol1h": 125.68,
+          "liq": 12611.3,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.348e-05,
+          "mcap": 12804.0,
+          "vol1h": 125.68,
+          "liq": 12611.3,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.348e-05,
+          "mcap": 12804.0,
+          "vol1h": 0.0,
+          "liq": 12611.3,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "unknown",
@@ -659845,7 +659845,7 @@
         }
       ],
       "added_at": 1779034699.4419873,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779034699.4419873,
@@ -659855,33 +659855,6 @@
           "liq": 19362.66,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 4.191e-05,
-          "mcap": 41919.0,
-          "vol1h": 2881.11,
-          "liq": 16112.82,
-          "buys1h": 40,
-          "sells1h": 20
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 4.149e-05,
-          "mcap": 41492.0,
-          "vol1h": 2842.99,
-          "liq": 16015.37,
-          "buys1h": 40,
-          "sells1h": 20
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 4.177e-05,
-          "mcap": 41779.0,
-          "vol1h": 2840.34,
-          "liq": 16059.05,
-          "buys1h": 41,
-          "sells1h": 19
         },
         {
           "ts": 1779122005.9937143,
@@ -660746,6 +660719,33 @@
           "liq": 17449.69,
           "buys1h": 8,
           "sells1h": 5
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.723e-05,
+          "mcap": 47234.0,
+          "vol1h": 672.68,
+          "liq": 17278.02,
+          "buys1h": 8,
+          "sells1h": 6
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.732e-05,
+          "mcap": 47324.0,
+          "vol1h": 705.16,
+          "liq": 17283.23,
+          "buys1h": 9,
+          "sells1h": 7
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.732e-05,
+          "mcap": 47324.0,
+          "vol1h": 705.16,
+          "liq": 17283.23,
+          "buys1h": 9,
+          "sells1h": 7
         }
       ],
       "pattern": "unknown",
@@ -660753,8 +660753,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -20%",
-      "pct_change": -20.459428193686993
+      "pattern_reason": "Nieznany wzorzec, zmiana -22%",
+      "pct_change": -21.798049909105934
     },
     "GyNThEeLEvnrUJu62nct1TErb33nE2gUiyM6tuGNpump": {
       "address": "GyNThEeLEvnrUJu62nct1TErb33nE2gUiyM6tuGNpump",
@@ -660790,7 +660790,7 @@
         }
       ],
       "added_at": 1779034898.411235,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779034898.411235,
@@ -660800,33 +660800,6 @@
           "liq": 16450.53,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.285e-05,
-          "mcap": 22857.0,
-          "vol1h": 421.06,
-          "liq": 11758.23,
-          "buys1h": 7,
-          "sells1h": 6
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.233e-05,
-          "mcap": 22333.0,
-          "vol1h": 439.27,
-          "liq": 11646.1,
-          "buys1h": 7,
-          "sells1h": 7
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.233e-05,
-          "mcap": 22333.0,
-          "vol1h": 363.09,
-          "liq": 11646.1,
-          "buys1h": 6,
-          "sells1h": 7
         },
         {
           "ts": 1779122005.9937143,
@@ -661691,6 +661664,33 @@
           "liq": 11625.94,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.215e-05,
+          "mcap": 22153.0,
+          "vol1h": 0.0,
+          "liq": 11625.94,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.215e-05,
+          "mcap": 22153.0,
+          "vol1h": 0.0,
+          "liq": 11625.94,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.215e-05,
+          "mcap": 22153.0,
+          "vol1h": 0.0,
+          "liq": 11625.94,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "slow_bleed",
@@ -661731,7 +661731,7 @@
         }
       ],
       "added_at": 1779035104.5939088,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779035104.5939088,
@@ -661741,33 +661741,6 @@
           "liq": 21563.6,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 6.001e-05,
-          "mcap": 60013.0,
-          "vol1h": 895.27,
-          "liq": 19511.1,
-          "buys1h": 24,
-          "sells1h": 16
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 6.177e-05,
-          "mcap": 61771.0,
-          "vol1h": 984.41,
-          "liq": 19785.43,
-          "buys1h": 34,
-          "sells1h": 16
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 6.214e-05,
-          "mcap": 62140.0,
-          "vol1h": 824.79,
-          "liq": 19842.1,
-          "buys1h": 38,
-          "sells1h": 15
         },
         {
           "ts": 1779122005.9937143,
@@ -662632,6 +662605,33 @@
           "liq": 17454.39,
           "buys1h": 15,
           "sells1h": 14
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.33e-05,
+          "mcap": 43306.0,
+          "vol1h": 1142.22,
+          "liq": 16745.58,
+          "buys1h": 13,
+          "sells1h": 23
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.33e-05,
+          "mcap": 43306.0,
+          "vol1h": 974.09,
+          "liq": 16745.58,
+          "buys1h": 12,
+          "sells1h": 21
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.33e-05,
+          "mcap": 43306.0,
+          "vol1h": 839.77,
+          "liq": 16745.58,
+          "buys1h": 11,
+          "sells1h": 18
         }
       ],
       "pattern": "unknown",
@@ -662639,8 +662639,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -36%",
-      "pct_change": -35.64681724845996
+      "pattern_reason": "Nieznany wzorzec, zmiana -41%",
+      "pct_change": -40.72553045859
     },
     "8Hf1E4bBo7c3kccbWVrpWuZnTJ64tm6nqETTd1RZpump": {
       "address": "8Hf1E4bBo7c3kccbWVrpWuZnTJ64tm6nqETTd1RZpump",
@@ -662680,7 +662680,7 @@
         }
       ],
       "added_at": 1779036288.8682263,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779036288.8682263,
@@ -662690,33 +662690,6 @@
           "liq": 41962.22,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.146e-06,
-          "mcap": 2146.0,
-          "vol1h": 0.38,
-          "liq": 3914.55,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.146e-06,
-          "mcap": 2146.0,
-          "vol1h": 0.38,
-          "liq": 3914.55,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.146e-06,
-          "mcap": 2146.0,
-          "vol1h": 0.38,
-          "liq": 3914.55,
-          "buys1h": 0,
-          "sells1h": 1
         },
         {
           "ts": 1779122005.9937143,
@@ -663581,6 +663554,33 @@
           "liq": 3947.76,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.156e-06,
+          "mcap": 2155.0,
+          "vol1h": 0.0,
+          "liq": 3947.76,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.156e-06,
+          "mcap": 2155.0,
+          "vol1h": 0.0,
+          "liq": 3947.76,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.156e-06,
+          "mcap": 2155.0,
+          "vol1h": 0.0,
+          "liq": 3947.76,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "rug_pull",
@@ -663621,7 +663621,7 @@
         }
       ],
       "added_at": 1779038080.4386837,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779038080.4386837,
@@ -663631,33 +663631,6 @@
           "liq": 17724.97,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.311e-05,
-          "mcap": 33116.0,
-          "vol1h": 1084.16,
-          "liq": 14366.89,
-          "buys1h": 20,
-          "sells1h": 10
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.055e-05,
-          "mcap": 30553.0,
-          "vol1h": 1624.21,
-          "liq": 13793.33,
-          "buys1h": 33,
-          "sells1h": 13
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.055e-05,
-          "mcap": 30553.0,
-          "vol1h": 1584.74,
-          "liq": 13793.33,
-          "buys1h": 31,
-          "sells1h": 13
         },
         {
           "ts": 1779122005.9937143,
@@ -664522,6 +664495,33 @@
           "liq": 28770.66,
           "buys1h": 39,
           "sells1h": 26
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001269,
+          "mcap": 126926.0,
+          "vol1h": 6984.66,
+          "liq": 28673.3,
+          "buys1h": 36,
+          "sells1h": 24
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0001263,
+          "mcap": 126300.0,
+          "vol1h": 7005.07,
+          "liq": 28600.9,
+          "buys1h": 34,
+          "sells1h": 26
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001263,
+          "mcap": 126300.0,
+          "vol1h": 5978.82,
+          "liq": 28600.9,
+          "buys1h": 29,
+          "sells1h": 23
         }
       ],
       "pattern": "unknown",
@@ -664529,8 +664529,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +151%",
-      "pct_change": 151.2790240062967
+      "pattern_reason": "Nieznany wzorzec, zmiana +149%",
+      "pct_change": 148.52420306965763
     },
     "EiTFvfq6J4ZonUieJwrfj2S8VREaF1xKZKHwYFUX4Qy7": {
       "address": "EiTFvfq6J4ZonUieJwrfj2S8VREaF1xKZKHwYFUX4Qy7",
@@ -664566,7 +664566,7 @@
         }
       ],
       "added_at": 1779039054.3919752,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779039054.3919752,
@@ -665431,6 +665431,33 @@
           "liq": 0.0,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.98,
+          "mcap": 103813856.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.98,
+          "mcap": 103813856.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.98,
+          "mcap": 103813856.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "pump_and_dump",
@@ -665471,7 +665498,7 @@
         }
       ],
       "added_at": 1779039254.6162555,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779039254.6162555,
@@ -665481,33 +665508,6 @@
           "liq": 19248.04,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.761e-06,
-          "mcap": 2761.0,
-          "vol1h": 26.2,
-          "liq": 4309.07,
-          "buys1h": 0,
-          "sells1h": 4
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.711e-06,
-          "mcap": 2710.0,
-          "vol1h": 55.44,
-          "liq": 4270.38,
-          "buys1h": 0,
-          "sells1h": 5
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.711e-06,
-          "mcap": 2710.0,
-          "vol1h": 55.23,
-          "liq": 4270.38,
-          "buys1h": 0,
-          "sells1h": 4
         },
         {
           "ts": 1779122005.9937143,
@@ -666366,6 +666366,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 2.196e-06,
+          "mcap": 2192.0,
+          "vol1h": 0.04,
+          "liq": 3877.55,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.196e-06,
+          "mcap": 2192.0,
+          "vol1h": 0.04,
+          "liq": 3877.55,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.196e-06,
+          "mcap": 2192.0,
+          "vol1h": 0.04,
+          "liq": 3877.55,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 2.196e-06,
           "mcap": 2192.0,
           "vol1h": 0.04,
@@ -668404,7 +668431,7 @@
         }
       ],
       "added_at": 1779039655.227201,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779039655.227201,
@@ -668414,33 +668441,6 @@
           "liq": 80669.98,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779041102.44179,
-          "price": 6.217e-05,
-          "mcap": 62177.0,
-          "vol1h": 578538.36,
-          "liq": 94382.11,
-          "buys1h": 1219,
-          "sells1h": 803
-        },
-        {
-          "ts": 1779041404.7967813,
-          "price": 6.61e-05,
-          "mcap": 66109.0,
-          "vol1h": 680534.59,
-          "liq": 97528.94,
-          "buys1h": 1364,
-          "sells1h": 945
-        },
-        {
-          "ts": 1779041706.5371685,
-          "price": 7.006e-05,
-          "mcap": 70068.0,
-          "vol1h": 786734.23,
-          "liq": 100670.31,
-          "buys1h": 1512,
-          "sells1h": 1092
         },
         {
           "ts": 1779042009.6160994,
@@ -669299,6 +669299,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 0.1401,
+          "mcap": 140140609.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.1401,
+          "mcap": 140140609.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.1401,
+          "mcap": 140140609.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 0.1401,
           "mcap": 140140609.0,
           "vol1h": 0.0,
@@ -670298,7 +670325,7 @@
         }
       ],
       "added_at": 1779039857.9546952,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779039857.9546952,
@@ -670308,33 +670335,6 @@
           "liq": 15282.35,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 8.468e-05,
-          "mcap": 84679.0,
-          "vol1h": 49262.05,
-          "liq": 28292.42,
-          "buys1h": 525,
-          "sells1h": 338
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 7.804e-05,
-          "mcap": 78041.0,
-          "vol1h": 46377.55,
-          "liq": 27139.66,
-          "buys1h": 523,
-          "sells1h": 339
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 8.351e-05,
-          "mcap": 83513.0,
-          "vol1h": 44861.93,
-          "liq": 28047.58,
-          "buys1h": 521,
-          "sells1h": 339
         },
         {
           "ts": 1779122005.9937143,
@@ -671199,6 +671199,33 @@
           "liq": 21834.43,
           "buys1h": 202,
           "sells1h": 158
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 5.397e-05,
+          "mcap": 53974.0,
+          "vol1h": 15639.05,
+          "liq": 23092.45,
+          "buys1h": 222,
+          "sells1h": 168
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 5.74e-05,
+          "mcap": 57409.0,
+          "vol1h": 16546.49,
+          "liq": 23793.86,
+          "buys1h": 223,
+          "sells1h": 176
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 5.649e-05,
+          "mcap": 56496.0,
+          "vol1h": 16019.22,
+          "liq": 23605.4,
+          "buys1h": 212,
+          "sells1h": 174
         }
       ],
       "pattern": "unknown",
@@ -671206,8 +671233,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +27%",
-      "pct_change": 27.424042272126815
+      "pattern_reason": "Nieznany wzorzec, zmiana +49%",
+      "pct_change": 49.24702774108324
     },
     "DLCsKxS2qSt9kZ6r4NuctfnAWnCgfd5ptUQnyKxRLo2Q": {
       "address": "DLCsKxS2qSt9kZ6r4NuctfnAWnCgfd5ptUQnyKxRLo2Q",
@@ -679866,7 +679893,7 @@
         }
       ],
       "added_at": 1779041916.7217612,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779041916.7217612,
@@ -679876,33 +679903,6 @@
           "liq": 133249.39,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.1338,
-          "mcap": 133817891.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.1338,
-          "mcap": 133817891.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.1338,
-          "mcap": 133817891.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
         },
         {
           "ts": 1779122005.9937143,
@@ -680761,6 +680761,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 0.1338,
+          "mcap": 133817891.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.1338,
+          "mcap": 133817891.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.1338,
+          "mcap": 133817891.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 0.1338,
           "mcap": 133817891.0,
           "vol1h": 0.0,
@@ -681756,7 +681783,7 @@
         }
       ],
       "added_at": 1779041918.9266825,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779041918.9266825,
@@ -681764,33 +681791,6 @@
           "mcap": 39461.0,
           "vol1h": 104764.03,
           "liq": 72919.83,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.1517,
-          "mcap": 151774707.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.1517,
-          "mcap": 151774707.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.1517,
-          "mcap": 151774707.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
           "buys1h": 0,
           "sells1h": 0
         },
@@ -682651,6 +682651,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 0.1517,
+          "mcap": 151774707.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.1517,
+          "mcap": 151774707.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.1517,
+          "mcap": 151774707.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 0.1517,
           "mcap": 151774707.0,
           "vol1h": 0.0,
@@ -686030,7 +686057,7 @@
         }
       ],
       "added_at": 1779042748.09792,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779042748.09792,
@@ -686040,15 +686067,6 @@
           "liq": 66960.44,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779120495.1203868,
-          "price": 0.2929,
-          "mcap": 292935525.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
         },
         {
           "ts": 1779120797.1857972,
@@ -686925,6 +686943,15 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 0.2929,
+          "mcap": 292935525.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 0.2929,
           "mcap": 292935525.0,
           "vol1h": 0.0,
@@ -687916,7 +687943,7 @@
         }
       ],
       "added_at": 1779043175.3114378,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779043175.3114378,
@@ -687926,33 +687953,6 @@
           "liq": 30786.7,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 6.232e-05,
-          "mcap": 62321.0,
-          "vol1h": 57.48,
-          "liq": 22883.19,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 6.181e-05,
-          "mcap": 61818.0,
-          "vol1h": 120.63,
-          "liq": 22823.81,
-          "buys1h": 0,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 6.181e-05,
-          "mcap": 61818.0,
-          "vol1h": 120.63,
-          "liq": 22823.81,
-          "buys1h": 0,
-          "sells1h": 2
         },
         {
           "ts": 1779122005.9937143,
@@ -688811,6 +688811,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 6.028e-05,
+          "mcap": 60280.0,
+          "vol1h": 7.23,
+          "liq": 22640.72,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 6.028e-05,
+          "mcap": 60280.0,
+          "vol1h": 7.23,
+          "liq": 22640.72,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.028e-05,
+          "mcap": 60280.0,
+          "vol1h": 7.23,
+          "liq": 22640.72,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 6.028e-05,
           "mcap": 60280.0,
           "vol1h": 7.23,
@@ -690755,7 +690782,7 @@
         }
       ],
       "added_at": 1779046903.3178792,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779046903.3178792,
@@ -690765,33 +690792,6 @@
           "liq": 124488.01,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779120797.1857972,
-          "price": 0.1271,
-          "mcap": 127119927.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.1271,
-          "mcap": 127119927.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.1271,
-          "mcap": 127119927.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 1,
-          "sells1h": 1
         },
         {
           "ts": 1779121703.3218453,
@@ -691650,6 +691650,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 0.1271,
+          "mcap": 127119927.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.1271,
+          "mcap": 127119927.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.1271,
+          "mcap": 127119927.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 0.1271,
           "mcap": 127119927.0,
           "vol1h": 0.0,
@@ -693590,7 +693617,7 @@
         }
       ],
       "added_at": 1779048784.3171842,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779048784.3171842,
@@ -693600,33 +693627,6 @@
           "liq": 14564.44,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.107e-05,
-          "mcap": 21070.0,
-          "vol1h": 1955.61,
-          "liq": 11346.96,
-          "buys1h": 53,
-          "sells1h": 48
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.199e-05,
-          "mcap": 21997.0,
-          "vol1h": 2013.81,
-          "liq": 11582.19,
-          "buys1h": 54,
-          "sells1h": 44
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.132e-05,
-          "mcap": 21322.0,
-          "vol1h": 2028.07,
-          "liq": 11395.15,
-          "buys1h": 58,
-          "sells1h": 41
         },
         {
           "ts": 1779122005.9937143,
@@ -694491,15 +694491,42 @@
           "liq": 16032.68,
           "buys1h": 7,
           "sells1h": 14
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.113e-05,
+          "mcap": 41128.0,
+          "vol1h": 845.58,
+          "liq": 16015.67,
+          "buys1h": 7,
+          "sells1h": 14
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.188e-05,
+          "mcap": 41885.0,
+          "vol1h": 456.76,
+          "liq": 16161.25,
+          "buys1h": 6,
+          "sells1h": 11
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.01e-05,
+          "mcap": 40104.0,
+          "vol1h": 792.43,
+          "liq": 15802.82,
+          "buys1h": 15,
+          "sells1h": 10
         }
       ],
-      "pattern": "unknown",
-      "pattern_confidence": 40,
+      "pattern": "consolidation",
+      "pattern_confidence": 60,
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +21%",
-      "pct_change": 20.785693345060103
+      "pattern_reason": "Stabilna cena +18% total",
+      "pct_change": 17.560832600410446
     },
     "5bY9sGbJdwsWJQe6Cott1j9rNSEqSBWd4xksLiF8JMLR": {
       "address": "5bY9sGbJdwsWJQe6Cott1j9rNSEqSBWd4xksLiF8JMLR",
@@ -694539,7 +694566,7 @@
         }
       ],
       "added_at": 1779050235.3994021,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779050235.3994021,
@@ -694547,33 +694574,6 @@
           "mcap": 36636.0,
           "vol1h": 3254081.45,
           "liq": 51644.68,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779117173.3208714,
-          "price": 1.384e-07,
-          "mcap": 138.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779117475.140678,
-          "price": 1.384e-07,
-          "mcap": 138.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779117777.1400921,
-          "price": 1.384e-07,
-          "mcap": 138.0,
-          "vol1h": 0.0,
-          "liq": 0.0,
           "buys1h": 0,
           "sells1h": 0
         },
@@ -695440,6 +695440,33 @@
           "liq": 0.0,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.284e-05,
+          "mcap": 42841.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.284e-05,
+          "mcap": 42841.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.284e-05,
+          "mcap": 42841.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "consolidation",
@@ -695480,7 +695507,7 @@
         }
       ],
       "added_at": 1779051692.205261,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779051692.205261,
@@ -695490,33 +695517,6 @@
           "liq": 15991.86,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 9.262e-06,
-          "mcap": 9262.0,
-          "vol1h": 418.93,
-          "liq": 7498.01,
-          "buys1h": 14,
-          "sells1h": 10
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 9.262e-06,
-          "mcap": 9262.0,
-          "vol1h": 361.45,
-          "liq": 7498.01,
-          "buys1h": 13,
-          "sells1h": 8
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 9.262e-06,
-          "mcap": 9262.0,
-          "vol1h": 200.28,
-          "liq": 7498.01,
-          "buys1h": 5,
-          "sells1h": 8
         },
         {
           "ts": 1779122005.9937143,
@@ -696381,6 +696381,33 @@
           "liq": 6393.69,
           "buys1h": 0,
           "sells1h": 3
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 6.661e-06,
+          "mcap": 6661.0,
+          "vol1h": 27.46,
+          "liq": 6393.69,
+          "buys1h": 0,
+          "sells1h": 3
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.661e-06,
+          "mcap": 6661.0,
+          "vol1h": 27.46,
+          "liq": 6393.69,
+          "buys1h": 0,
+          "sells1h": 3
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 6.661e-06,
+          "mcap": 6661.0,
+          "vol1h": 27.46,
+          "liq": 6393.69,
+          "buys1h": 0,
+          "sells1h": 3
         }
       ],
       "pattern": "rug_pull",
@@ -696421,7 +696448,7 @@
         }
       ],
       "added_at": 1779053126.497738,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779053126.497738,
@@ -696431,33 +696458,6 @@
           "liq": 18905.02,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 1.908e-06,
-          "mcap": 1908.0,
-          "vol1h": 0.81,
-          "liq": 3579.91,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 1.908e-06,
-          "mcap": 1908.0,
-          "vol1h": 0.81,
-          "liq": 3579.91,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 1.908e-06,
-          "mcap": 1908.0,
-          "vol1h": 0.81,
-          "liq": 3579.91,
-          "buys1h": 0,
-          "sells1h": 1
         },
         {
           "ts": 1779122005.9937143,
@@ -697322,6 +697322,33 @@
           "liq": 3607.9,
           "buys1h": 1,
           "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.914e-06,
+          "mcap": 1914.0,
+          "vol1h": 17.11,
+          "liq": 3607.9,
+          "buys1h": 1,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.914e-06,
+          "mcap": 1914.0,
+          "vol1h": 17.11,
+          "liq": 3607.9,
+          "buys1h": 1,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.914e-06,
+          "mcap": 1914.0,
+          "vol1h": 17.11,
+          "liq": 3607.9,
+          "buys1h": 1,
+          "sells1h": 1
         }
       ],
       "pattern": "rug_pull",
@@ -697362,7 +697389,7 @@
         }
       ],
       "added_at": 1779054945.195286,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779054945.195286,
@@ -697372,33 +697399,6 @@
           "liq": 18523.25,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.439e-06,
-          "mcap": 3439.0,
-          "vol1h": 212.25,
-          "liq": 4790.41,
-          "buys1h": 0,
-          "sells1h": 11
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.439e-06,
-          "mcap": 3439.0,
-          "vol1h": 105.49,
-          "liq": 4790.41,
-          "buys1h": 0,
-          "sells1h": 10
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.42e-06,
-          "mcap": 3420.0,
-          "vol1h": 55.86,
-          "liq": 4775.01,
-          "buys1h": 0,
-          "sells1h": 9
         },
         {
           "ts": 1779122005.9937143,
@@ -698263,6 +698263,33 @@
           "liq": 4879.42,
           "buys1h": 0,
           "sells1h": 3
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.502e-06,
+          "mcap": 3502.0,
+          "vol1h": 29.6,
+          "liq": 4879.42,
+          "buys1h": 0,
+          "sells1h": 2
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.499e-06,
+          "mcap": 3499.0,
+          "vol1h": 29.61,
+          "liq": 4876.77,
+          "buys1h": 0,
+          "sells1h": 3
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.499e-06,
+          "mcap": 3499.0,
+          "vol1h": 29.61,
+          "liq": 4876.77,
+          "buys1h": 0,
+          "sells1h": 3
         }
       ],
       "pattern": "rug_pull",
@@ -698271,7 +698298,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -74%, cena -94%",
-      "pct_change": -93.59546452084857
+      "pct_change": -93.600950987564
     },
     "HrFXk7njd9oskCXonJ72mA2nxpWbyXZA8tPSmMENpump": {
       "address": "HrFXk7njd9oskCXonJ72mA2nxpWbyXZA8tPSmMENpump",
@@ -698303,7 +698330,7 @@
         }
       ],
       "added_at": 1779055949.6491182,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779055949.6491182,
@@ -698313,33 +698340,6 @@
           "liq": 16332.29,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 6.88e-06,
-          "mcap": 6881.0,
-          "vol1h": 373.99,
-          "liq": 6467.49,
-          "buys1h": 12,
-          "sells1h": 12
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 6.539e-06,
-          "mcap": 6539.0,
-          "vol1h": 426.81,
-          "liq": 6302.94,
-          "buys1h": 12,
-          "sells1h": 16
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 5.655e-06,
-          "mcap": 5655.0,
-          "vol1h": 737.15,
-          "liq": 5857.44,
-          "buys1h": 14,
-          "sells1h": 22
         },
         {
           "ts": 1779122005.9937143,
@@ -699204,6 +699204,33 @@
           "liq": 5283.4,
           "buys1h": 0,
           "sells1h": 4
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.58e-06,
+          "mcap": 4580.0,
+          "vol1h": 13.69,
+          "liq": 5324.42,
+          "buys1h": 1,
+          "sells1h": 4
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.519e-06,
+          "mcap": 4519.0,
+          "vol1h": 15.13,
+          "liq": 5287.52,
+          "buys1h": 1,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.519e-06,
+          "mcap": 4519.0,
+          "vol1h": 15.13,
+          "liq": 5287.52,
+          "buys1h": 1,
+          "sells1h": 5
         }
       ],
       "pattern": "rug_pull",
@@ -699212,7 +699239,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -68%, cena -90%",
-      "pct_change": -89.62835512732278
+      "pct_change": -89.63294333562743
     },
     "B7Pnk64BRY2ncP1bt7ifzT5iuHkc7qMyko3WpnFdUiMC": {
       "address": "B7Pnk64BRY2ncP1bt7ifzT5iuHkc7qMyko3WpnFdUiMC",
@@ -700189,7 +700216,7 @@
         }
       ],
       "added_at": 1779057967.4614954,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779057967.4614954,
@@ -700199,33 +700226,6 @@
           "liq": 57670.68,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.019e-06,
-          "mcap": 2019.0,
-          "vol1h": 0.0,
-          "liq": 3792.62,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.016e-06,
-          "mcap": 2016.0,
-          "vol1h": 0.02,
-          "liq": 3786.8,
-          "buys1h": 0,
-          "sells1h": 1
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.016e-06,
-          "mcap": 2016.0,
-          "vol1h": 0.02,
-          "liq": 3786.8,
-          "buys1h": 0,
-          "sells1h": 1
         },
         {
           "ts": 1779122005.9937143,
@@ -701090,6 +701090,33 @@
           "liq": 3959.73,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.172e-06,
+          "mcap": 2173.0,
+          "vol1h": 0.0,
+          "liq": 3959.73,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.172e-06,
+          "mcap": 2173.0,
+          "vol1h": 0.0,
+          "liq": 3959.73,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.172e-06,
+          "mcap": 2173.0,
+          "vol1h": 0.0,
+          "liq": 3959.73,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "rug_pull",
@@ -701130,7 +701157,7 @@
         }
       ],
       "added_at": 1779059384.7686396,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779059384.7686396,
@@ -701140,33 +701167,6 @@
           "liq": 21713.03,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 9.752e-05,
-          "mcap": 97527.0,
-          "vol1h": 28017.45,
-          "liq": 25155.62,
-          "buys1h": 406,
-          "sells1h": 282
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 9.353e-05,
-          "mcap": 93537.0,
-          "vol1h": 28183.75,
-          "liq": 24616.8,
-          "buys1h": 409,
-          "sells1h": 262
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 9.514e-05,
-          "mcap": 95142.0,
-          "vol1h": 24145.91,
-          "liq": 24819.39,
-          "buys1h": 394,
-          "sells1h": 231
         },
         {
           "ts": 1779122005.9937143,
@@ -702031,6 +702031,33 @@
           "liq": 4680.33,
           "buys1h": 6,
           "sells1h": 12
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.275e-06,
+          "mcap": 3275.0,
+          "vol1h": 247.85,
+          "liq": 4680.33,
+          "buys1h": 6,
+          "sells1h": 10
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.275e-06,
+          "mcap": 3275.0,
+          "vol1h": 242.55,
+          "liq": 4680.33,
+          "buys1h": 6,
+          "sells1h": 9
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.275e-06,
+          "mcap": 3275.0,
+          "vol1h": 242.55,
+          "liq": 4680.33,
+          "buys1h": 6,
+          "sells1h": 9
         }
       ],
       "pattern": "rug_pull",
@@ -702067,7 +702094,7 @@
         }
       ],
       "added_at": 1779059794.939673,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779059794.939673,
@@ -702077,33 +702104,6 @@
           "liq": 37926.58,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.639e-05,
-          "mcap": 26388.0,
-          "vol1h": 15162.87,
-          "liq": 14474.79,
-          "buys1h": 239,
-          "sells1h": 228
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.617e-05,
-          "mcap": 26171.0,
-          "vol1h": 14249.89,
-          "liq": 14402.34,
-          "buys1h": 227,
-          "sells1h": 219
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.732e-05,
-          "mcap": 27318.0,
-          "vol1h": 12783.19,
-          "liq": 14710.5,
-          "buys1h": 184,
-          "sells1h": 212
         },
         {
           "ts": 1779122005.9937143,
@@ -702968,6 +702968,33 @@
           "liq": 10639.74,
           "buys1h": 16,
           "sells1h": 28
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.399e-05,
+          "mcap": 13986.0,
+          "vol1h": 790.25,
+          "liq": 10631.17,
+          "buys1h": 17,
+          "sells1h": 25
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.379e-05,
+          "mcap": 13788.0,
+          "vol1h": 657.44,
+          "liq": 10544.4,
+          "buys1h": 16,
+          "sells1h": 24
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.234e-05,
+          "mcap": 12343.0,
+          "vol1h": 1210.24,
+          "liq": 9981.1,
+          "buys1h": 26,
+          "sells1h": 30
         }
       ],
       "pattern": "rug_pull",
@@ -702975,8 +703002,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -72%, cena -93%",
-      "pct_change": -92.83154121863801
+      "pattern_reason": "Liq -74%, cena -94%",
+      "pct_change": -93.68151561699949
     },
     "B5WJicoZfVyeEPPATXUqDpQ1naEnQk5h1xPQyP1jpg7b": {
       "address": "B5WJicoZfVyeEPPATXUqDpQ1naEnQk5h1xPQyP1jpg7b",
@@ -703858,7 +703885,7 @@
         }
       ],
       "added_at": 1779062649.054236,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779062649.054236,
@@ -703868,33 +703895,6 @@
           "liq": 14937.36,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0001085,
-          "mcap": 108540.0,
-          "vol1h": 6413.9,
-          "liq": 25521.47,
-          "buys1h": 110,
-          "sells1h": 71
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 9.139e-05,
-          "mcap": 91393.0,
-          "vol1h": 7448.04,
-          "liq": 23401.42,
-          "buys1h": 112,
-          "sells1h": 73
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001072,
-          "mcap": 107203.0,
-          "vol1h": 10175.84,
-          "liq": 25338.76,
-          "buys1h": 137,
-          "sells1h": 81
         },
         {
           "ts": 1779122005.9937143,
@@ -704759,6 +704759,33 @@
           "liq": 12905.85,
           "buys1h": 69,
           "sells1h": 50
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.387e-05,
+          "mcap": 23878.0,
+          "vol1h": 7120.88,
+          "liq": 12190.22,
+          "buys1h": 87,
+          "sells1h": 56
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.309e-05,
+          "mcap": 23097.0,
+          "vol1h": 6401.45,
+          "liq": 11977.5,
+          "buys1h": 77,
+          "sells1h": 60
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.94e-05,
+          "mcap": 19407.0,
+          "vol1h": 6936.25,
+          "liq": 10983.06,
+          "buys1h": 86,
+          "sells1h": 63
         }
       ],
       "pattern": "pump_and_dump",
@@ -704766,8 +704793,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Peak +1018%, potem -94% od szczytu",
-      "pct_change": -28.40696117804551
+      "pattern_reason": "Peak +1018%, potem -95% od szczytu",
+      "pct_change": -48.058902275769746
     },
     "81GfQxGWKviUjKp6MWMNKapDrJUEnd1oJyy38J18a5ie": {
       "address": "81GfQxGWKviUjKp6MWMNKapDrJUEnd1oJyy38J18a5ie",
@@ -705756,7 +705783,7 @@
         }
       ],
       "added_at": 1779064852.246934,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779064852.246934,
@@ -705766,33 +705793,6 @@
           "liq": 15358.7,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.739e-06,
-          "mcap": 2739.0,
-          "vol1h": 43.14,
-          "liq": 4108.19,
-          "buys1h": 0,
-          "sells1h": 4
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.715e-06,
-          "mcap": 2716.0,
-          "vol1h": 43.17,
-          "liq": 4092.23,
-          "buys1h": 0,
-          "sells1h": 5
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.715e-06,
-          "mcap": 2716.0,
-          "vol1h": 26.85,
-          "liq": 4092.23,
-          "buys1h": 0,
-          "sells1h": 4
         },
         {
           "ts": 1779122005.9937143,
@@ -706657,6 +706657,33 @@
           "liq": 4040.1,
           "buys1h": 0,
           "sells1h": 3
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.399e-06,
+          "mcap": 2399.0,
+          "vol1h": 108.73,
+          "liq": 3879.1,
+          "buys1h": 0,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.417e-06,
+          "mcap": 2417.0,
+          "vol1h": 117.99,
+          "liq": 3892.38,
+          "buys1h": 1,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.417e-06,
+          "mcap": 2417.0,
+          "vol1h": 117.99,
+          "liq": 3892.38,
+          "buys1h": 1,
+          "sells1h": 5
         }
       ],
       "pattern": "rug_pull",
@@ -706664,8 +706691,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -74%, cena -93%",
-      "pct_change": -93.25329202168862
+      "pattern_reason": "Liq -75%, cena -94%",
+      "pct_change": -93.75935966950684
     },
     "5DuWLX7n8Xsiu4BYojqSaMP3NKjoSG3Kb2FRskY9pump": {
       "address": "5DuWLX7n8Xsiu4BYojqSaMP3NKjoSG3Kb2FRskY9pump",
@@ -706697,7 +706724,7 @@
         }
       ],
       "added_at": 1779066666.2858553,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779066666.2858553,
@@ -706707,33 +706734,6 @@
           "liq": 10875.76,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.109e-05,
-          "mcap": 21091.0,
-          "vol1h": 72.3,
-          "liq": 11300.92,
-          "buys1h": 2,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.109e-05,
-          "mcap": 21091.0,
-          "vol1h": 71.32,
-          "liq": 11300.92,
-          "buys1h": 1,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.109e-05,
-          "mcap": 21091.0,
-          "vol1h": 71.32,
-          "liq": 11300.92,
-          "buys1h": 1,
-          "sells1h": 2
         },
         {
           "ts": 1779122005.9937143,
@@ -707598,6 +707598,33 @@
           "liq": 16581.77,
           "buys1h": 123,
           "sells1h": 166
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 4.503e-05,
+          "mcap": 45030.0,
+          "vol1h": 5142.59,
+          "liq": 16674.82,
+          "buys1h": 124,
+          "sells1h": 170
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.455e-05,
+          "mcap": 44549.0,
+          "vol1h": 5129.68,
+          "liq": 16570.87,
+          "buys1h": 124,
+          "sells1h": 170
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.248e-05,
+          "mcap": 42478.0,
+          "vol1h": 5243.79,
+          "liq": 16180.02,
+          "buys1h": 122,
+          "sells1h": 170
         }
       ],
       "pattern": "unknown",
@@ -707605,8 +707632,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +131%",
-      "pct_change": 130.74131674442714
+      "pattern_reason": "Nieznany wzorzec, zmiana +120%",
+      "pct_change": 120.2177293934681
     },
     "FANXGEYiQFwmh3Chh9K7q86m5fujt9r5psNSnppRpump": {
       "address": "FANXGEYiQFwmh3Chh9K7q86m5fujt9r5psNSnppRpump",
@@ -708429,7 +708456,7 @@
         }
       ],
       "added_at": 1779071630.4937005,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779071630.4937005,
@@ -708437,33 +708464,6 @@
           "mcap": 6328474.0,
           "vol1h": 11036679.37,
           "liq": 14355.22,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779093932.3996036,
-          "price": 6.328e-05,
-          "mcap": 6328474.0,
-          "vol1h": 0.0,
-          "liq": 12777.03,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779094235.344171,
-          "price": 6.328e-05,
-          "mcap": 6328474.0,
-          "vol1h": 0.0,
-          "liq": 12777.03,
-          "buys1h": 0,
-          "sells1h": 0
-        },
-        {
-          "ts": 1779094537.973173,
-          "price": 6.328e-05,
-          "mcap": 6328474.0,
-          "vol1h": 0.0,
-          "liq": 12777.03,
           "buys1h": 0,
           "sells1h": 0
         },
@@ -709330,6 +709330,33 @@
           "liq": 10454.77,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 6.315e-05,
+          "mcap": 6315153.0,
+          "vol1h": 0.0,
+          "liq": 10454.77,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.315e-05,
+          "mcap": 6315153.0,
+          "vol1h": 0.0,
+          "liq": 458.57,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 6.315e-05,
+          "mcap": 6315153.0,
+          "vol1h": 0.0,
+          "liq": 458.57,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "consolidation",
@@ -709366,7 +709393,7 @@
         }
       ],
       "added_at": 1779072044.6076791,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779072044.6076791,
@@ -709376,33 +709403,6 @@
           "liq": 20619.19,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 4.98e-05,
-          "mcap": 49802.0,
-          "vol1h": 6597.82,
-          "liq": 18876.94,
-          "buys1h": 94,
-          "sells1h": 78
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 4.628e-05,
-          "mcap": 46283.0,
-          "vol1h": 7159.78,
-          "liq": 18196.35,
-          "buys1h": 102,
-          "sells1h": 79
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 4.694e-05,
-          "mcap": 46948.0,
-          "vol1h": 6944.0,
-          "liq": 18305.17,
-          "buys1h": 107,
-          "sells1h": 78
         },
         {
           "ts": 1779122005.9937143,
@@ -710267,6 +710267,33 @@
           "liq": 16824.9,
           "buys1h": 16,
           "sells1h": 14
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.749e-05,
+          "mcap": 37494.0,
+          "vol1h": 1116.66,
+          "liq": 16581.88,
+          "buys1h": 10,
+          "sells1h": 15
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.707e-05,
+          "mcap": 37069.0,
+          "vol1h": 1198.67,
+          "liq": 16478.96,
+          "buys1h": 10,
+          "sells1h": 16
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.651e-05,
+          "mcap": 36511.0,
+          "vol1h": 1203.24,
+          "liq": 16349.92,
+          "buys1h": 10,
+          "sells1h": 17
         }
       ],
       "pattern": "unknown",
@@ -710274,8 +710301,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -36%",
-      "pct_change": -36.258850650419895
+      "pattern_reason": "Nieznany wzorzec, zmiana -40%",
+      "pct_change": -39.88144245018936
     },
     "wmmHydXiWo8dh8vMiX6vvsffMrRLfhPRmqsENVHjBBp": {
       "address": "wmmHydXiWo8dh8vMiX6vvsffMrRLfhPRmqsENVHjBBp",
@@ -710311,7 +710338,7 @@
         }
       ],
       "added_at": 1779076233.5964303,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779076233.5964303,
@@ -711077,6 +711104,33 @@
           "liq": 0.0,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.1267,
+          "mcap": 126739492.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.1267,
+          "mcap": 126739492.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.1267,
+          "mcap": 126739492.0,
+          "vol1h": 0.0,
+          "liq": 0.0,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "pump_and_dump",
@@ -711125,7 +711179,7 @@
         }
       ],
       "added_at": 1779076636.5208397,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779076636.5208397,
@@ -711135,33 +711189,6 @@
           "liq": 20618.08,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779077011.2311132,
-          "price": 0.0001216,
-          "mcap": 12165.0,
-          "vol1h": 113970.31,
-          "liq": 15487.37,
-          "buys1h": 694,
-          "sells1h": 720
-        },
-        {
-          "ts": 1779077313.0889285,
-          "price": 0.0001558,
-          "mcap": 15582.0,
-          "vol1h": 127856.71,
-          "liq": 17524.31,
-          "buys1h": 778,
-          "sells1h": 799
-        },
-        {
-          "ts": 1779077615.0411475,
-          "price": 0.0001074,
-          "mcap": 10741.0,
-          "vol1h": 143314.19,
-          "liq": 14556.89,
-          "buys1h": 858,
-          "sells1h": 940
         },
         {
           "ts": 1779077916.8508236,
@@ -712026,6 +712053,33 @@
           "liq": 14.54,
           "buys1h": 0,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0002928,
+          "mcap": 29285.0,
+          "vol1h": 0.0,
+          "liq": 14.54,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0002928,
+          "mcap": 29285.0,
+          "vol1h": 0.0,
+          "liq": 14.54,
+          "buys1h": 0,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0002928,
+          "mcap": 29285.0,
+          "vol1h": 0.0,
+          "liq": 14.54,
+          "buys1h": 0,
+          "sells1h": 0
         }
       ],
       "pattern": "unknown",
@@ -712066,7 +712120,7 @@
         }
       ],
       "added_at": 1779077243.0462224,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779077243.0462224,
@@ -712076,33 +712130,6 @@
           "liq": 73992.89,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.352e-06,
-          "mcap": 2353.0,
-          "vol1h": 31.79,
-          "liq": 4115.82,
-          "buys1h": 1,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.352e-06,
-          "mcap": 2353.0,
-          "vol1h": 31.79,
-          "liq": 4115.82,
-          "buys1h": 1,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.31e-06,
-          "mcap": 2311.0,
-          "vol1h": 31.58,
-          "liq": 4073.5,
-          "buys1h": 0,
-          "sells1h": 3
         },
         {
           "ts": 1779122005.9937143,
@@ -712967,6 +712994,33 @@
           "liq": 4035.47,
           "buys1h": 2,
           "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.223e-06,
+          "mcap": 2224.0,
+          "vol1h": 9.76,
+          "liq": 4035.47,
+          "buys1h": 1,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.223e-06,
+          "mcap": 2224.0,
+          "vol1h": 9.76,
+          "liq": 4035.47,
+          "buys1h": 1,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.223e-06,
+          "mcap": 2224.0,
+          "vol1h": 9.76,
+          "liq": 4035.47,
+          "buys1h": 1,
+          "sells1h": 1
         }
       ],
       "pattern": "rug_pull",
@@ -713007,7 +713061,7 @@
         }
       ],
       "added_at": 1779079258.809703,
-      "last_checked": 1779145878.250341,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779079258.809703,
@@ -713017,33 +713071,6 @@
           "liq": 10077.05,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779116267.67588,
-          "price": 3.423e-06,
-          "mcap": 3423.0,
-          "vol1h": 364.67,
-          "liq": 4508.97,
-          "buys1h": 29,
-          "sells1h": 9
-        },
-        {
-          "ts": 1779116569.6568224,
-          "price": 3.423e-06,
-          "mcap": 3423.0,
-          "vol1h": 327.15,
-          "liq": 4508.97,
-          "buys1h": 27,
-          "sells1h": 8
-        },
-        {
-          "ts": 1779116871.333435,
-          "price": 3.423e-06,
-          "mcap": 3423.0,
-          "vol1h": 185.36,
-          "liq": 4508.97,
-          "buys1h": 14,
-          "sells1h": 8
         },
         {
           "ts": 1779117173.3208714,
@@ -713908,6 +713935,33 @@
           "liq": 3720.84,
           "buys1h": 0,
           "sells1h": 4
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.076e-06,
+          "mcap": 2076.0,
+          "vol1h": 99.26,
+          "liq": 3550.74,
+          "buys1h": 0,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.076e-06,
+          "mcap": 2076.0,
+          "vol1h": 99.26,
+          "liq": 3550.74,
+          "buys1h": 0,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.015e-06,
+          "mcap": 2015.0,
+          "vol1h": 114.07,
+          "liq": 3494.75,
+          "buys1h": 0,
+          "sells1h": 6
         }
       ],
       "pattern": "rug_pull",
@@ -713915,8 +713969,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -63%, cena -86%",
-      "pct_change": -86.46745562130177
+      "pattern_reason": "Liq -65%, cena -88%",
+      "pct_change": -88.07692307692308
     },
     "4awjcfg9fgK547L4hLkAUGZVDPiryk8GB5VYDgpvpump": {
       "address": "4awjcfg9fgK547L4hLkAUGZVDPiryk8GB5VYDgpvpump",
@@ -713948,7 +714002,7 @@
         }
       ],
       "added_at": 1779079856.8053792,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779079856.8053792,
@@ -713958,33 +714012,6 @@
           "liq": 26681.54,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.177e-06,
-          "mcap": 3177.0,
-          "vol1h": 67.07,
-          "liq": 4840.13,
-          "buys1h": 2,
-          "sells1h": 4
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.177e-06,
-          "mcap": 3177.0,
-          "vol1h": 67.03,
-          "liq": 4840.13,
-          "buys1h": 2,
-          "sells1h": 3
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.134e-06,
-          "mcap": 3134.0,
-          "vol1h": 44.82,
-          "liq": 4810.55,
-          "buys1h": 1,
-          "sells1h": 4
         },
         {
           "ts": 1779122005.9937143,
@@ -714849,6 +714876,33 @@
           "liq": 4666.39,
           "buys1h": 2,
           "sells1h": 4
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.866e-06,
+          "mcap": 2866.0,
+          "vol1h": 53.81,
+          "liq": 4641.89,
+          "buys1h": 2,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.866e-06,
+          "mcap": 2866.0,
+          "vol1h": 53.81,
+          "liq": 4641.89,
+          "buys1h": 2,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.866e-06,
+          "mcap": 2866.0,
+          "vol1h": 53.81,
+          "liq": 4641.89,
+          "buys1h": 2,
+          "sells1h": 5
         }
       ],
       "pattern": "rug_pull",
@@ -714857,7 +714911,7 @@
       "gem_counted": true,
       "status": "tracking",
       "pattern_reason": "Liq -83%, cena -97%",
-      "pct_change": -97.34647112740605
+      "pct_change": -97.37305224564619
     },
     "CjUoUjyKYpLM3aRWyH6VVFZcwANNPZwHNRfctjm7pump": {
       "address": "CjUoUjyKYpLM3aRWyH6VVFZcwANNPZwHNRfctjm7pump",
@@ -714889,7 +714943,7 @@
         }
       ],
       "added_at": 1779080256.9095109,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779080256.9095109,
@@ -714899,33 +714953,6 @@
           "liq": 15721.15,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.153e-05,
-          "mcap": 29197.0,
-          "vol1h": 12689.25,
-          "liq": 14430.71,
-          "buys1h": 194,
-          "sells1h": 159
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.386e-05,
-          "mcap": 31359.0,
-          "vol1h": 12290.39,
-          "liq": 14948.84,
-          "buys1h": 196,
-          "sells1h": 158
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.35e-05,
-          "mcap": 31022.0,
-          "vol1h": 12013.24,
-          "liq": 14854.77,
-          "buys1h": 183,
-          "sells1h": 151
         },
         {
           "ts": 1779122005.9937143,
@@ -715790,6 +715817,33 @@
           "liq": 12428.5,
           "buys1h": 37,
           "sells1h": 42
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.217e-05,
+          "mcap": 20534.0,
+          "vol1h": 1686.45,
+          "liq": 12208.86,
+          "buys1h": 36,
+          "sells1h": 38
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.026e-05,
+          "mcap": 18769.0,
+          "vol1h": 1571.11,
+          "liq": 11657.92,
+          "buys1h": 31,
+          "sells1h": 33
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.023e-05,
+          "mcap": 18733.0,
+          "vol1h": 1535.42,
+          "liq": 11652.58,
+          "buys1h": 32,
+          "sells1h": 33
         }
       ],
       "pattern": "unknown",
@@ -715797,8 +715851,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -44%",
-      "pct_change": -44.139105058365764
+      "pattern_reason": "Nieznany wzorzec, zmiana -51%",
+      "pct_change": -50.802529182879375
     },
     "26YRpwvWhTSBSAkQbhNP6AXBNrJe8uRxibAn7ZXXpump": {
       "address": "26YRpwvWhTSBSAkQbhNP6AXBNrJe8uRxibAn7ZXXpump",
@@ -715830,7 +715884,7 @@
         }
       ],
       "added_at": 1779081275.5717459,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779081275.5717459,
@@ -715840,33 +715894,6 @@
           "liq": 21917.43,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0001035,
-          "mcap": 103591.0,
-          "vol1h": 10803.06,
-          "liq": 25338.63,
-          "buys1h": 103,
-          "sells1h": 71
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0001071,
-          "mcap": 107121.0,
-          "vol1h": 8529.36,
-          "liq": 25758.71,
-          "buys1h": 101,
-          "sells1h": 67
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001073,
-          "mcap": 107394.0,
-          "vol1h": 9169.93,
-          "liq": 25767.1,
-          "buys1h": 102,
-          "sells1h": 73
         },
         {
           "ts": 1779122005.9937143,
@@ -716731,6 +716758,33 @@
           "liq": 20111.49,
           "buys1h": 71,
           "sells1h": 24
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 6.731e-05,
+          "mcap": 67312.0,
+          "vol1h": 5886.64,
+          "liq": 20660.92,
+          "buys1h": 78,
+          "sells1h": 27
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.497e-05,
+          "mcap": 64970.0,
+          "vol1h": 6001.88,
+          "liq": 20279.83,
+          "buys1h": 79,
+          "sells1h": 32
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 6.745e-05,
+          "mcap": 67451.0,
+          "vol1h": 6340.51,
+          "liq": 20666.64,
+          "buys1h": 84,
+          "sells1h": 37
         }
       ],
       "pattern": "consolidation",
@@ -716738,8 +716792,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena -18% total",
-      "pct_change": -18.231973312804723
+      "pattern_reason": "Stabilna cena -13% total",
+      "pct_change": -13.459071080318196
     },
     "9pTFXKjoFdNx2zfkmcUFYRBPcFARN9JQh4wqS8Q7pump": {
       "address": "9pTFXKjoFdNx2zfkmcUFYRBPcFARN9JQh4wqS8Q7pump",
@@ -716775,7 +716829,7 @@
         }
       ],
       "added_at": 1779081870.6771445,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779081870.6771445,
@@ -716785,33 +716839,6 @@
           "liq": 31515.43,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.128e-06,
-          "mcap": 2128.0,
-          "vol1h": 15.42,
-          "liq": 3867.54,
-          "buys1h": 1,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.128e-06,
-          "mcap": 2128.0,
-          "vol1h": 15.42,
-          "liq": 3867.54,
-          "buys1h": 1,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.128e-06,
-          "mcap": 2128.0,
-          "vol1h": 10.91,
-          "liq": 3867.54,
-          "buys1h": 1,
-          "sells1h": 1
         },
         {
           "ts": 1779122005.9937143,
@@ -717670,6 +717697,33 @@
         },
         {
           "ts": 1779150713.251227,
+          "price": 2.058e-06,
+          "mcap": 2058.0,
+          "vol1h": 14.27,
+          "liq": 3827.9,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.058e-06,
+          "mcap": 2058.0,
+          "vol1h": 14.27,
+          "liq": 3827.9,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.058e-06,
+          "mcap": 2058.0,
+          "vol1h": 14.27,
+          "liq": 3827.9,
+          "buys1h": 0,
+          "sells1h": 1
+        },
+        {
+          "ts": 1779151621.9463332,
           "price": 2.058e-06,
           "mcap": 2058.0,
           "vol1h": 14.27,
@@ -719598,7 +719652,7 @@
         }
       ],
       "added_at": 1779088908.693237,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779088908.693237,
@@ -719608,33 +719662,6 @@
           "liq": 20956.2,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.653e-06,
-          "mcap": 3654.0,
-          "vol1h": 531.01,
-          "liq": 4953.75,
-          "buys1h": 418,
-          "sells1h": 38
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.729e-06,
-          "mcap": 3729.0,
-          "vol1h": 536.53,
-          "liq": 5000.46,
-          "buys1h": 389,
-          "sells1h": 37
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.716e-06,
-          "mcap": 3716.0,
-          "vol1h": 344.91,
-          "liq": 4990.11,
-          "buys1h": 356,
-          "sells1h": 31
         },
         {
           "ts": 1779122005.9937143,
@@ -720499,6 +720526,33 @@
           "liq": 4383.85,
           "buys1h": 151,
           "sells1h": 14
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.793e-06,
+          "mcap": 2792.0,
+          "vol1h": 560.54,
+          "liq": 4368.57,
+          "buys1h": 90,
+          "sells1h": 15
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.793e-06,
+          "mcap": 2792.0,
+          "vol1h": 287.36,
+          "liq": 4368.57,
+          "buys1h": 29,
+          "sells1h": 11
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.851e-06,
+          "mcap": 2850.0,
+          "vol1h": 217.69,
+          "liq": 4410.66,
+          "buys1h": 7,
+          "sells1h": 8
         }
       ],
       "pattern": "rug_pull",
@@ -720507,7 +720561,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -79%, cena -96%",
-      "pct_change": -96.07372242390394
+      "pct_change": -96.01926836079306
     },
     "GWDzTobFv5TFcyk43szTFTojJK2yRpDAkSRwML4ppump": {
       "address": "GWDzTobFv5TFcyk43szTFTojJK2yRpDAkSRwML4ppump",
@@ -721836,7 +721890,7 @@
         }
       ],
       "added_at": 1779093702.1205204,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779093702.1205204,
@@ -721846,33 +721900,6 @@
           "liq": 23795.11,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 2.174e-06,
-          "mcap": 2175.0,
-          "vol1h": 9.33,
-          "liq": 4005.9,
-          "buys1h": 0,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 2.174e-06,
-          "mcap": 2175.0,
-          "vol1h": 9.33,
-          "liq": 4005.9,
-          "buys1h": 0,
-          "sells1h": 2
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 2.174e-06,
-          "mcap": 2175.0,
-          "vol1h": 9.33,
-          "liq": 4005.9,
-          "buys1h": 0,
-          "sells1h": 2
         },
         {
           "ts": 1779122005.9937143,
@@ -722737,6 +722764,33 @@
           "liq": 4004.31,
           "buys1h": 1,
           "sells1h": 0
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.138e-06,
+          "mcap": 2139.0,
+          "vol1h": 5.61,
+          "liq": 4004.31,
+          "buys1h": 1,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.138e-06,
+          "mcap": 2139.0,
+          "vol1h": 5.61,
+          "liq": 4004.31,
+          "buys1h": 1,
+          "sells1h": 0
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.12e-06,
+          "mcap": 2121.0,
+          "vol1h": 0.08,
+          "liq": 3990.9,
+          "buys1h": 0,
+          "sells1h": 1
         }
       ],
       "pattern": "rug_pull",
@@ -722745,7 +722799,7 @@
       "gem_counted": true,
       "status": "tracking",
       "pattern_reason": "Liq -83%, cena -98%",
-      "pct_change": -97.53117782909932
+      "pct_change": -97.55196304849885
     },
     "BESqHvHFctt58g39UVU5UTBef2vH779sGzZASAzZpump": {
       "address": "BESqHvHFctt58g39UVU5UTBef2vH779sGzZASAzZpump",
@@ -722777,7 +722831,7 @@
         }
       ],
       "added_at": 1779093902.4582434,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779093902.4582434,
@@ -722787,33 +722841,6 @@
           "liq": 24099.91,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.798e-06,
-          "mcap": 3799.0,
-          "vol1h": 98.66,
-          "liq": 5820.67,
-          "buys1h": 3,
-          "sells1h": 14
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.804e-06,
-          "mcap": 3804.0,
-          "vol1h": 54.97,
-          "liq": 5830.02,
-          "buys1h": 3,
-          "sells1h": 12
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.791e-06,
-          "mcap": 3792.0,
-          "vol1h": 51.16,
-          "liq": 5811.78,
-          "buys1h": 3,
-          "sells1h": 12
         },
         {
           "ts": 1779122005.9937143,
@@ -723678,6 +723705,33 @@
           "liq": 5642.74,
           "buys1h": 1,
           "sells1h": 3
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.498e-06,
+          "mcap": 3498.0,
+          "vol1h": 56.94,
+          "liq": 5633.18,
+          "buys1h": 2,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.498e-06,
+          "mcap": 3498.0,
+          "vol1h": 56.94,
+          "liq": 5633.18,
+          "buys1h": 2,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.495e-06,
+          "mcap": 3495.0,
+          "vol1h": 47.74,
+          "liq": 5626.89,
+          "buys1h": 2,
+          "sells1h": 6
         }
       ],
       "pattern": "rug_pull",
@@ -723686,7 +723740,7 @@
       "gem_counted": true,
       "status": "tracking",
       "pattern_reason": "Liq -77%, cena -96%",
-      "pct_change": -96.27613286639075
+      "pct_change": -96.29099013053167
     },
     "EYQh6xAg8uEUCwNfe6fUNwhRyUAXQd8RfVkAykuSpump": {
       "address": "EYQh6xAg8uEUCwNfe6fUNwhRyUAXQd8RfVkAykuSpump",
@@ -723718,7 +723772,7 @@
         }
       ],
       "added_at": 1779099730.1038172,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779099730.1038172,
@@ -723728,33 +723782,6 @@
           "liq": 18834.24,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.743e-06,
-          "mcap": 3744.0,
-          "vol1h": 316.56,
-          "liq": 4818.05,
-          "buys1h": 987,
-          "sells1h": 348
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.737e-06,
-          "mcap": 3737.0,
-          "vol1h": 317.69,
-          "liq": 4809.59,
-          "buys1h": 989,
-          "sells1h": 344
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.733e-06,
-          "mcap": 3734.0,
-          "vol1h": 317.88,
-          "liq": 4805.02,
-          "buys1h": 988,
-          "sells1h": 342
         },
         {
           "ts": 1779122005.9937143,
@@ -724619,6 +724646,33 @@
           "liq": 4200.4,
           "buys1h": 0,
           "sells1h": 2
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.777e-06,
+          "mcap": 2778.0,
+          "vol1h": 39.43,
+          "liq": 4184.84,
+          "buys1h": 0,
+          "sells1h": 2
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.777e-06,
+          "mcap": 2778.0,
+          "vol1h": 39.43,
+          "liq": 4184.84,
+          "buys1h": 0,
+          "sells1h": 2
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.777e-06,
+          "mcap": 2778.0,
+          "vol1h": 39.43,
+          "liq": 4184.84,
+          "buys1h": 0,
+          "sells1h": 2
         }
       ],
       "pattern": "rug_pull",
@@ -724627,7 +724681,7 @@
       "gem_counted": false,
       "status": "tracking",
       "pattern_reason": "Liq -78%, cena -95%",
-      "pct_change": -95.26262626262627
+      "pct_change": -95.32491582491583
     },
     "6LiUy31E6Jj3iaaX9QHMxoKmvSeDSLoLo5BWJCKapump": {
       "address": "6LiUy31E6Jj3iaaX9QHMxoKmvSeDSLoLo5BWJCKapump",
@@ -724659,7 +724713,7 @@
         }
       ],
       "added_at": 1779100735.6566503,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779100735.6566503,
@@ -724669,33 +724723,6 @@
           "liq": 21607.59,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0001027,
-          "mcap": 102772.0,
-          "vol1h": 23738.4,
-          "liq": 25219.27,
-          "buys1h": 461,
-          "sells1h": 282
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 9.802e-05,
-          "mcap": 98027.0,
-          "vol1h": 22900.63,
-          "liq": 24616.45,
-          "buys1h": 443,
-          "sells1h": 283
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001008,
-          "mcap": 100800.0,
-          "vol1h": 23589.86,
-          "liq": 24932.93,
-          "buys1h": 458,
-          "sells1h": 293
         },
         {
           "ts": 1779122005.9937143,
@@ -725560,6 +725587,33 @@
           "liq": 4881.76,
           "buys1h": 8,
           "sells1h": 12
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.736e-06,
+          "mcap": 3736.0,
+          "vol1h": 122.05,
+          "liq": 4881.76,
+          "buys1h": 7,
+          "sells1h": 12
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.72e-06,
+          "mcap": 3720.0,
+          "vol1h": 113.47,
+          "liq": 4869.85,
+          "buys1h": 6,
+          "sells1h": 12
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.72e-06,
+          "mcap": 3720.0,
+          "vol1h": 113.47,
+          "liq": 4869.85,
+          "buys1h": 6,
+          "sells1h": 12
         }
       ],
       "pattern": "rug_pull",
@@ -725568,7 +725622,7 @@
       "gem_counted": true,
       "status": "tracking",
       "pattern_reason": "Liq -77%, cena -95%",
-      "pct_change": -95.23226135783563
+      "pct_change": -95.25267993874425
     },
     "8NEh2L4PAVsweMTKJWyCn5WdQbKaB8FkHgJtkoK9pump": {
       "address": "8NEh2L4PAVsweMTKJWyCn5WdQbKaB8FkHgJtkoK9pump",
@@ -725600,7 +725654,7 @@
         }
       ],
       "added_at": 1779101748.3113208,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779101748.3113208,
@@ -725610,33 +725664,6 @@
           "liq": 35410.17,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0001253,
-          "mcap": 125320.0,
-          "vol1h": 19128.37,
-          "liq": 28269.52,
-          "buys1h": 341,
-          "sells1h": 92
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0001248,
-          "mcap": 124820.0,
-          "vol1h": 16929.63,
-          "liq": 28197.6,
-          "buys1h": 330,
-          "sells1h": 87
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.0001209,
-          "mcap": 120958.0,
-          "vol1h": 14181.18,
-          "liq": 27746.86,
-          "buys1h": 315,
-          "sells1h": 68
         },
         {
           "ts": 1779122005.9937143,
@@ -726501,6 +726528,33 @@
           "liq": 3710.36,
           "buys1h": 3,
           "sells1h": 2514
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.085e-06,
+          "mcap": 2086.0,
+          "vol1h": 98.35,
+          "liq": 3710.36,
+          "buys1h": 3,
+          "sells1h": 1391
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.085e-06,
+          "mcap": 2086.0,
+          "vol1h": 98.33,
+          "liq": 3710.36,
+          "buys1h": 3,
+          "sells1h": 14
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.085e-06,
+          "mcap": 2086.0,
+          "vol1h": 98.16,
+          "liq": 3710.36,
+          "buys1h": 3,
+          "sells1h": 13
         }
       ],
       "pattern": "rug_pull",
@@ -728439,7 +728493,7 @@
         }
       ],
       "added_at": 1779107900.715026,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779107900.715026,
@@ -728449,33 +728503,6 @@
           "liq": 11571.64,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 3.34e-05,
-          "mcap": 33403.0,
-          "vol1h": 19104.66,
-          "liq": 11066.35,
-          "buys1h": 177,
-          "sells1h": 104
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 3.156e-05,
-          "mcap": 31563.0,
-          "vol1h": 19389.73,
-          "liq": 10757.15,
-          "buys1h": 177,
-          "sells1h": 110
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 3.265e-05,
-          "mcap": 32650.0,
-          "vol1h": 18498.45,
-          "liq": 10919.29,
-          "buys1h": 173,
-          "sells1h": 107
         },
         {
           "ts": 1779122005.9937143,
@@ -729340,6 +729367,33 @@
           "liq": 12169.11,
           "buys1h": 31,
           "sells1h": 22
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.959e-05,
+          "mcap": 39595.0,
+          "vol1h": 1745.7,
+          "liq": 12144.21,
+          "buys1h": 30,
+          "sells1h": 23
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.233e-05,
+          "mcap": 42332.0,
+          "vol1h": 1846.87,
+          "liq": 12542.37,
+          "buys1h": 35,
+          "sells1h": 23
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.233e-05,
+          "mcap": 42332.0,
+          "vol1h": 1796.53,
+          "liq": 12542.37,
+          "buys1h": 32,
+          "sells1h": 22
         }
       ],
       "pattern": "consolidation",
@@ -729347,8 +729401,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +10% total",
-      "pct_change": 10.113604876697147
+      "pattern_reason": "Stabilna cena +17% total",
+      "pct_change": 17.290108063175396
     },
     "FYCm4LXyaxegxbzx8H2JZS3dfacwgRRkSx9LkfEwpump": {
       "address": "FYCm4LXyaxegxbzx8H2JZS3dfacwgRRkSx9LkfEwpump",
@@ -730321,7 +730375,7 @@
         }
       ],
       "added_at": 1779114156.956363,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779114156.956363,
@@ -730331,33 +730385,6 @@
           "liq": 20879.94,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 9.469e-05,
-          "mcap": 94689.0,
-          "vol1h": 102096.5,
-          "liq": 25580.01,
-          "buys1h": 1064,
-          "sells1h": 761
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 8.33e-05,
-          "mcap": 83299.0,
-          "vol1h": 86075.2,
-          "liq": 23976.93,
-          "buys1h": 918,
-          "sells1h": 679
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 8.845e-05,
-          "mcap": 88449.0,
-          "vol1h": 71907.57,
-          "liq": 24709.75,
-          "buys1h": 783,
-          "sells1h": 598
         },
         {
           "ts": 1779122005.9937143,
@@ -731222,6 +731249,33 @@
           "liq": 5280.7,
           "buys1h": 10,
           "sells1h": 22
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.883e-06,
+          "mcap": 3883.0,
+          "vol1h": 422.03,
+          "liq": 5266.29,
+          "buys1h": 9,
+          "sells1h": 23
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 4.385e-06,
+          "mcap": 4385.0,
+          "vol1h": 585.27,
+          "liq": 5591.85,
+          "buys1h": 12,
+          "sells1h": 23
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 4.718e-06,
+          "mcap": 4718.0,
+          "vol1h": 498.88,
+          "liq": 5803.65,
+          "buys1h": 19,
+          "sells1h": 19
         }
       ],
       "pattern": "rug_pull",
@@ -731229,8 +731283,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -75%, cena -94%",
-      "pct_change": -94.19210722263588
+      "pattern_reason": "Liq -72%, cena -93%",
+      "pct_change": -92.97393894266567
     },
     "EiSRH1kPQryP4BCP5ABniSnrDG65cWUBVfnxecN9pump": {
       "address": "EiSRH1kPQryP4BCP5ABniSnrDG65cWUBVfnxecN9pump",
@@ -732712,7 +732766,7 @@
         }
       ],
       "added_at": 1779115789.2525816,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779115789.2525816,
@@ -732722,33 +732776,6 @@
           "liq": 42912.62,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.0002341,
-          "mcap": 234127.0,
-          "vol1h": 1124722.56,
-          "liq": 42300.45,
-          "buys1h": 7317,
-          "sells1h": 4237
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.0001628,
-          "mcap": 162864.0,
-          "vol1h": 1093066.25,
-          "liq": 35376.67,
-          "buys1h": 7287,
-          "sells1h": 4366
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 1.034e-05,
-          "mcap": 10344.0,
-          "vol1h": 1149881.7,
-          "liq": 8959.36,
-          "buys1h": 7773,
-          "sells1h": 5200
         },
         {
           "ts": 1779122005.9937143,
@@ -733613,6 +733640,33 @@
           "liq": 5487.43,
           "buys1h": 3,
           "sells1h": 5
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 3.801e-06,
+          "mcap": 3801.0,
+          "vol1h": 173.06,
+          "liq": 5487.43,
+          "buys1h": 3,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.796e-06,
+          "mcap": 3796.0,
+          "vol1h": 156.58,
+          "liq": 5480.83,
+          "buys1h": 3,
+          "sells1h": 5
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.796e-06,
+          "mcap": 3796.0,
+          "vol1h": 156.58,
+          "liq": 5480.83,
+          "buys1h": 3,
+          "sells1h": 5
         }
       ],
       "pattern": "rug_pull",
@@ -733621,7 +733675,7 @@
       "gem_counted": true,
       "status": "tracking",
       "pattern_reason": "Liq -87%, cena -99%",
-      "pct_change": -98.64588528678304
+      "pct_change": -98.64766654791593
     },
     "9FssA1B7EhdWCt7rT4RtovYbWdKg3gog1wpXWuqHpump": {
       "address": "9FssA1B7EhdWCt7rT4RtovYbWdKg3gog1wpXWuqHpump",
@@ -733653,7 +733707,7 @@
         }
       ],
       "added_at": 1779117438.1963286,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779117438.1963286,
@@ -733663,33 +733717,6 @@
           "liq": 373515.69,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.02214,
-          "mcap": 22141545.0,
-          "vol1h": 582795.05,
-          "liq": 405679.77,
-          "buys1h": 4634,
-          "sells1h": 1554
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.02308,
-          "mcap": 23084795.0,
-          "vol1h": 575026.42,
-          "liq": 413955.04,
-          "buys1h": 4749,
-          "sells1h": 1553
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.02423,
-          "mcap": 24231755.0,
-          "vol1h": 565694.66,
-          "liq": 424003.58,
-          "buys1h": 4855,
-          "sells1h": 1560
         },
         {
           "ts": 1779122005.9937143,
@@ -734554,6 +734581,33 @@
           "liq": 334807.15,
           "buys1h": 433,
           "sells1h": 348
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.01387,
+          "mcap": 13876389.0,
+          "vol1h": 94500.72,
+          "liq": 328427.79,
+          "buys1h": 431,
+          "sells1h": 361
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.01401,
+          "mcap": 14011967.0,
+          "vol1h": 95405.81,
+          "liq": 329771.65,
+          "buys1h": 439,
+          "sells1h": 360
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.01411,
+          "mcap": 14118807.0,
+          "vol1h": 95739.45,
+          "liq": 331018.13,
+          "buys1h": 439,
+          "sells1h": 361
         }
       ],
       "pattern": "unknown",
@@ -734561,8 +734615,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -24%",
-      "pct_change": -24.1977906365071
+      "pattern_reason": "Nieznany wzorzec, zmiana -26%",
+      "pct_change": -25.77590741714887
     },
     "9WdncGJ6fQcXn1iHmCuU3UX4LDgu9DkTS5FBdeFWEjJS": {
       "address": "9WdncGJ6fQcXn1iHmCuU3UX4LDgu9DkTS5FBdeFWEjJS",
@@ -735531,7 +735585,7 @@
         }
       ],
       "added_at": 1779119445.290853,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779119445.290853,
@@ -735541,33 +735595,6 @@
           "liq": 84870.89,
           "buys1h": 0,
           "sells1h": 0
-        },
-        {
-          "ts": 1779121099.547117,
-          "price": 0.001094,
-          "mcap": 1094296.0,
-          "vol1h": 166318.04,
-          "liq": 88752.24,
-          "buys1h": 999,
-          "sells1h": 1132
-        },
-        {
-          "ts": 1779121401.4757626,
-          "price": 0.00114,
-          "mcap": 1140101.0,
-          "vol1h": 163032.6,
-          "liq": 90530.61,
-          "buys1h": 1003,
-          "sells1h": 1147
-        },
-        {
-          "ts": 1779121703.3218453,
-          "price": 0.001186,
-          "mcap": 1186458.0,
-          "vol1h": 173717.38,
-          "liq": 92346.78,
-          "buys1h": 1035,
-          "sells1h": 1195
         },
         {
           "ts": 1779122005.9937143,
@@ -736432,6 +736459,33 @@
           "liq": 104579.21,
           "buys1h": 1647,
           "sells1h": 1718
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.001373,
+          "mcap": 1373537.0,
+          "vol1h": 122665.27,
+          "liq": 102881.5,
+          "buys1h": 1639,
+          "sells1h": 1726
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.001359,
+          "mcap": 1359809.0,
+          "vol1h": 116668.68,
+          "liq": 102284.36,
+          "buys1h": 1633,
+          "sells1h": 1727
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.001331,
+          "mcap": 1331403.0,
+          "vol1h": 115012.96,
+          "liq": 101241.31,
+          "buys1h": 1613,
+          "sells1h": 1715
         }
       ],
       "pattern": "unknown",
@@ -736439,8 +736493,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +41%",
-      "pct_change": 40.77380952380951
+      "pattern_reason": "Nieznany wzorzec, zmiana +32%",
+      "pct_change": 32.043650793650784
     },
     "DiWdBtCtTq6qRCRketLqgF352QS3rcB6byWjJhkZpump": {
       "address": "DiWdBtCtTq6qRCRketLqgF352QS3rcB6byWjJhkZpump",
@@ -737274,7 +737328,7 @@
         }
       ],
       "added_at": 1779121658.0964916,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779121658.0964916,
@@ -738148,6 +738202,33 @@
           "liq": 151373.43,
           "buys1h": 668,
           "sells1h": 311
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0009777,
+          "mcap": 977701.0,
+          "vol1h": 88227.88,
+          "liq": 153748.06,
+          "buys1h": 678,
+          "sells1h": 331
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0009617,
+          "mcap": 961675.0,
+          "vol1h": 69789.67,
+          "liq": 152335.51,
+          "buys1h": 583,
+          "sells1h": 309
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0009118,
+          "mcap": 911805.0,
+          "vol1h": 69446.9,
+          "liq": 148343.16,
+          "buys1h": 572,
+          "sells1h": 312
         }
       ],
       "pattern": "consolidation",
@@ -738155,8 +738236,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena -5% total",
-      "pct_change": -5.439121756487034
+      "pattern_reason": "Stabilna cena -9% total",
+      "pct_change": -9.001996007984033
     },
     "6aCXV31yZQKXmcvD2yRa9hYayrrYvmaysUX9H7sXpump": {
       "address": "6aCXV31yZQKXmcvD2yRa9hYayrrYvmaysUX9H7sXpump",
@@ -738998,7 +739079,7 @@
         }
       ],
       "added_at": 1779124463.7352421,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779124463.7352421,
@@ -739782,15 +739863,42 @@
           "liq": 27998.87,
           "buys1h": 324,
           "sells1h": 198
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 9.029e-05,
+          "mcap": 90293.0,
+          "vol1h": 26637.11,
+          "liq": 24985.76,
+          "buys1h": 385,
+          "sells1h": 236
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 8.886e-05,
+          "mcap": 88863.0,
+          "vol1h": 28134.46,
+          "liq": 24769.8,
+          "buys1h": 405,
+          "sells1h": 230
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 8.801e-05,
+          "mcap": 88015.0,
+          "vol1h": 27501.68,
+          "liq": 24649.92,
+          "buys1h": 403,
+          "sells1h": 224
         }
       ],
-      "pattern": "consolidation",
-      "pattern_confidence": 60,
+      "pattern": "unknown",
+      "pattern_confidence": 40,
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +2% total",
-      "pct_change": 2.0683453237409966
+      "pattern_reason": "Nieznany wzorzec, zmiana -21%",
+      "pct_change": -20.85431654676259
     },
     "6n2bFW7KX9tBaW8qdjVaUsUDqFMQ69v44GCU9Kjfpump": {
       "address": "6n2bFW7KX9tBaW8qdjVaUsUDqFMQ69v44GCU9Kjfpump",
@@ -739822,7 +739930,7 @@
         }
       ],
       "added_at": 1779124675.2033966,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779124675.2033966,
@@ -740606,6 +740714,33 @@
           "liq": 9908.73,
           "buys1h": 40,
           "sells1h": 16
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.476e-05,
+          "mcap": 14767.0,
+          "vol1h": 1044.33,
+          "liq": 9926.49,
+          "buys1h": 41,
+          "sells1h": 15
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.418e-05,
+          "mcap": 14181.0,
+          "vol1h": 866.77,
+          "liq": 9721.45,
+          "buys1h": 39,
+          "sells1h": 17
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.418e-05,
+          "mcap": 14181.0,
+          "vol1h": 804.44,
+          "liq": 9721.45,
+          "buys1h": 36,
+          "sells1h": 16
         }
       ],
       "pattern": "unknown",
@@ -740613,8 +740748,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -38%",
-      "pct_change": -37.57961783439491
+      "pattern_reason": "Nieznany wzorzec, zmiana -40%",
+      "pct_change": -39.78768577494692
     },
     "CcMH28XmJxUxrvZX55dgVpZDwPAi1vDNRnnQG1GEpump": {
       "address": "CcMH28XmJxUxrvZX55dgVpZDwPAi1vDNRnnQG1GEpump",
@@ -740646,7 +740781,7 @@
         }
       ],
       "added_at": 1779130691.127712,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779130691.127712,
@@ -741250,6 +741385,33 @@
           "liq": 8377.43,
           "buys1h": 1044,
           "sells1h": 384
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.081e-05,
+          "mcap": 10816.0,
+          "vol1h": 1720.41,
+          "liq": 8371.57,
+          "buys1h": 1038,
+          "sells1h": 377
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.079e-05,
+          "mcap": 10799.0,
+          "vol1h": 1713.02,
+          "liq": 8358.08,
+          "buys1h": 1040,
+          "sells1h": 373
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.078e-05,
+          "mcap": 10789.0,
+          "vol1h": 1592.09,
+          "liq": 8355.44,
+          "buys1h": 1036,
+          "sells1h": 367
         }
       ],
       "pattern": "rug_pull",
@@ -741257,8 +741419,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -61%, cena -86%",
-      "pct_change": -86.13886753779146
+      "pattern_reason": "Liq -62%, cena -86%",
+      "pct_change": -86.19011017166281
     },
     "Af74B1WLZ3bCy9hfFMgWRVohjndF7dWzDRCLTfwMpump": {
       "address": "Af74B1WLZ3bCy9hfFMgWRVohjndF7dWzDRCLTfwMpump",
@@ -741290,7 +741452,7 @@
         }
       ],
       "added_at": 1779132707.995061,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779132707.995061,
@@ -741831,6 +741993,33 @@
           "liq": 3931.04,
           "buys1h": 3,
           "sells1h": 5
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.437e-06,
+          "mcap": 2438.0,
+          "vol1h": 78.76,
+          "liq": 3878.63,
+          "buys1h": 3,
+          "sells1h": 7
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.428e-06,
+          "mcap": 2428.0,
+          "vol1h": 80.45,
+          "liq": 3866.83,
+          "buys1h": 4,
+          "sells1h": 8
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.398e-06,
+          "mcap": 2398.0,
+          "vol1h": 81.05,
+          "liq": 3844.37,
+          "buys1h": 4,
+          "sells1h": 9
         }
       ],
       "pattern": "rug_pull",
@@ -741838,8 +742027,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -80%, cena -96%",
-      "pct_change": -96.22758100979654
+      "pattern_reason": "Liq -81%, cena -96%",
+      "pct_change": -96.38583270535041
     },
     "3Aufc1SPEq1TMDkeUYUbKiCp2s99Lt47CdPz5ka5pump": {
       "address": "3Aufc1SPEq1TMDkeUYUbKiCp2s99Lt47CdPz5ka5pump",
@@ -741871,7 +742060,7 @@
         }
       ],
       "added_at": 1779132721.573557,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779132721.573557,
@@ -742412,6 +742601,33 @@
           "liq": 13809.15,
           "buys1h": 166,
           "sells1h": 129
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.866e-05,
+          "mcap": 28503.0,
+          "vol1h": 14147.15,
+          "liq": 13369.94,
+          "buys1h": 145,
+          "sells1h": 124
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 2.804e-05,
+          "mcap": 27882.0,
+          "vol1h": 12858.73,
+          "liq": 13210.34,
+          "buys1h": 128,
+          "sells1h": 121
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 2.745e-05,
+          "mcap": 27296.0,
+          "vol1h": 12381.85,
+          "liq": 13071.13,
+          "buys1h": 123,
+          "sells1h": 115
         }
       ],
       "pattern": "unknown",
@@ -742419,8 +742635,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -27%",
-      "pct_change": -27.14489990467111
+      "pattern_reason": "Nieznany wzorzec, zmiana -35%",
+      "pct_change": -34.58055290753098
     },
     "9Y5XZwx1dSDZg3sqsahfg1L2ibnNCDMvZkqz9CSJUR5Y": {
       "address": "9Y5XZwx1dSDZg3sqsahfg1L2ibnNCDMvZkqz9CSJUR5Y",
@@ -742452,7 +742668,7 @@
         }
       ],
       "added_at": 1779132911.4183128,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779132911.4183128,
@@ -742984,6 +743200,33 @@
           "liq": 21539.92,
           "buys1h": 32,
           "sells1h": 21
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 7.638e-05,
+          "mcap": 76383.0,
+          "vol1h": 1315.91,
+          "liq": 21539.92,
+          "buys1h": 21,
+          "sells1h": 15
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 7.638e-05,
+          "mcap": 76383.0,
+          "vol1h": 973.18,
+          "liq": 21539.92,
+          "buys1h": 12,
+          "sells1h": 11
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 7.638e-05,
+          "mcap": 76383.0,
+          "vol1h": 596.3,
+          "liq": 21539.92,
+          "buys1h": 3,
+          "sells1h": 7
         }
       ],
       "pattern": "consolidation",
@@ -743024,7 +743267,7 @@
         }
       ],
       "added_at": 1779135123.6977258,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779135123.6977258,
@@ -743493,6 +743736,33 @@
           "liq": 62660.36,
           "buys1h": 413,
           "sells1h": 399
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0006001,
+          "mcap": 600147.0,
+          "vol1h": 69924.48,
+          "liq": 63380.8,
+          "buys1h": 414,
+          "sells1h": 400
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0005976,
+          "mcap": 597668.0,
+          "vol1h": 65995.96,
+          "liq": 63219.9,
+          "buys1h": 389,
+          "sells1h": 383
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0006495,
+          "mcap": 649561.0,
+          "vol1h": 63876.21,
+          "liq": 65924.9,
+          "buys1h": 372,
+          "sells1h": 362
         }
       ],
       "pattern": "consolidation",
@@ -743500,8 +743770,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena -10% total",
-      "pct_change": -10.399143599938833
+      "pattern_reason": "Stabilna cena -1% total",
+      "pct_change": -0.6728857623489828
     },
     "FMkwB1sRaTF9ktdqfUCHt5rE8E2StzBLqTfois6mpump": {
       "address": "FMkwB1sRaTF9ktdqfUCHt5rE8E2StzBLqTfois6mpump",
@@ -743533,7 +743803,7 @@
         }
       ],
       "added_at": 1779135932.0602174,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779135932.0602174,
@@ -743975,6 +744245,33 @@
           "liq": 6882.51,
           "buys1h": 65,
           "sells1h": 68
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 6.898e-06,
+          "mcap": 6898.0,
+          "vol1h": 3721.2,
+          "liq": 6518.13,
+          "buys1h": 55,
+          "sells1h": 64
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 6.381e-06,
+          "mcap": 6381.0,
+          "vol1h": 2838.78,
+          "liq": 6263.86,
+          "buys1h": 50,
+          "sells1h": 54
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 6.288e-06,
+          "mcap": 6289.0,
+          "vol1h": 2426.62,
+          "liq": 6219.41,
+          "buys1h": 44,
+          "sells1h": 49
         }
       ],
       "pattern": "rug_pull",
@@ -743982,8 +744279,8 @@
       "rug_counted": true,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Liq -60%, cena -85%",
-      "pct_change": -84.50826279725918
+      "pattern_reason": "Liq -64%, cena -87%",
+      "pct_change": -87.32769044740024
     },
     "0xe59D45C0746dC39893d3B35DD93626530370968a": {
       "address": "0xe59D45C0746dC39893d3B35DD93626530370968a",
@@ -744015,7 +744312,7 @@
         }
       ],
       "added_at": 1779139370.3730543,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779139370.3730543,
@@ -744358,6 +744655,33 @@
           "liq": 32126.12,
           "buys1h": 33,
           "sells1h": 16
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001792,
+          "mcap": 179205.0,
+          "vol1h": 24372.17,
+          "liq": 31188.03,
+          "buys1h": 33,
+          "sells1h": 18
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0001792,
+          "mcap": 179205.0,
+          "vol1h": 24372.17,
+          "liq": 31188.03,
+          "buys1h": 33,
+          "sells1h": 18
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001742,
+          "mcap": 174220.0,
+          "vol1h": 25006.53,
+          "liq": 30744.03,
+          "buys1h": 35,
+          "sells1h": 19
         }
       ],
       "pattern": "organic_pump",
@@ -744365,8 +744689,8 @@
       "rug_counted": false,
       "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "+124% total, vol +426%, buy ratio 59%",
-      "pct_change": 123.63166549213061
+      "pattern_reason": "+105% total, vol +450%, buy ratio 59%",
+      "pct_change": 104.6041813483674
     },
     "Fco9JvJwvwQ7nYVHAiUwddH9xF87TXaBHwSeLJr8pump": {
       "address": "Fco9JvJwvwQ7nYVHAiUwddH9xF87TXaBHwSeLJr8pump",
@@ -744398,7 +744722,7 @@
         }
       ],
       "added_at": 1779139988.865553,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779139988.865553,
@@ -744723,6 +745047,33 @@
           "liq": 10571.69,
           "buys1h": 11,
           "sells1h": 10
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.65e-05,
+          "mcap": 16406.0,
+          "vol1h": 1503.98,
+          "liq": 10516.76,
+          "buys1h": 14,
+          "sells1h": 7
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.65e-05,
+          "mcap": 16406.0,
+          "vol1h": 1503.98,
+          "liq": 10516.76,
+          "buys1h": 14,
+          "sells1h": 7
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.65e-05,
+          "mcap": 16406.0,
+          "vol1h": 1138.7,
+          "liq": 10516.76,
+          "buys1h": 13,
+          "sells1h": 7
         }
       ],
       "pattern": "unknown",
@@ -744730,8 +745081,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -23%",
-      "pct_change": -22.87037037037037
+      "pattern_reason": "Nieznany wzorzec, zmiana -24%",
+      "pct_change": -23.611111111111104
     },
     "9mTxwi3r1NA3NwJobe1ooDE4H9McCbwTftdQsVyepump": {
       "address": "9mTxwi3r1NA3NwJobe1ooDE4H9McCbwTftdQsVyepump",
@@ -744771,7 +745122,7 @@
         }
       ],
       "added_at": 1779141185.3247867,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779141185.3247867,
@@ -745060,6 +745411,33 @@
           "liq": 25300.61,
           "buys1h": 1245,
           "sells1h": 422
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 9.71e-05,
+          "mcap": 97107.0,
+          "vol1h": 17609.65,
+          "liq": 24674.8,
+          "buys1h": 994,
+          "sells1h": 344
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.0001144,
+          "mcap": 114439.0,
+          "vol1h": 12853.41,
+          "liq": 26774.01,
+          "buys1h": 756,
+          "sells1h": 279
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.000108,
+          "mcap": 108053.0,
+          "vol1h": 9314.44,
+          "liq": 26016.08,
+          "buys1h": 524,
+          "sells1h": 202
         }
       ],
       "pattern": "unknown",
@@ -745067,8 +745445,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +42%",
-      "pct_change": 42.020905923344955
+      "pattern_reason": "Nieznany wzorzec, zmiana +51%",
+      "pct_change": 50.5226480836237
     },
     "12gAVNtEJ8ohG9DVWCqbZSsnYzQtLH1cXx88pYzPpump": {
       "address": "12gAVNtEJ8ohG9DVWCqbZSsnYzQtLH1cXx88pYzPpump",
@@ -745100,7 +745478,7 @@
         }
       ],
       "added_at": 1779145589.9956806,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779145589.9956806,
@@ -745254,6 +745632,33 @@
           "liq": 12201.04,
           "buys1h": 140,
           "sells1h": 173
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 2.735e-05,
+          "mcap": 27346.0,
+          "vol1h": 12660.98,
+          "liq": 13714.52,
+          "buys1h": 149,
+          "sells1h": 180
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 3.696e-05,
+          "mcap": 36955.0,
+          "vol1h": 13585.32,
+          "liq": 15930.25,
+          "buys1h": 166,
+          "sells1h": 177
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 3.523e-05,
+          "mcap": 35225.0,
+          "vol1h": 11477.51,
+          "liq": 15551.93,
+          "buys1h": 149,
+          "sells1h": 148
         }
       ],
       "pattern": "unknown",
@@ -745261,8 +745666,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana -61%",
-      "pct_change": -61.0831234256927
+      "pattern_reason": "Nieznany wzorzec, zmiana -37%",
+      "pct_change": -36.61388988844908
     },
     "yxqegfnoem8mMuRSqu8ouD8qsw32GpuMMXgTZGwpump": {
       "address": "yxqegfnoem8mMuRSqu8ouD8qsw32GpuMMXgTZGwpump",
@@ -745294,7 +745699,7 @@
         }
       ],
       "added_at": 1779147586.4501593,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779147586.4501593,
@@ -745394,6 +745799,33 @@
           "liq": 31605.02,
           "buys1h": 325,
           "sells1h": 235
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001394,
+          "mcap": 139442.0,
+          "vol1h": 29249.63,
+          "liq": 31259.62,
+          "buys1h": 306,
+          "sells1h": 234
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.000133,
+          "mcap": 133058.0,
+          "vol1h": 27392.06,
+          "liq": 30511.43,
+          "buys1h": 288,
+          "sells1h": 223
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001171,
+          "mcap": 117108.0,
+          "vol1h": 28862.32,
+          "liq": 28629.79,
+          "buys1h": 294,
+          "sells1h": 227
         }
       ],
       "pattern": "consolidation",
@@ -745401,8 +745833,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "Stabilna cena +6% total",
-      "pct_change": 5.794947994056463
+      "pattern_reason": "Stabilna cena -13% total",
+      "pct_change": -13.001485884101035
     },
     "BmccBd9fpR5Fn73gMvQ7aBW1LzrWHRLvpCNVbtbbpump": {
       "address": "BmccBd9fpR5Fn73gMvQ7aBW1LzrWHRLvpCNVbtbbpump",
@@ -745434,7 +745866,7 @@
         }
       ],
       "added_at": 1779148583.1221335,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779148583.1221335,
@@ -745507,6 +745939,33 @@
           "liq": 10862.67,
           "buys1h": 1594,
           "sells1h": 22491
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 1.06e-05,
+          "mcap": 10215.0,
+          "vol1h": 81602.93,
+          "liq": 8040.52,
+          "buys1h": 1640,
+          "sells1h": 22535
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 1.092e-05,
+          "mcap": 10523.0,
+          "vol1h": 82872.73,
+          "liq": 8154.38,
+          "buys1h": 1684,
+          "sells1h": 22561
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 1.292e-05,
+          "mcap": 12448.0,
+          "vol1h": 83994.78,
+          "liq": 8868.82,
+          "buys1h": 1717,
+          "sells1h": 22576
         }
       ],
       "pattern": "slow_bleed",
@@ -745514,8 +745973,8 @@
       "rug_counted": false,
       "gem_counted": false,
       "status": "tracking",
-      "pattern_reason": "-59% total, sell dominuje 88%",
-      "pct_change": -58.92970906774262
+      "pattern_reason": "-73% total, sell dominuje 89%",
+      "pct_change": -72.56317689530685
     },
     "Hdx3mHW2Cccip9cKt5JUtKR9i9n6XZ4dEf4EFeWFpump": {
       "address": "Hdx3mHW2Cccip9cKt5JUtKR9i9n6XZ4dEf4EFeWFpump",
@@ -745547,7 +746006,7 @@
         }
       ],
       "added_at": 1779149585.3994682,
-      "last_checked": 1779150713.251227,
+      "last_checked": 1779151621.9463332,
       "snapshots": [
         {
           "ts": 1779149585.3994682,
@@ -745584,21 +746043,48 @@
           "liq": 26422.12,
           "buys1h": 1122,
           "sells1h": 905
+        },
+        {
+          "ts": 1779151016.7732291,
+          "price": 0.0001469,
+          "mcap": 146949.0,
+          "vol1h": 120122.6,
+          "liq": 30072.12,
+          "buys1h": 1582,
+          "sells1h": 1216
+        },
+        {
+          "ts": 1779151319.4052498,
+          "price": 0.00012,
+          "mcap": 120032.0,
+          "vol1h": 150543.55,
+          "liq": 27218.04,
+          "buys1h": 1921,
+          "sells1h": 1853
+        },
+        {
+          "ts": 1779151621.9463332,
+          "price": 0.0001159,
+          "mcap": 115907.0,
+          "vol1h": 169956.2,
+          "liq": 26789.75,
+          "buys1h": 2104,
+          "sells1h": 1991
         }
       ],
       "pattern": "unknown",
       "pattern_confidence": 40,
       "rug_counted": false,
-      "gem_counted": false,
+      "gem_counted": true,
       "status": "tracking",
-      "pattern_reason": "Nieznany wzorzec, zmiana +185%",
-      "pct_change": 184.71528471528472
+      "pattern_reason": "Nieznany wzorzec, zmiana +189%",
+      "pct_change": 189.46053946053945
     }
   },
   "patterns": {},
   "stats": {
     "total_tracked": 898,
     "rugs_detected": 474,
-    "gems_found": 209
+    "gems_found": 210
   }
 }
